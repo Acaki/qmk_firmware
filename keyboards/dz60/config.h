@@ -43,5 +43,6 @@
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
 #define TAPPING_TERM 150
+#define ONESHOT_TIMEOUT 2000
 
 #endif
