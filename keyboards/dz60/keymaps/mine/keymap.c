@@ -11,27 +11,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	        KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BSPC,
 	        KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,
 	        KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, RSFT_T(KC_SLSH), KC_UP, KC_MPLY,
-	        KC_LCTL, KC_LGUI, KC_LALT, LT(2,KC_SPC), KC_RCTL, MO(2), KC_RALT, MO(2), KC_LEFT, KC_DOWN, KC_RGHT
+	        KC_LCTL, KC_LGUI, OSM(MOD_LALT), LT(2,KC_SPC), OSM(MOD_RCTL), MO(2), KC_RALT, MO(2), KC_LEFT, KC_DOWN, KC_RGHT
 	        ),
     [1] = LAYOUT_60_b_ansi(
             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-            _______, _______, _______, KC_SPC, _______, _______, _______, _______, _______, _______, _______
-    ),
+            _______, _______, KC_LALT, KC_SPC, KC_RCTL, _______, _______, _______, _______, _______, _______
+            ),
     [2] = LAYOUT_60_b_ansi(
 	        _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, _______, RESET,
 	        _______, KC_HOME, KC_PGUP, KC_UP, KC_PGDN, _______, DBLARROW, KC_BTN1, KC_MS_UP, KC_BTN2, KC_BTN4, _______, _______, _______,
 	        _______, KC_END, KC_LEFT, KC_DOWN, KC_RIGHT, _______, ARROW, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN5, _______, _______,
 	        _______, _______, _______, _______, _______, _______, KC_CALC, KC_MS_WH_DOWN, KC_MS_WH_UP, _______, _______, KC_VOLU, _______,
-	        _______, _______, _______, KC_ENT, TG(1), KC_BSPC, MO(3), _______, KC_MPRV, KC_VOLD, KC_MNXT),
+	        _______, _______, _______, KC_ENT, TG(1), KC_BSPC, MO(3), _______, KC_MPRV, KC_VOLD, KC_MNXT
+	        ),
     [3] = LAYOUT_60_b_ansi(
 	        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
 	        _______, RGB_MOD, RGB_RMOD, RGB_VAI, RGB_VAD, RGB_TOG, _______, _______, _______, _______, _______, _______, _______, _______,
 	        _______, _______, RGB_HUI, RGB_HUD, RGB_SPI, RGB_SPD, _______, _______, _______, _______, _______, _______, _______,
 	        _______, _______, RGB_SAI, RGB_SAD, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-	        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______)
+	        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+	        )
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
