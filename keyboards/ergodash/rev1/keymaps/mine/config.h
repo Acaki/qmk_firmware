@@ -40,5 +40,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 0
 #define ONESHOT_TAP_TOGGLE 2
 #define ONESHOT_TIMEOUT 3000
-#undef DEBOUNCE
-#define DEBOUNCE 7
