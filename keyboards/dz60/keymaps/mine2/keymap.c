@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, _______, RESET,
             _______, _______, KC_HOME, KC_UP, KC_END, KC_PGUP, KC_MS_WH_UP, KC_BTN1, KC_MS_UP, KC_BTN2, KC_BTN4, _______, _______, _______,
             _______, _______, KC_LEFT, KC_DOWN, KC_RIGHT, KC_PGDN, KC_MS_WH_DOWN, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN5, _______, _______,
-            _______, _______, _______, _______, KC_CALC, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______, _______,
+            _______, _______, _______, _______, KC_CALC, _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
             _______, _______, MO(3), _______, _______, _______, _______, _______, _______, _______
             ),
     [3] = LAYOUT_60_b_ansi(
