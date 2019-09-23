@@ -17,9 +17,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             ),
     [2] = LAYOUT_MINE(
             _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, _______, RESET,
-            _______, KC_HOME, KC_PGUP, KC_UP, KC_PGDN, KC_MINS, KC_UNDS, KC_BTN1, KC_MS_UP, KC_BTN2, KC_BTN4, _______, _______, _______,
-            _______, KC_END, KC_LEFT, KC_DOWN, KC_RIGHT, KC_PLUS, KC_EQL, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_BTN5, _______, _______,
-            _______, _______, _______, _______, KC_CALC, _______, KC_LBRC, KC_RBRC, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
+            _______, KC_HOME, KC_PGUP, KC_UP, KC_PGDN, _______, _______, KC_MINS, KC_PLUS, KC_LCBR, KC_RCBR, _______, _______, _______,
+            _______, KC_END, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______, KC_UNDS, KC_EQL, KC_LBRC, KC_RBRC, _______, _______,
+            _______, _______, _______, _______, KC_CALC, _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
             _______, _______, MO(3), _______, _______, _______, _______, _______, _______, _______
             ),
     [3] = LAYOUT_60_b_ansi(
