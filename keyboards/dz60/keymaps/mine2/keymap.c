@@ -17,12 +17,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             ),
     [2] = LAYOUT_MINE(
             _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, _______, RESET,
-            _______, KC_HOME, KC_PGUP, KC_UP, KC_PGDN, _______, KC_DQT, KC_MINS, KC_PLUS, KC_LCBR, KC_RCBR, _______, _______, _______,
-            _______, KC_END, KC_LEFT, KC_DOWN, KC_RIGHT, _______, KC_QUOT, KC_UNDS, KC_EQL, KC_LBRC, KC_RBRC, _______, _______,
+            _______, KC_HOME, KC_PGUP, KC_UP, KC_PGDN, _______, KC_PLUS, KC_DQT, KC_UNDS, KC_LCBR, KC_RCBR, _______, _______, _______,
+            _______, KC_END, KC_LEFT, KC_DOWN, KC_RIGHT, _______, KC_EQL, KC_QUOT, KC_MINS, KC_LBRC, KC_RBRC, _______, _______,
             _______, _______, _______, _______, KC_CALC, _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
             _______, _______, MO(3), _______, _______, _______, _______, _______, _______, _______
             ),
-    [3] = LAYOUT_60_b_ansi(
+    [3] = LAYOUT_MINE(
             _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
             _______, RGB_MOD, RGB_RMOD, RGB_VAI, RGB_VAD, RGB_TOG, _______, _______, _______, _______, _______, _______, _______, _______,
             _______, _______, RGB_HUI, RGB_HUD, RGB_SPI, RGB_SPD, _______, _______, _______, _______, _______, _______, _______,
