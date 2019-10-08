@@ -5,16 +5,16 @@ extern keymap_config_t keymap_config;
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
-#define _ADJUST 3
-#define _MOUSE 4
+#define _MOUSE 3
+#define LOWER MO(_LOWER)
+#define RAISE MO(_RAISE)
 #define MOUSE TG(_MOUSE)
+#define LT_ENT LT(_LOWER, KC_ENT)
+#define LT_ESC LT(_RAISE, KC_ESC)
 #define SHOT SGUI(KC_S)
 #define SEARCH G(KC_S)
 enum custom_keycodes {
     QWERTY = SAFE_RANGE,
-    LOWER,
-    RAISE,
-    ADJUST,
     ARROW,
     DBLARR
 };
@@ -29,19 +29,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_ESC,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LCTL,          KC_RCTL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
+     KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    LT_ESC,           LT_ENT,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    KC_LALT, KC_SPC,  RAISE,                     LOWER,   KC_BSPC, KC_RALT
+                                    KC_LALT, KC_SPC,  LT_ESC,                    LT_ENT,  KC_BSPC, KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
   [_RAISE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, A(KC_F4),
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,                              KC_HOME, KC_PGUP, KC_UP,   KC_PGDN, _______, KC_PIPE,
+     _______, SHOT,    KC_F1,   KC_F2,   KC_F3,   KC_F4,                              KC_HOME, KC_PGUP, KC_UP,   KC_PGDN, _______, KC_PIPE,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,                              KC_END,  KC_LEFT, KC_DOWN, KC_RGHT, KC_COLN, _______,
+     _______, SEARCH,  KC_F5,   KC_F6,   KC_F7,   KC_F8,                              KC_END,  KC_LEFT, KC_DOWN, KC_RGHT, KC_COLN, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,          _______, _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -51,27 +51,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR, _______,                            _______, _______, _______, _______, _______, _______,
+     KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  _______,                            _______, _______, _______, _______, _______, RESET,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_LCBR, KC_PLUS, KC_UNDS, KC_DQT,  KC_RCBR,                            C(KC_C), KC_PGUP, KC_UP,   KC_PGDN, KC_HOME, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_LBRC, KC_EQL,  KC_MINS, KC_QUOT, KC_RBRC,                            C(KC_V), KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, DBLARR,  ARROW,   _______, _______, _______,          _______, KC_MPLY, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
-  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
-                                // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
-  ),
-
-  [_ADJUST] = LAYOUT(
-  //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, RESET,   _______,                            _______, _______, _______, _______, _______, _______,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, SEARCH,  _______, _______, A(KC_F4),                           SHOT,    _______, _______, _______, _______, _______,
-  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -94,46 +80,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case QWERTY:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-        case LOWER:
-            if (record->event.pressed) {
-                layer_on(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            } else {
-                layer_off(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            }
-            return false;
-        case RAISE:
-            if (record->event.pressed) {
-                layer_on(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            } else {
-                layer_off(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            }
-            return false;
-        case ADJUST:
-            if (record->event.pressed) {
-                layer_on(_ADJUST);
-            } else {
-                layer_off(_ADJUST);
-            }
-            return false;
         case ARROW:
             if (record->event.pressed) {
                 SEND_STRING("->");
             }
-            return false;
+            break;
         case DBLARR:
             if (record->event.pressed) {
                 SEND_STRING("=>");
             }
-            return false;
+            break;
     }
     return true;
 }
