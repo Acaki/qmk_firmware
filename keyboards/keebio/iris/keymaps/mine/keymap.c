@@ -20,7 +20,8 @@ enum custom_keycodes {
     ADJUST,
     ARROW,
     DBLARR,
-    STAB
+    ATAB,
+    ASFT
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -41,13 +42,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
+     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     STAB,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_HOME, KC_PGUP, KC_UP,   KC_PGDN, _______, KC_DQT,
+     ATAB,    KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,                            KC_HOME, KC_PGUP, KC_UP,   KC_PGDN, _______, KC_DQT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                              KC_END,  KC_LEFT, KC_DOWN, KC_RGHT, KC_COLN, _______,
+     ASFT,    KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,                            KC_END,  KC_LEFT, KC_DOWN, KC_RGHT, KC_COLN, ASFT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,          _______, _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
+     _______, KC_F9,   KC_F10,   KC_F11,  KC_F12, _______, _______,          _______, _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                  //└────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -57,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     STAB,    _______, KC_LCBR, KC_PLUS, KC_UNDS, KC_RCBR,                            _______, KC_PGUP, KC_UP,   KC_PGDN, KC_MPLY, _______,
+     ATAB,    _______, KC_LCBR, KC_PLUS, KC_UNDS, KC_RCBR,                            _______, KC_PGUP, KC_UP,   KC_PGDN, KC_MPLY, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, KC_LBRC, KC_EQL,  KC_MINS, KC_RBRC,                            _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  _______,
+     ASFT,    _______, KC_LBRC, KC_EQL,  KC_MINS, KC_RBRC,                            _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  ASFT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, DBLARR,  ARROW,   _______, _______,          _______, _______, MOUSE,   C(KC_C), C(KC_V), _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -113,12 +114,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 static bool is_alt_set = false;
 
 void release_alt(void) {
-    bool isAltOn = get_mods() & MOD_BIT(KC_LALT);
-    if (is_alt_set && isAltOn) {
+    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
+    if (is_alt_set && is_alt_on) {
         unregister_mods(MOD_LALT);
         is_alt_set = false;
     }
 };
+
+void register_alt(void) {
+    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
+    if (!is_alt_on) {
+        register_mods(MOD_LALT);
+        is_alt_set = true;
+    }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -164,17 +173,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("=>");
             }
             return false;
-        case STAB:
+        case ATAB:
            if (record->event.pressed) {
-               bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
-               if (!is_alt_on) {
-                   register_mods(MOD_LALT);
-                   is_alt_set = true;
-               }
+               register_alt();
                register_code(KC_TAB);
                unregister_code(KC_TAB);
            }
            return false;
+        case ASFT:
+            if (record->event.pressed) {
+                register_alt();
+                register_mods(MOD_LSFT);
+            } else {
+                unregister_mods(MOD_LSFT);
+            }
+            return false;
     }
     return true;
 }
