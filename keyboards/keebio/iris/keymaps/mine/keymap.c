@@ -18,30 +18,31 @@ enum custom_keycodes {
     RAISE,
     ADJUST,
     ARROW,
-    DBLARR
+    DBLARR,
+    STAB
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
+     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
+     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT,          KC_RALT, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MOUSE,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    RAISE,   KC_SPC,  KC_LCTL,                   KC_BSPC, KC_RSFT, LOWER
+                                    RAISE,   KC_SPC,  KC_LCTL,                   KC_RSFT, KC_BSPC, LOWER
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
   [_RAISE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+     _______, _______, _______, _______, _______, _______,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_HOME, KC_PGUP, KC_UP,   KC_PGDN, _______, KC_PIPE,
+     STAB,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_HOME, KC_PGUP, KC_UP,   KC_PGDN, _______, KC_DQT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                              KC_END,  KC_LEFT, KC_DOWN, KC_RGHT, KC_COLN, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -55,11 +56,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_LCBR, KC_RCBR, KC_UNDS, KC_DQT,  KC_PLUS,                            C(KC_C), KC_PGUP, KC_UP,   KC_PGDN, _______, _______,
+     STAB,    _______, KC_LCBR, KC_PLUS, KC_UNDS, KC_RCBR,                            _______, KC_PGUP, KC_UP,   KC_PGDN, KC_MPLY, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_LBRC, KC_RBRC, KC_MINS, KC_QUOT, KC_EQL,                             C(KC_V), KC_LEFT, KC_DOWN, KC_RGHT, _______,  _______,
+     _______, _______, KC_LBRC, KC_EQL,  KC_MINS, KC_RBRC,                            _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, ARROW,   _______, DBLARR,  _______,          _______, KC_MPLY, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
+     _______, _______, _______, ARROW,   _______, DBLARR,  _______,          _______, _______, C(KC_C), C(KC_V), KC_DEL,  _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -69,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, RESET,   _______,                            _______, _______, _______, _______, _______, _______,
+     _______, _______, _______, _______, RESET,   _______,                            _______, _______, KC_VOLU, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, ARROWS,  SEARCH,  _______, _______, A(KC_F4),                           SHOT,    _______, _______, _______, _______, _______,
+     _______, ARROWS,  SEARCH,  _______, _______, A(KC_F4),                           SHOT,    KC_MPRV, KC_VOLD, KC_MNXT, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -108,6 +109,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+static bool is_alt_set = false;
+
+void release_alt(void) {
+    bool isAltOn = get_mods() & MOD_BIT(KC_LALT);
+    if (is_alt_set && isAltOn) {
+        unregister_mods(MOD_LALT);
+        is_alt_set = false;
+    }
+};
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case QWERTY:
@@ -122,6 +133,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(_LOWER);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
+                release_alt();
             }
             return false;
         case RAISE:
@@ -131,6 +143,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(_RAISE);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
+                release_alt();
             }
             return false;
         case ADJUST:
@@ -150,6 +163,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("=>");
             }
             return false;
+        case STAB:
+           if (record->event.pressed) {
+               bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
+               if (!is_alt_on) {
+                   register_mods(MOD_LALT);
+                   is_alt_set = true;
+               }
+               register_code(KC_TAB);
+               unregister_code(KC_TAB);
+           }
+           return false;
     }
     return true;
 }
