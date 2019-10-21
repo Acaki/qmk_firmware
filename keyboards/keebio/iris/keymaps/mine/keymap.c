@@ -11,6 +11,8 @@ extern keymap_config_t keymap_config;
 #define MOUSE TG(_MOUSE)
 #define ARROWS TG(_ARROWS)
 #define RETURN TO(_QWERTY)
+#define CAPTURE SGUI(KC_S)
+#define SEARCH G(KC_S)
 enum custom_keycodes {
     QWERTY = SAFE_RANGE,
     LOWER,
@@ -19,7 +21,17 @@ enum custom_keycodes {
     ARROW,
     DBLARR,
     ATAB,
-    ASFT
+    ASFT,
+    WIN1,
+    WIN2,
+    WIN3,
+    WIN4,
+    WIN5,
+    WIN6,
+    WIN7,
+    WIN8,
+    WIN9,
+    WIN0,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -32,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LCTL,          KC_RCTL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_LEAD,
+     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LCTL,          KC_RCTL, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MOUSE,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LALT, KC_SPC,  LOWER,                     RAISE,   KC_RSFT, KC_BSPC
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -40,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+     _______, _______, _______, _______, _______, _______,                            WIN6,    WIN7,    WIN8,    WIN9,    WIN0,    _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -54,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_TILD, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+     KC_TILD, WIN1,    WIN2,    WIN3,    WIN4,    WIN5,                               _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -70,11 +82,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+     _______, A(KC_F4),_______, _______, RESET,   _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), G(KC_5),                            G(KC_6), G(KC_7), G(KC_8), G(KC_9), G(KC_0), _______,
+     _______, ARROWS,  SEARCH,  _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, RESET,   _______,          _______, _______, _______, _______, _______, _______, _______,
+     _______, _______, _______, CAPTURE, _______, _______,   _______,          _______, _______, _______, _______, _______, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -109,21 +121,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-static bool is_alt_set = false;
+static bool is_gui_set = false;
 
-void release_alt(void) {
-    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
-    if (is_alt_set && is_alt_on) {
-        unregister_mods(MOD_LALT);
-        is_alt_set = false;
+void release_gui(void) {
+    bool is_gui_on = get_mods() & MOD_BIT(KC_LGUI);
+    if (is_gui_set && is_gui_on) {
+        unregister_mods(MOD_LGUI);
+        is_gui_set = false;
     }
 };
 
-void register_alt(void) {
-    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
-    if (!is_alt_on) {
-        register_mods(MOD_LALT);
-        is_alt_set = true;
+void register_gui(void) {
+    bool is_gui_on = get_mods() & MOD_BIT(KC_LGUI);
+    if (!is_gui_on) {
+        register_mods(MOD_LGUI);
+        is_gui_set = true;
     }
 }
 
@@ -141,7 +153,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(_LOWER);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
-                release_alt();
+                release_gui();
             }
             return false;
         case RAISE:
@@ -151,7 +163,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(_RAISE);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
-                release_alt();
+                release_gui();
             }
             return false;
         case ADJUST:
@@ -171,50 +183,76 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("=>");
             }
             return false;
-        case ATAB:
-           if (record->event.pressed) {
-               register_alt();
-               register_code(KC_TAB);
-               unregister_code(KC_TAB);
-           }
-           return false;
-        case ASFT:
+        case WIN0:
             if (record->event.pressed) {
-                register_alt();
-                register_mods(MOD_LSFT);
-            } else {
-                unregister_mods(MOD_LSFT);
+                register_gui();
+                register_code(KC_0);
+                unregister_code(KC_0);
+            }
+            return false;
+        case WIN1:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_1);
+                unregister_code(KC_1);
+            }
+            return false;
+        case WIN2:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_2);
+                unregister_code(KC_2);
+            }
+            return false;
+        case WIN3:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_3);
+                unregister_code(KC_3);
+            }
+            return false;
+        case WIN4:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_4);
+                unregister_code(KC_4);
+            }
+            return false;
+        case WIN5:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_5);
+                unregister_code(KC_5);
+            }
+            return false;
+        case WIN6:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_6);
+                unregister_code(KC_6);
+            }
+            return false;
+        case WIN7:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_7);
+                unregister_code(KC_7);
+            }
+            return false;
+        case WIN8:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_8);
+                unregister_code(KC_8);
+            }
+            return false;
+        case WIN9:
+            if (record->event.pressed) {
+                register_gui();
+                register_code(KC_9);
+                unregister_code(KC_9);
             }
             return false;
     }
     return true;
-}
-
-LEADER_EXTERNS();
-
-void matrix_scan_user(void) {
-    LEADER_DICTIONARY() {
-        leading = false;
-        leader_end();
-
-        SEQ_ONE_KEY(KC_A) {
-            layer_invert(_ARROWS);
-        }
-
-        SEQ_ONE_KEY(KC_C) {
-            SEND_STRING(SS_LGUI(SS_LSFT("s")));
-        }
-
-        SEQ_ONE_KEY(KC_S) {
-            SEND_STRING(SS_LGUI("s"));
-        }
-
-        SEQ_ONE_KEY(KC_M) {
-            layer_invert(_MOUSE);
-        }
-
-        SEQ_ONE_KEY(KC_Q) {
-            SEND_STRING(SS_LALT(SS_TAP(X_F4)));
-        }
-    }
 }
