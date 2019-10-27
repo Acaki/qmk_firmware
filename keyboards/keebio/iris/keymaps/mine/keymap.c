@@ -14,6 +14,7 @@ extern keymap_config_t keymap_config;
 #define CAPTURE SGUI(KC_S)
 #define SEARCH G(KC_S)
 #define ALTESC LALT_T(KC_ESC)
+#define ALTBSPC RALT_T(KC_BSPC)
 #define SFTENT RSFT_T(KC_ENT)
 enum custom_keycodes {
     QWERTY = SAFE_RANGE,
@@ -38,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    LOWER,            RAISE,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    ALTESC,  KC_SPC,  LOWER,                     RAISE,   SFTENT,  KC_BSPC
+                                    ALTESC,  KC_SPC,  LOWER,                     RAISE,   SFTENT,  ALTBSPC
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
