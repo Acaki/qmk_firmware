@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MASTER_LEFT
 #define USE_SERIAL_PD2
+#define SSD1306OLED
 
 #define MOUSEKEY_DELAY 200
 #define MOUSEKEY_INTERVAL 6
