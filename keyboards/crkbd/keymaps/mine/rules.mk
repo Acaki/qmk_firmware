@@ -1,8 +1,8 @@
-RGBLIGHT_ENABLE = no
-BACKLIGHT_ENABLE = no
-MOUSEKEY_ENABLE = yes
+RGBLIGHT_ENABLE = yes
 BOOTLOADER = atmel-dfu
 NKRO_ENABLE = yes
+EXTRAKEY_ENABLE = yes
+EXTRAFLAGS += -flto
 SRC +=  ./lib/glcdfont.c \
         ./lib/rgb_state_reader.c \
         ./lib/layer_state_reader.c \

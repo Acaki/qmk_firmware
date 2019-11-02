@@ -1,10 +1,14 @@
 #include QMK_KEYBOARD_H
 
 extern keymap_config_t keymap_config;
+
+#ifdef RGBLIGHT_ENABLE
+//Following line allows macro to read current RGB settings
+extern rgblight_config_t rgblight_config;
+#endif
+
 extern uint8_t is_master;
 
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
 #define MOUSE TG(_MOUSE)
 #define ARROWS TG(_ARROWS)
 #define RETURN TO(_QWERTY)
@@ -21,7 +25,12 @@ enum layers {
     _ARROWS,
 };
 enum custom_keycodes {
-    ARROW = SAFE_RANGE,
+    QWERTY = SAFE_RANGE,
+    LOWER,
+    RAISE,
+    ADJUST,
+    RGBRST,
+    ARROW,
     DBLARR,
     ATAB,
     ASFT
@@ -45,11 +54,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     ATAB,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_RBRC, KC_UNDS, KC_DQT,  KC_PLUS, KC_RCBR, _______,
+     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_RBRC, KC_UNDS, KC_DQT,  KC_PLUS, KC_RCBR, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     ASFT,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
+     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    _______, _______, _______,                   _______, ATAB,    ASFT
                                  //└────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -59,9 +68,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_GRV,  KC_LCBR, KC_EQL,  KC_QUOT, KC_MINS, KC_LBRC,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_CAPS, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            C(KC_C), C(KC_V), _______, _______, _______, _______,
+     _______, _______, _______, _______, _______, _______,                            _______, MOUSE,   C(KC_C), C(KC_V), _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    ASFT,    ATAB,    _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -71,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, ARROWS,  DBLARR,  _______, ARROW,   _______,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            _______, MOUSE,   _______, _______, _______, _______,
+     RGBRST,  RGB_TOG, RGB_HUD, RGB_SAD, RGB_VAD, _______,                            _______, RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -81,11 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______, _______, _______, _______, _______, _______,                            _______, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN4, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5, _______,
+     RETURN,  _______, _______, _______, _______, _______,                            KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, _______, _______,                            KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    RETURN,  _______, _______,                   _______, _______, _______
+                                    _______, _______, _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
     ),
 
@@ -93,20 +102,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
       _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
    //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, KC_UP,   _______,
+      RETURN,  _______, _______, _______, _______, _______,                            _______, _______, _______, _______, KC_UP,   _______,
    //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
       _______, _______, _______, _______, _______, _______,                            _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT,
    //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                     RETURN,  _______, _______,                   _______, _______, _______
+                                     _______, _______, _______,                   _______, _______, _______
                                  // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
     ),
 };
 
-const char *read_layer_state(void);
-const char *read_logo(void);
-void set_keylog(uint16_t keycode, keyrecord_t *record);
-const char *read_keylog(void);
-const char *read_keylogs(void);
+int RGB_current_mode;
+
+void persistent_default_layer_set(uint16_t default_layer) {
+    eeconfig_update_default_layer(default_layer);
+    default_layer_set(default_layer);
+}
+
+void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
+    if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
+        layer_on(layer3);
+    } else {
+        layer_off(layer3);
+    }
+}
 
 void matrix_init_user(void) {
 #ifdef RGBLIGHT_ENABLE
@@ -115,69 +133,6 @@ void matrix_init_user(void) {
 #ifdef SSD1306OLED
     iota_gfx_init(!has_usb());
 #endif
-}
-
-static bool is_alt_set = false;
-
-void release_alt(void) {
-    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
-    if (is_alt_set && is_alt_on) {
-        unregister_mods(MOD_LALT);
-        is_alt_set = false;
-    }
-};
-
-void register_alt(void) {
-    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
-    if (!is_alt_on) {
-        register_mods(MOD_LALT);
-        is_alt_set = true;
-    }
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-#ifdef SSD1306OLED
-        set_keylog(keycode, record);
-#endif
-    }
-    switch (keycode) {
-        case ARROW:
-            if (record->event.pressed) {
-                SEND_STRING("->");
-            }
-            return false;
-        case DBLARR:
-            if (record->event.pressed) {
-                SEND_STRING("=>");
-            }
-            return false;
-        case ATAB:
-            if (record->event.pressed) {
-                register_alt();
-                register_code(KC_TAB);
-                unregister_code(KC_TAB);
-            }
-            return false;
-        case ASFT:
-            if (record->event.pressed) {
-                register_alt();
-                register_mods(MOD_LSFT);
-            } else {
-                unregister_mods(MOD_LSFT);
-            }
-            return false;
-    }
-    return true;
-}
-
-uint32_t layer_state_set_user(uint32_t state) {
-    switch (get_highest_layer(state)) {
-        case _QWERTY:
-            release_alt();
-            break;
-    }
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
 #ifdef SSD1306OLED
@@ -227,3 +182,107 @@ void iota_gfx_task_user(void) {
 }
 
 #endif//SSD1306OLED
+
+static bool is_alt_set = false;
+
+void release_alt(void) {
+    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
+    if (is_alt_set && is_alt_on) {
+        unregister_mods(MOD_LALT);
+        is_alt_set = false;
+    }
+};
+
+void register_alt(void) {
+    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
+    if (!is_alt_on) {
+        register_mods(MOD_LALT);
+        is_alt_set = true;
+    }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+    #ifdef SSD1306OLED
+        set_keylog(keycode, record);
+    #endif
+    }
+    switch (keycode) {
+        case QWERTY:
+            if (record->event.pressed) {
+                persistent_default_layer_set(1UL<<_QWERTY);
+            }
+            return false;
+        case LOWER:
+            if (record->event.pressed) {
+                layer_on(_LOWER);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            } else {
+                release_alt();
+                layer_off(_LOWER);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            }
+            return false;
+        case RAISE:
+            if (record->event.pressed) {
+                layer_on(_RAISE);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            } else {
+                release_alt();
+                layer_off(_RAISE);
+                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+            }
+            return false;
+        case ADJUST:
+            if (record->event.pressed) {
+                layer_on(_ADJUST);
+            } else {
+                layer_off(_ADJUST);
+            }
+            return false;
+        case RGB_MOD:
+        #ifdef RGBLIGHT_ENABLE
+            if (record->event.pressed) {
+              rgblight_mode(RGB_current_mode);
+              rgblight_step();
+              RGB_current_mode = rgblight_config.mode;
+            }
+        #endif
+            return false;
+        case RGBRST:
+        #ifdef RGBLIGHT_ENABLE
+            if (record->event.pressed) {
+              eeconfig_update_rgblight_default();
+              rgblight_enable();
+              RGB_current_mode = rgblight_config.mode;
+            }
+        #endif
+            break;
+        case ARROW:
+            if (record->event.pressed) {
+                SEND_STRING("->");
+            }
+            return false;
+        case DBLARR:
+            if (record->event.pressed) {
+                SEND_STRING("=>");
+            }
+            return false;
+        case ATAB:
+            if (record->event.pressed) {
+                register_alt();
+                register_code(KC_TAB);
+                unregister_code(KC_TAB);
+            }
+            return false;
+        case ASFT:
+            if (record->event.pressed) {
+                register_alt();
+                register_mods(MOD_LSFT);
+            } else {
+                unregister_mods(MOD_LSFT);
+            }
+            return false;
+    }
+    return true;
+}

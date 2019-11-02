@@ -1,25 +1,29 @@
-/*
-Copyright 2017 Danny Nguyen <danny@keeb.io>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
 #pragma once
 
 #define MASTER_LEFT
 #define USE_SERIAL_PD2
 #define SSD1306OLED
+
+#define FORCE_NKRO
+#define TAPPING_TERM 125
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
+#ifndef NO_DEBUG
+#define NO_DEBUG
+#endif // !NO_DEBUG
+#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
+#define NO_PRINT
+#endif // !NO_PRINT
+
+#ifdef RGBLIGHT_ENABLE
+    #undef RGBLED_NUM
+    #define RGBLIGHT_ANIMATIONS
+    #define RGBLED_NUM 27
+    #define RGBLIGHT_LIMIT_VAL 120
+    #define RGBLIGHT_HUE_STEP 10
+    #define RGBLIGHT_SAT_STEP 17
+    #define RGBLIGHT_VAL_STEP 17
+#endif
 
 #define MOUSEKEY_DELAY 200
 #define MOUSEKEY_INTERVAL 6
@@ -27,5 +31,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_MAX_SPEED 2
 #define MOUSEKEY_WHEEL_MAX_SPEED 1
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 0
-#define FORCE_NKRO
-#define TAPPING_TERM 125
