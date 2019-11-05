@@ -12,8 +12,6 @@ extern uint8_t is_master;
 #define MOUSE TG(_MOUSE)
 #define ARROWS TG(_ARROWS)
 #define RETURN TO(_QWERTY)
-#define OSMLGUI OSM(MOD_LGUI)
-#define OSMRGUI OSM(MOD_RGUI)
 enum layers {
     _QWERTY,
     _LOWER,
@@ -31,17 +29,7 @@ enum custom_keycodes {
     ARROW,
     DBLARR,
     ATAB,
-    ASFT,
-    WIN0,
-    WIN1,
-    WIN2,
-    WIN3,
-    WIN4,
-    WIN5,
-    WIN6,
-    WIN7,
-    WIN8,
-    WIN9
+    ASFT
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -52,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RALT,
+     KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RGUI,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LCTL, LOWER,   KC_SPC,                    KC_ENT,  RAISE,   KC_RCTL
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -62,10 +50,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TAB,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_PIPE,
+     KC_TAB,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_RBRC, KC_UNDS, KC_DQT,  KC_PLUS, KC_COLN, KC_PIPE,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     OSMLGUI, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
-  //└───────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               _______, KC_RCBR, KC_LABK, KC_RABK, KC_QUES, _______,
+  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   ATAB,    _______, ASFT
                                  //└────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
@@ -74,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_GRV,  KC_LCBR, KC_EQL,  KC_QUOT, KC_MINS, KC_RCBR,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_CAPS, KC_DEL,
+     KC_GRV,  MOUSE,   KC_EQL,  KC_QUOT, KC_MINS, KC_LBRC,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_CAPS, KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_LBRC, KC_PLUS, KC_DQT,  KC_UNDS, KC_RBRC,                            KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, OSMRGUI,
+     _______, _______, _______, _______, KC_LCBR, _______,                            KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     ASFT,    _______, ATAB,                      _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -84,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, WIN1,    WIN2,    WIN3,    WIN4,    WIN5,                               WIN6,    WIN7,    WIN8,    WIN9,    WIN0,    _______,
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, ARROWS,  DBLARR,  _______, ARROW,   _______,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -96,9 +84,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_MOUSE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            _______, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN4, _______,
+     RETURN,  _______, _______, _______, _______, _______,                            _______, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN4, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     RETURN,  _______, _______, _______, _______, _______,                            KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5, _______,
+     _______, _______, _______, _______, _______, _______,                            KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, _______, _______,                            KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -108,9 +96,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_ARROWS] = LAYOUT(
    //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+      RETURN,  _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
    //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-      RETURN,  _______, _______, _______, _______, _______,                            _______, _______, _______, _______, KC_UP,   _______,
+      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, KC_UP,   _______,
    //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
       _______, _______, _______, _______, _______, _______,                            _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT,
    //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -209,24 +197,6 @@ void register_alt(void) {
     }
 }
 
-static bool is_gui_set = false;
-
-void release_gui(void) {
-    bool is_gui_on = get_mods() & MOD_BIT(KC_LGUI);
-    if (is_gui_set && is_gui_on) {
-        unregister_mods(MOD_LGUI);
-        is_gui_set = false;
-    }
-};
-
-void register_gui(void) {
-    bool is_gui_on = get_mods() & MOD_BIT(KC_LGUI);
-    if (!is_gui_on) {
-        register_mods(MOD_LGUI);
-        is_gui_set = true;
-    }
-}
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
     #ifdef SSD1306OLED
@@ -245,7 +215,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
             } else {
                 release_alt();
-                release_gui();
                 layer_off(_LOWER);
                 update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
             }
@@ -256,7 +225,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
             } else {
                 release_alt();
-                release_gui();
                 layer_off(_RAISE);
                 update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
             }
@@ -309,76 +277,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_mods(MOD_LSFT);
             } else {
                 unregister_mods(MOD_LSFT);
-            }
-            return false;
-        case WIN0:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_0);
-                unregister_code(KC_0);
-            }
-            return false;
-        case WIN1:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_1);
-                unregister_code(KC_1);
-            }
-            return false;
-        case WIN2:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_2);
-                unregister_code(KC_2);
-            }
-            return false;
-        case WIN3:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_3);
-                unregister_code(KC_3);
-            }
-            return false;
-        case WIN4:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_4);
-                unregister_code(KC_4);
-            }
-            return false;
-        case WIN5:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_5);
-                unregister_code(KC_5);
-            }
-            return false;
-        case WIN6:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_6);
-                unregister_code(KC_6);
-            }
-            return false;
-        case WIN7:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_7);
-                unregister_code(KC_7);
-            }
-            return false;
-        case WIN8:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_8);
-                unregister_code(KC_8);
-            }
-            return false;
-        case WIN9:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_9);
-                unregister_code(KC_9);
             }
             return false;
     }
