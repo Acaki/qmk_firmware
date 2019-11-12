@@ -5,7 +5,7 @@
 #define SSD1306OLED
 
 #define FORCE_NKRO
-#define TAPPING_TERM 125
+#define TAPPING_TERM 150
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
 #ifndef NO_DEBUG
