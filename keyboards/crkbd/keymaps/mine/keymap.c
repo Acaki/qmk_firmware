@@ -16,6 +16,8 @@ extern uint8_t is_master;
 #define CAPTURE SGUI(KC_S)
 #define LALTTAB LALT_T(KC_TAB)
 #define RALTDEL LALT_T(KC_DEL)
+#define LSFTKCZ LSFT_T(KC_Z)
+#define RSFTSLH RSFT_T(KC_SLSH)
 enum layers {
     _QWERTY,
     _LOWER,
@@ -50,11 +52,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
+     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     LALTTAB, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RALTDEL,
+     KC_LALT, LSFTKCZ, KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  RSFTSLH, KC_RALT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LCTL, KC_SPC,  LOWER,                     RAISE,   KC_ENT,  KC_RCTL
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -64,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     WINPAST, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_PIPE,
+     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_PIPE,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_APP,  MOUSE,   KC_LABK, KC_RABK, KC_QUES,  _______,
+     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               KC_APP,  MOUSE,   KC_LABK, KC_RABK, KC_QUES, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, _______,                   _______, ATAB,    ASFT
                                  //└────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -88,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______, WIN1,    WIN2,    WIN3,    WIN4,    WIN5,                               WIN6,    WIN7,    WIN8,    WIN9,    WIN0,    _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, ARROWS,  DBLARR,  _______, ARROW,   CAPTURE,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
+     _______, ARROWS,  DBLARR,  WINPAST, ARROW,   CAPTURE,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      RGBRST,  RGB_TOG, RGB_MOD, RGB_VAI, RGB_VAD, RESET,                              _______, RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
