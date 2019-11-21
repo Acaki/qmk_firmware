@@ -25,8 +25,9 @@
 
 /* number of backlight levels */
 #define BACKLIGHT_PIN B6
+#ifdef BACKLIGHT_PIN
 #define BACKLIGHT_LEVELS 5
-
+#endif
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
 
@@ -35,20 +36,13 @@
 
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
-
 #define RGB_DI_PIN E2
+#ifdef RGB_DI_PIN
 #define RGBLIGHT_ANIMATIONS
 #define RGBLED_NUM 16
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
-
-#define TAPPING_TERM 125
-#define MOUSEKEY_DELAY 150
-#define MOUSEKEY_INTERVAL 6
-#define MOUSEKEY_TIME_TO_MAX 250
-#define MOUSEKEY_MAX_SPEED 2
-#define MOUSEKEY_WHEEL_MAX_SPEED 1
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 0
-
+#define RGBLIGHT_SLEEP
+#endif
 #endif
