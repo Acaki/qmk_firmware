@@ -16,6 +16,8 @@ extern uint8_t is_master;
 #define CAPTURE SGUI(KC_S)
 #define LALTTAB LALT_T(KC_TAB)
 #define RALTDEL LALT_T(KC_DEL)
+#define OSMLSFT OSM(MOD_LSFT)
+#define OSMRSFT OSM(MOD_RSFT)
 enum layers {
     _QWERTY,
     _LOWER,
@@ -33,6 +35,7 @@ enum custom_keycodes {
     ARROW,
     DBLARR,
     ATAB,
+    ASFT,
     WIN0,
     WIN1,
     WIN2,
@@ -51,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
+     OSMLSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, OSMRSFT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      LALTTAB, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RALTDEL,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -67,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               _______, MOUSE,   KC_LABK, KC_RABK, KC_QUES, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, ATAB,    _______
+                                    _______, _______, _______,                   _______, ATAB,    ASFT
                                  //└────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -79,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_LBRC, KC_PLUS, KC_DQT,  KC_UNDS, KC_RBRC,                            _______, _______, _______, _______, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, KC_CAPS, _______,                   _______, _______, _______
+                                    ASFT,    ATAB,    _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -302,6 +305,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_alt();
                 register_code(KC_TAB);
                 unregister_code(KC_TAB);
+            }
+            return false;
+        case ASFT:
+            if (record->event.pressed) {
+                register_alt();
+                register_mods(MOD_LSFT);
+            } else {
+                unregister_mods(MOD_LSFT);
             }
             return false;
         case WIN0:
