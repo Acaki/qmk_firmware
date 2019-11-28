@@ -15,7 +15,7 @@ extern uint8_t is_master;
 #define WINPAST G(KC_V)
 #define CAPTURE SGUI(KC_S)
 #define LALTTAB LALT_T(KC_TAB)
-#define RALTCAP LALT_T(KC_CAPS)
+#define RALTDEL LALT_T(KC_DEL)
 enum layers {
     _QWERTY,
     _LOWER,
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     LALTTAB, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RALTCAP,
+     LALTTAB, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RALTDEL,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LCTL, KC_SPC,  LOWER,                     RAISE,   KC_ENT,  KC_RCTL
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            _______, _______, _______, _______, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, ASFT,    _______,                   _______, _______, _______
+                                    KC_CAPS, ASFT,    _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
