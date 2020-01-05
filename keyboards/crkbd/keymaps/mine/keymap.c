@@ -63,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_GRV,  KC_LBRC, KC_PLUS, KC_DQT,  KC_MINS, KC_RBRC,                            KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______, _______,
+     KC_GRV,  KC_LBRC, KC_PLUS, KC_DQT,  KC_MINS, KC_RBRC,                            KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TILD, KC_LCBR ,KC_EQL,  KC_QUOT, KC_UNDS, KC_RCBR,                            _______, KC_DEL,  KC_APP,  KC_MPLY, _______, _______,
+     KC_TILD, KC_LCBR ,KC_EQL,  KC_QUOT, KC_UNDS, KC_RCBR,                            _______, KC_DEL,  ASFT,    KC_APP,  _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
