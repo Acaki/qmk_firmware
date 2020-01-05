@@ -2,11 +2,6 @@
 
 extern keymap_config_t keymap_config;
 
-#ifdef RGBLIGHT_ENABLE
-//Following line allows macro to read current RGB settings
-extern rgblight_config_t rgblight_config;
-#endif
-
 extern uint8_t is_master;
 
 #define MOUSE TG(_MOUSE)
@@ -22,12 +17,7 @@ enum layers {
     _ARROWS,
 };
 enum custom_keycodes {
-    QWERTY = SAFE_RANGE,
-    LOWER,
-    RAISE,
-    ADJUST,
-    RGBRST,
-    ARROW,
+    ARROW = SAFE_RANGE,
     DBLARR,
     ATAB,
     ASFT,
@@ -65,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    _______, _______, _______,                   _______, ATAB,    _______
                                  //└────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -118,25 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-int RGB_current_mode;
-
-void persistent_default_layer_set(uint16_t default_layer) {
-    eeconfig_update_default_layer(default_layer);
-    default_layer_set(default_layer);
-}
-
-void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
-    if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
-        layer_on(layer3);
-    } else {
-        layer_off(layer3);
-    }
-}
-
 void matrix_init_user(void) {
-#ifdef RGBLIGHT_ENABLE
-    RGB_current_mode = rgblight_config.mode;
-#endif
 #ifdef SSD1306OLED
     iota_gfx_init(!has_usb());
 #endif
@@ -226,6 +198,23 @@ void register_gui(void) {
     }
 }
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case _LOWER:
+            release_gui();
+            break;
+        case _RAISE:
+            release_gui();
+            break;
+        default:
+            release_alt();
+            release_gui();
+            break;
+    }
+
+    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
     #ifdef SSD1306OLED
@@ -233,58 +222,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     #endif
     }
     switch (keycode) {
-        case QWERTY:
-            if (record->event.pressed) {
-                persistent_default_layer_set(1UL<<_QWERTY);
-            }
-            return false;
-        case LOWER:
-            if (record->event.pressed) {
-                layer_on(_LOWER);
-                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-            } else {
-                release_alt();
-                release_gui();
-                layer_off(_LOWER);
-                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-            }
-            return false;
-        case RAISE:
-            if (record->event.pressed) {
-                layer_on(_RAISE);
-                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-            } else {
-                release_alt();
-                release_gui();
-                layer_off(_RAISE);
-                update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-            }
-            return false;
-        case ADJUST:
-            if (record->event.pressed) {
-                layer_on(_ADJUST);
-            } else {
-                layer_off(_ADJUST);
-            }
-            return false;
-        case RGB_MOD:
-        #ifdef RGBLIGHT_ENABLE
-            if (record->event.pressed) {
-              rgblight_mode(RGB_current_mode);
-              rgblight_step();
-              RGB_current_mode = rgblight_config.mode;
-            }
-        #endif
-            return false;
-        case RGBRST:
-        #ifdef RGBLIGHT_ENABLE
-            if (record->event.pressed) {
-              eeconfig_update_rgblight_default();
-              rgblight_enable();
-              RGB_current_mode = rgblight_config.mode;
-            }
-        #endif
-            break;
         case ARROW:
             if (record->event.pressed) {
                 SEND_STRING("->");
