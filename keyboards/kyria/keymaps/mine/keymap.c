@@ -10,8 +10,10 @@ extern uint8_t is_master;
 #define NUMBER MO(_NUMBER)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
+#define GAMING TG(_GAMING)
 enum layers {
     _QWERTY,
+    _GAMING,
     _MOUSE,
     _NUMBER,
     _LOWER,
@@ -34,23 +36,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    KC_LGUI, KC_LCTL,  KC_SPC,  LOWER,   KC_TAB,       KC_CAPS, RAISE,  KC_ENT,  KC_RCTL, KC_RGUI
      ),
 
-    [_MOUSE] = LAYOUT(
-        _______, _______, _______, _______, _______, _______,                                        _______, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN4, _______,
-        _______, _______, _______, _______, _______, _______,                                        KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______,
-                                   _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
+    [_GAMING] = LAYOUT(
+        _______, KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                                              _______, _______, _______, _______, _______, _______,
+        _______, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,                                              _______, _______, _______, _______, _______, _______,
+        _______, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,     _______, _______,      _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______,  _______, _______,      _______, _______, _______, _______, _______
     ),
+
 
     [_NUMBER] = LAYOUT(
         _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
         KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                           KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-        _______, _______, _______, _______, _______, _______, _______, _______,  ____, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
+    ),
+
+    [_MOUSE] = LAYOUT(
+        _______, _______, _______, _______, _______, _______,                                        _______, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN4, _______,
+        _______, _______, _______, _______, _______, _______,                                        KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______,
+        _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
     ),
 
     [_LOWER] = LAYOUT(
         _______, _______, _______, _______, _______, _______,                                         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
-        _______, _______, ASFT,    ATAB,    MOUSE,   _______,                                         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_PIPE,
+        _______, _______, ASFT,    ATAB,    MOUSE,   GAMING,                                          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_PIPE,
         _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
                                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
@@ -108,6 +118,9 @@ static void render_status(void) {
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
             oled_write_P(PSTR("Default\n"), false);
+            break;
+        case _GAMING:
+            oled_write_P(PSTR("Gaming\n"), false);
             break;
         case _NUMBER:
             oled_write_P(PSTR("Number\n"), false);
