@@ -5,8 +5,6 @@ extern keymap_config_t keymap_config;
 extern uint8_t is_master;
 
 #define MOUSE MO(_MOUSE)
-#define WINPAST G(KC_V)
-#define CAPTURE SGUI(KC_S)
 #define NUMBER MO(_NUMBER)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
@@ -74,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_ADJUST] = LAYOUT(
         RSTROM,  _______, _______, _______, _______, _______,                                          _______, _______, _______, _______, _______, _______,
-        _______, _______, DBLARR,  WINPAST,  ARROW,  CAPTURE,                                          _______, KC_BRID, KC_BRIU, _______, _______, _______,
+        _______, _______, DBLARR,  _______, ARROW,   _______,                                          _______, KC_BRID, KC_BRIU, _______, _______, _______,
         _______, _______, _______, _______, _______, RESET,   _______, _______,     _______, _______,  _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
