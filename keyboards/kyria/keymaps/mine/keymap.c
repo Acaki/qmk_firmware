@@ -5,8 +5,7 @@ extern keymap_config_t keymap_config;
 extern uint8_t is_master;
 
 #define MOUSE MO(_MOUSE)
-#define NUMESC LT(_NUMBER, KC_ESC)
-#define NUMBSPC LT(_NUMBER, KC_BSPC)
+#define NUMBER MO(_NUMBER)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GAMING TG(_GAMING)
@@ -21,6 +20,8 @@ enum layers {
 };
 enum custom_keycodes {
     ARROW = SAFE_RANGE,
+    ASFT,
+    ATAB,
     DBLARR,
     RSTROM
 };
@@ -68,6 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TILD, KC_LCBR ,KC_EQL,  KC_QUOT, KC_UNDS, KC_RCBR,                                          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
         _______, KC_LBRC, KC_PLUS, KC_DQT,  KC_MINS, KC_RBRC, _______, _______,      _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
                                    _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______
+    ),
 
     [_ADJUST] = LAYOUT(
         RSTROM,  _______, _______, _______, _______, _______,                                          _______, _______, _______, _______, _______, _______,
