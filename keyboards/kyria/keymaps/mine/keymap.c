@@ -4,7 +4,7 @@ extern keymap_config_t keymap_config;
 
 extern uint8_t is_master;
 
-#define MOUSE MO(_MOUSE)
+#define MOUSE TG(_MOUSE)
 #define NUMBER MO(_NUMBER)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______,                                         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
         _______, _______, ASFT,    ATAB,    MOUSE,   GAMING,                                          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_PIPE,
         _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
-                                   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
+                                   _______, _______, _______, _______, _______,     _______, _______, ATAB,    _______, _______
     ),
 
     [_RAISE] = LAYOUT(
