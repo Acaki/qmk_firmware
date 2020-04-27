@@ -157,7 +157,7 @@ static bool is_alt_set = false;
 void release_alt(void) {
     int kc = KC_LALT;
     int mod = MOD_LALT;
-    if (eeconfig_read_default_layer() > 1) {
+    if (default_layer_state > 1) {
         kc = KC_LGUI;
         mod = MOD_LGUI;
     }
@@ -171,7 +171,7 @@ void release_alt(void) {
 void register_alt(void) {
     int kc = KC_LALT;
     int mod = MOD_LALT;
-    if (eeconfig_read_default_layer() > 1) {
+    if (default_layer_state > 1) {
         kc = KC_LGUI;
         mod = MOD_LGUI;
     }
