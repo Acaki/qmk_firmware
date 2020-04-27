@@ -10,14 +10,19 @@ extern uint8_t is_master;
 #define GAMING TG(_GAMING)
 enum layers {
     _QWERTY,
+    _QWERTY_MAC,
     _GAMING,
     _MOUSE,
     _LOWER,
     _RAISE,
     _ADJUST
 };
+#define SWMAC DF(_QWERTY_MAC)
+#define SWWIN DF(_QWERTY)
 enum custom_keycodes {
     ARROW = SAFE_RANGE,
+    ATAB,
+    ASFT,
     DBLARR,
     RSTROM
 };
@@ -29,6 +34,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,    KC_LALT, GAMING,      KC_APP,  KC_RALT, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                                    KC_LGUI, KC_LCTL,  KC_SPC,  LOWER,   MOUSE,       KC_CAPS, RAISE,   KC_BSPC, KC_RCTL, KC_RGUI
      ),
+
+    [_QWERTY_MAC] = LAYOUT(
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,     KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
+        KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,     KC_G,                                            KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
+        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,    KC_LALT, GAMING,      KC_APP,  KC_RALT, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+                                   KC_LCTL, KC_LGUI,  KC_SPC,  LOWER,   MOUSE,       KC_CAPS, RAISE,   KC_BSPC, KC_RGUI, KC_RCTL
+    ),
 
     [_GAMING] = LAYOUT(
         _______, KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                                              _______, _______, _______, _______, _______, _______,
@@ -45,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_LOWER] = LAYOUT(
-        _______, _______, _______, _______, _______, _______,                                         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
+        _______, _______, ATAB,    ASFT,    _______, _______,                                         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
         KC_F12,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PIPE,
         _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______,     KC_PGUP, _______, KC_HOME, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_END,
                                    _______, _______, _______, _______, _______,     KC_PGDN, _______, _______, _______, _______
@@ -59,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_ADJUST] = LAYOUT(
-        RSTROM,  _______, _______, _______, _______, _______,                                          _______, _______, _______, _______, _______, _______,
+        RSTROM,  _______, SWWIN,   _______, _______, _______,                                          _______, _______, _______, _______, _______, _______,
         _______, _______, DBLARR,  _______, ARROW,   _______,                                          _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, RESET,   _______, _______,      _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, RESET,   _______, _______,      _______, _______, _______, SWMAC,   _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______
     ),
 };
@@ -140,7 +152,43 @@ void oled_task_user(void) {
 }
 #endif
 
+static bool is_alt_set = false;
+
+void release_alt(void) {
+    int kc = KC_LALT;
+    int mod = MOD_LALT;
+    if (eeconfig_read_default_layer() > 1) {
+        kc = KC_LGUI;
+        mod = MOD_LGUI;
+    }
+    bool is_alt_on = get_mods() & MOD_BIT(kc);
+    if (is_alt_set && is_alt_on) {
+        unregister_mods(mod);
+        is_alt_set = false;
+    }
+};
+
+void register_alt(void) {
+    int kc = KC_LALT;
+    int mod = MOD_LALT;
+    if (eeconfig_read_default_layer() > 1) {
+        kc = KC_LGUI;
+        mod = MOD_LGUI;
+    }
+    bool is_alt_on = get_mods() & MOD_BIT(kc);
+    if (!is_alt_on) {
+        register_mods(mod);
+        is_alt_set = true;
+    }
+}
+
 layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        default:
+            release_alt();
+            break;
+    }
+
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
@@ -158,6 +206,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case RSTROM:
             eeconfig_init();
+            return false;
+        case ATAB:
+            if (record->event.pressed) {
+                register_alt();
+                register_code(KC_TAB);
+                unregister_code(KC_TAB);
+            }
+            return false;
+        case ASFT:
+            if (record->event.pressed) {
+                register_alt();
+                register_mods(MOD_LSFT);
+            } else {
+                unregister_mods(MOD_LSFT);
+            }
             return false;
     }
     return true;
