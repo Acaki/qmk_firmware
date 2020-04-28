@@ -17,14 +17,14 @@ enum layers {
     _RAISE,
     _ADJUST
 };
-#define SWMAC DF(_QWERTY_MAC)
-#define SWWIN DF(_QWERTY)
 enum custom_keycodes {
     ARROW = SAFE_RANGE,
     ATAB,
     ASFT,
     DBLARR,
-    RSTROM
+    RSTROM,
+    WINDOWS,
+    MACOS
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -71,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_ADJUST] = LAYOUT(
-        RSTROM,  _______, SWWIN,   _______, _______, _______,                                          _______, _______, _______, _______, _______, _______,
+        RSTROM,  _______, WINDOWS, _______, _______, _______,                                          _______, _______, _______, _______, _______, _______,
         _______, _______, DBLARR,  _______, ARROW,   _______,                                          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
-        _______, _______, _______, _______, _______, RESET,   _______, _______,      _______, _______, _______, SWMAC,   _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, RESET,   _______, _______,      _______, _______, _______, MACOS,   _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______
     ),
 };
@@ -113,9 +113,12 @@ static void render_status(void) {
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR("Layer: "), false);
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state | default_layer_state)) {
         case _QWERTY:
-            oled_write_P(PSTR("Default\n"), false);
+            oled_write_P(PSTR("Windows\n"), false);
+            break;
+        case _QWERTY_MAC:
+            oled_write_P(PSTR("MacOS\n"), false);
             break;
         case _GAMING:
             oled_write_P(PSTR("Gaming\n"), false);
@@ -220,6 +223,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_mods(MOD_LSFT);
             } else {
                 unregister_mods(MOD_LSFT);
+            }
+            return false;
+        case WINDOWS:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+        case MACOS:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY_MAC);
             }
             return false;
     }
