@@ -65,14 +65,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_RAISE] = LAYOUT(
         KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                          KC_CIRC, KC_AMPR, KC_ASTR, _______, _______, _______,
-        KC_TILD, KC_LCBR, KC_LPRN, KC_QUOT, KC_UNDS, KC_LBRC,                                          KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
-        _______, KC_RCBR, KC_RPRN, KC_DQT,  KC_EQL,  KC_RBRC, _______, _______,      _______, _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+        KC_TILD, KC_LCBR, KC_LPRN, KC_EQL,  KC_UNDS, KC_LBRC,                                          KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
+        _______, KC_RCBR, KC_RPRN, KC_DQT,  KC_QUOT, KC_RBRC, _______, _______,      _______, _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
                                    _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______
     ),
 
     [_ADJUST] = LAYOUT(
         RSTROM,  _______, WINDOWS, _______, _______, _______,                                          _______, _______, _______, _______, _______, _______,
-        _______, _______, DBLARR,  _______, ARROW,   _______,                                          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
+        _______, _______, _______, DBLARR,  ARROW,   _______,                                          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
         _______, _______, _______, _______, _______, RESET,   _______, _______,      _______, _______, _______, MACOS,   _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______
     ),
