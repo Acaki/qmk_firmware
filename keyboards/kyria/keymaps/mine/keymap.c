@@ -10,7 +10,6 @@ extern uint8_t is_master;
 #define GAMING TG(_GAMING)
 enum layers {
     _QWERTY,
-    _QWERTY_MAC,
     _GAMING,
     _MOUSE,
     _LOWER,
@@ -32,13 +31,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_APP,  KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,    KC_LALT, MOUSE,       KC_CAPS, KC_RALT, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_MPLY,
                                    KC_LGUI, KC_LSFT,  KC_SPC,  LOWER,   KC_ESC,      KC_BSPC, RAISE,   KC_ENT,  KC_RSFT, KC_RGUI
      ),
-
-    [_QWERTY_MAC] = LAYOUT(
-        _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______,
-                                   KC_LCTL, KC_LGUI, _______, _______, _______,    _______, _______, _______, KC_RGUI, KC_RCTL
-    ),
 
     [_GAMING] = LAYOUT(
         _______, KC_T,    KC_Q,    KC_X,    KC_E,    KC_R,                                              _______, _______, _______, _______, _______, _______,
@@ -69,9 +61,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_ADJUST] = LAYOUT(
-        RSTROM,  _______, WINDOWS, _______, RESET,   _______,                                          _______, _______, _______, _______, _______,  _______,
+        RSTROM,  _______, _______, _______, RESET,   _______,                                          _______, _______, _______, _______, _______,  _______,
         _______, _______, _______, _______, _______, _______,                                          _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, MACOS,   _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______
     ),
 };
@@ -113,10 +105,7 @@ static void render_status(void) {
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state | default_layer_state)) {
         case _QWERTY:
-            oled_write_P(PSTR("Windows\n"), false);
-            break;
-        case _QWERTY_MAC:
-            oled_write_P(PSTR("MacOS\n"), false);
+            oled_write_P(PSTR("Default\n"), false);
             break;
         case _GAMING:
             oled_write_P(PSTR("Gaming\n"), false);
@@ -158,10 +147,6 @@ static bool is_alt_set = false;
 void release_alt(void) {
     int kc = KC_LALT;
     int mod = MOD_LALT;
-    if (default_layer_state > 1) {
-        kc = KC_LGUI;
-        mod = MOD_LGUI;
-    }
     bool is_alt_on = get_mods() & MOD_BIT(kc);
     if (is_alt_set && is_alt_on) {
         unregister_mods(mod);
@@ -172,10 +157,6 @@ void release_alt(void) {
 void register_alt(void) {
     int kc = KC_LALT;
     int mod = MOD_LALT;
-    if (default_layer_state > 1) {
-        kc = KC_LGUI;
-        mod = MOD_LGUI;
-    }
     bool is_alt_on = get_mods() & MOD_BIT(kc);
     if (!is_alt_on) {
         register_mods(mod);
@@ -211,16 +192,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_mods(MOD_LSFT);
             } else {
                 unregister_mods(MOD_LSFT);
-            }
-            return false;
-        case WINDOWS:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-        case MACOS:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY_MAC);
             }
             return false;
     }
