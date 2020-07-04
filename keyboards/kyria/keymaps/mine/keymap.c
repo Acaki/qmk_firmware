@@ -7,7 +7,25 @@ extern uint8_t is_master;
 #define MOUSE MO(_MOUSE)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
+#define NAV MO(_NAV)
 #define GAMING TG(_GAMING)
+
+#define A_ALT LALT_T(KC_A)
+#define A_GUI LGUI_T(KC_A)
+#define S_CTL LCTL_T(KC_S)
+#define S_ALT LALT_T(KC_S)
+#define D_SFT LSFT_T(KC_D)
+#define F_GUI LGUI_T(KC_F)
+#define F_CTL LCTL_T(KC_F)
+
+#define J_GUI RGUI_T(KC_J)
+#define J_CTL RCTL_T(KC_J)
+#define K_SFT RSFT_T(KC_K)
+#define L_CTL RCTL_T(KC_L)
+#define L_ALT RALT_T(KC_L)
+#define SC_ALT RALT_T(KC_SCLN)
+#define SC_GUI RGUI_T(KC_SCLN)
+
 enum layers {
     _QWERTY,
     _QWERTY_MAC,
@@ -15,6 +33,7 @@ enum layers {
     _MOUSE,
     _LOWER,
     _RAISE,
+    _NAV,
     _ADJUST
 };
 enum custom_keycodes {
@@ -28,16 +47,16 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      [_QWERTY] = LAYOUT(
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,     KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
-        KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,     KC_G,                                            KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
-        KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,    KC_LALT, MOUSE,       KC_CAPS, KC_RALT, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                                   KC_LGUI, KC_LCTL,  KC_SPC,  LOWER,   KC_ESC,      KC_BSPC, RAISE,   KC_ENT,  KC_RCTL, KC_RGUI
+        KC_ESC,  A_GUI,   S_ALT,   D_SFT,   F_CTL,    KC_G,                                            KC_H,    J_CTL,   K_SFT,   L_ALT,   SC_GUI,  KC_QUOT,
+        KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,    MOUSE, KC_VOLU,       KC_MPRV, KC_CAPS, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
+                                   GAMING,  NAV,      KC_SPC,  LOWER, KC_VOLD,       KC_MNXT, RAISE,   KC_ENT,  KC_BSPC, KC_MPLY
      ),
 
     [_QWERTY_MAC] = LAYOUT(
         _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, KC_LCTL, _______,    _______, KC_RCTL, _______, _______, _______, _______, _______, _______,
-                                   KC_LALT, KC_LGUI, _______, _______, _______,    _______, _______, _______, KC_RGUI, KC_RALT
+        _______, A_ALT,   S_CTL,   D_SFT,   F_GUI,   _______,                                        _______, J_GUI,   K_SFT,   L_CTL,   SC_ALT,  _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
     ),
 
     [_GAMING] = LAYOUT(
@@ -55,22 +74,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_LOWER] = LAYOUT(
+        _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                                            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
         _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-        _______, KC_6,    KC_7,    ASFT,    ATAB,    GAMING,                                          KC_PGDN, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_PGUP,
-        KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______,     KC_HOME, _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-                                   _______, _______, _______, _______, _______,     KC_END,  _______, _______, _______, _______
+        KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______,     _______, _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+                                   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
 
     [_RAISE] = LAYOUT(
-        KC_AMPR, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, _______,                                         _______, _______, KC_DQT,  KC_PLUS, _______, _______,
-        KC_ASTR, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, _______,                                         _______, KC_UNDS, KC_QUOT, KC_EQL,  KC_COLN, _______,
-        KC_TILD, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, _______, _______, _______,     _______, _______, _______, KC_MINS, KC_LABK, KC_RABK, KC_QUES, KC_PIPE,
+        _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                         _______, _______, _______, _______, _______, _______,
+        _______, KC_LCBR, KC_LBRC, KC_EQL,  KC_UNDS, _______,                                         _______, _______, _______, _______, _______, _______,
+        _______, KC_RCBR, KC_RBRC, KC_PLUS, KC_MINS, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
+    ),
+
+    [_NAV] = LAYOUT(
+_______, _______, _______, _______, _______, _______,                                         KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
+        _______, _______, _______, KC_LSFT, _______, _______,                                         KC_PSCR, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
 
     [_ADJUST] = LAYOUT(
-        RSTROM,  _______, WINDOWS, _______, RESET,   _______,                                          _______, _______, _______, _______, KC_MPLY, _______,
-        _______, _______, _______, _______, _______, _______,                                          _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
+        RSTROM,  _______, WINDOWS, _______, RESET,   _______,                                          _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                                          _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______,      _______, _______, _______, MACOS,   _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______
     ),
