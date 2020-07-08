@@ -47,8 +47,8 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      [_QWERTY] = LAYOUT(
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,     KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
-        KC_LSFT, A_GUI,   S_ALT,   D_SFT,   F_CTL,    KC_G,                                            KC_H,    J_CTL,   K_SFT,   L_ALT,   SC_GUI,  KC_QUOT,
-        KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,    MOUSE, KC_PGUP,       KC_HOME, KC_CAPS, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
+        KC_CAPS, A_GUI,   S_ALT,   D_SFT,   F_CTL,    KC_G,                                            KC_H,    J_CTL,   K_SFT,   L_ALT,   SC_GUI,  KC_QUOT,
+        KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,     KC_B,    MOUSE, KC_PGUP,       KC_HOME, KC_RSFT, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
                                    GAMING,  KC_ESC,   KC_SPC,  LOWER, KC_PGDN,       KC_END,  RAISE,   KC_ENT,  KC_BSPC, KC_MPLY
      ),
 
