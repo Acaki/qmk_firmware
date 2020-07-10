@@ -12,7 +12,7 @@
 #endif
 
 #define FORCE_NKRO
-#define TAPPING_TERM 125
+#define TAPPING_TERM 150
 #define TAP_CODE_DELAY 25
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
