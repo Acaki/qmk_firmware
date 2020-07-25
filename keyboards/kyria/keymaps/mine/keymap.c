@@ -4,25 +4,18 @@ extern keymap_config_t keymap_config;
 
 extern uint8_t is_master;
 
-#define A_ALT LALT_T(KC_A)
 #define A_GUI LGUI_T(KC_A)
-#define S_CTL LCTL_T(KC_S)
 #define S_ALT LALT_T(KC_S)
 #define D_SFT LSFT_T(KC_D)
-#define F_GUI LGUI_T(KC_F)
 #define F_CTL LCTL_T(KC_F)
 
-#define J_GUI RGUI_T(KC_J)
 #define J_CTL RCTL_T(KC_J)
 #define K_SFT RSFT_T(KC_K)
-#define L_CTL RCTL_T(KC_L)
 #define L_ALT RALT_T(KC_L)
-#define SC_ALT RALT_T(KC_SCLN)
 #define SC_GUI RGUI_T(KC_SCLN)
 
 enum layers {
     _QWERTY,
-    _QWERTY_MAC,
     _GAMING,
     _NAVR,
     _MOUR,
@@ -34,18 +27,16 @@ enum layers {
 };
 enum custom_keycodes {
     ATAB = SAFE_RANGE,
-    WINDOWS,
-    MACOS,
     CAPSLK,
 };
 
 #define GAMING TG(_GAMING)
-#define NAVR LT(_NAVR, KC_SPC)
-#define MOUR LT(_MOUR, KC_ESC)
-#define MEDR LT(_MEDR, KC_TAB)
-#define NSL LT(_NSL, KC_ENT)
+#define NAVR LT(_NAVR, KC_ENT)
+#define MOUR LT(_MOUR, KC_TAB)
+#define MEDR LT(_MEDR, KC_DEL)
+#define NSL LT(_NSL, KC_SPC)
 #define NSLG MO(_NSLG)
-#define NSSL LT(_NSSL, KC_DEL)
+#define NSSL LT(_NSSL, KC_ESC)
 #define FUNL LT(_FUNL, KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -53,15 +44,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MINS, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
         CAPSLK,  A_GUI,   S_ALT,   D_SFT,   F_CTL,   KC_G,                                           KC_H,    J_CTL,   K_SFT,   L_ALT,   SC_GUI,  KC_QUOT,
         KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, _______,    _______, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                                   GAMING,  MEDR,    NAVR,    MOUR,    _______,    _______, FUNL,    NSL,     NSSL,    KC_MPLY
+                                   GAMING,  MOUR,    NSL,     NSSL,    _______,    _______, FUNL,    NAVR,    MEDR,    KC_MPLY
      ),
-
-    [_QWERTY_MAC] = LAYOUT(
-        _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______,
-        _______, A_ALT,   S_CTL,   D_SFT,   F_GUI,   _______,                                        _______, J_GUI,   K_SFT,   L_CTL,   SC_ALT,  _______,
-        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______,
-                                   _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
-    ),
 
     [_GAMING] = LAYOUT(
         KC_ESC,  KC_T,    KC_Q,    KC_X,    KC_E,    KC_R,                                              _______, _______, _______, _______, _______, _______,
@@ -71,10 +55,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAVR] = LAYOUT(
-        _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______,
-        _______, _______, ATAB,    _______, _______, _______,                                        _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
-                                   _______, _______, _______, _______, _______,    _______, KC_BSPC, KC_ENT,  KC_DEL, _______
+        _______, KC_HOME, KC_PGDN, _______, KC_PGUP, _______,                                        _______, _______, _______, _______, _______, _______,
+        _______, KC_END,  KC_LEFT, KC_UP,   KC_RGHT, _______,                                        _______, _______, _______, _______,   _______, _______,
+        _______, _______, _______, KC_DOWN, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______,  _______,
+                                   _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
     ),
 
     [_MOUR] = LAYOUT(
@@ -86,38 +70,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
     [_MEDR] = LAYOUT(
-        _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______,                                        _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,  _______,
-        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, MACOS,   WINDOWS, RESET,    _______,
-                                   _______, _______, _______, _______, _______,    _______, _______, KC_MPLY, _______, _______
+        _______, _______, _______, _______, RESET,   _______,                                        _______, _______, _______, _______, _______, _______,
+        _______, _______, KC_MPRV, KC_VOLU, KC_MNXT, _______,                                        _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, KC_VOLD, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
     ),
 
     [_NSL] = LAYOUT(
-        _______, KC_LCBR, KC_7,    KC_8,    KC_9,    KC_RCBR,                                         _______, _______, _______, _______, _______, _______,
-        _______, KC_LPRN, KC_4,    KC_5,    KC_6,    KC_RPRN,                                         _______, _______, _______, _______, _______, _______,
-        _______, KC_LBRC, KC_1,    KC_2,    KC_3,    KC_RBRC, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
-                                   _______, _______, KC_0,    _______, _______,     _______, _______, _______, _______, _______
+        _______, _______, ATAB,    _______, _______, _______,                                         _______, _______, _______, _______, _______, _______,
+        _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, _______, _______,     _______, KC_BSPC, KC_ENT,  KC_DEL,  _______
     ),
 
     [_NSLG] = LAYOUT(
-        _______, KC_F5,   KC_7,    KC_8,    KC_9,    KC_F6,                                         _______, _______, _______, _______, _______, _______,
-        _______, KC_F3,   KC_4,    KC_5,    KC_6,    KC_F4,                                         _______, _______, _______, _______, _______, _______,
-        _______, KC_F1,   KC_1,    KC_2,    KC_3,    KC_F2, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
-                                   _______, _______, KC_0,    _______, _______,     _______, _______, _______, _______, _______
+        _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                                            _______, _______, _______, _______, _______, _______,
+        _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                            _______, _______, _______, _______, _______, _______,
+        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______
     ),
 
     [_NSSL] = LAYOUT(
-        _______, _______, KC_AMPR, KC_ASTR, KC_LPRN, _______,                                         _______, _______, _______, _______, _______, _______,
-        _______, _______, KC_DLR,  KC_PERC, KC_CIRC, _______,                                         _______, _______, _______, _______, _______, _______,
-        _______, _______, KC_EXLM, KC_AT,   KC_HASH, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
-                                   _______, _______, KC_RPRN, _______, _______,     _______, _______, _______, _______, _______
+        _______, _______, _______, _______, _______, _______,                                         _______, _______, _______, KC_LCBR, KC_RCBR, _______,
+        _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, _______,
+                                   _______, _______, _______, _______, _______,     _______, KC_BSPC, KC_ENT,  KC_DEL,  _______
     ),
 
     [_FUNL] = LAYOUT(
-        _______, KC_F12,  KC_F7,   KC_F8,   KC_F9,   _______,                                         _______, _______, _______, _______, _______, _______,
-        _______, KC_F11,  KC_F4,   KC_F5,   KC_F6,   _______,                                         _______, _______, _______, _______, _______, _______,
-        _______, KC_F10,  KC_F1,   KC_F2,   KC_F3,   _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
-                                   _______, KC_TAB,  KC_SPC,  _______,  _______,     _______, _______, _______, _______, _______
+        _______, KC_F9,  KC_F10,  KC_F11,  KC_F12,  _______,                                          _______, _______, _______, _______, _______, _______,
+        _______, KC_F5,  KC_F6,   KC_F7,   KC_F8,   _______,                                          _______, _______, _______, _______, _______, _______,
+        _______, KC_F1,  KC_F2,   KC_F3,   KC_F4,   _______, _______, _______,      _______, _______, _______, _______, _______, _______, _______, _______,
+                                  _______, KC_TAB,  KC_SPC,  _______, _______,      _______, _______, _______, _______, _______
     )
 };
 #ifdef OLED_DRIVER_ENABLE
@@ -159,9 +143,6 @@ static void render_status(void) {
         case _QWERTY:
             oled_write_P(PSTR("Windows\n"), false);
             break;
-        case _QWERTY_MAC:
-            oled_write_P(PSTR("MacOS\n"), false);
-            break;
         case _GAMING:
             oled_write_P(PSTR("Gaming\n"), false);
             break;
@@ -176,6 +157,9 @@ static void render_status(void) {
             break;
         case _NSL:
             oled_write_P(PSTR("Symbol\n"), false);
+            break;
+        case _NSLG:
+            oled_write_P(PSTR("Number\n"), false);
             break;
         case _NSSL:
             oled_write_P(PSTR("S_symbol\n"), false);
@@ -208,10 +192,6 @@ static bool is_alt_set = false;
 void release_alt(void) {
     int kc = KC_LALT;
     int mod = MOD_LALT;
-    if (default_layer_state > 1) {
-        kc = KC_LGUI;
-        mod = MOD_LGUI;
-    }
     bool is_alt_on = get_mods() & MOD_BIT(kc);
     if (is_alt_set && is_alt_on) {
         unregister_mods(mod);
@@ -222,10 +202,6 @@ void release_alt(void) {
 void register_alt(void) {
     int kc = KC_LALT;
     int mod = MOD_LALT;
-    if (default_layer_state > 1) {
-        kc = KC_LGUI;
-        mod = MOD_LGUI;
-    }
     bool is_alt_on = get_mods() & MOD_BIT(kc);
     if (!is_alt_on) {
         register_mods(mod);
@@ -250,16 +226,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_alt();
                 register_code(KC_TAB);
                 unregister_code(KC_TAB);
-            }
-            return false;
-        case WINDOWS:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-        case MACOS:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY_MAC);
             }
             return false;
         case CAPSLK:
