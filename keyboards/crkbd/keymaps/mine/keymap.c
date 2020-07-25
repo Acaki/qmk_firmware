@@ -24,10 +24,10 @@ enum layers {
     _FUNL,
 };
 
-#define NAVR LT(_NAVR, KC_SPC)
+#define NAVR LT(_NAVR, KC_ENT)
 #define MOUR LT(_MOUR, KC_TAB)
 #define MEDR LT(_MEDR, KC_DEL)
-#define NSL LT(_NSL, KC_ENT)
+#define NSL LT(_NSL, KC_SPC)
 #define NSLG MO(_NSLG)
 #define NSSL LT(_NSSL, KC_ESC)
 #define FUNL LT(_FUNL, KC_BSPC)
