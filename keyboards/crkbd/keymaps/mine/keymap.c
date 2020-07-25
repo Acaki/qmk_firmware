@@ -4,109 +4,147 @@ extern keymap_config_t keymap_config;
 
 extern uint8_t is_master;
 
-#define MOUSE TG(_MOUSE)
-#define ARROWS TG(_ARROWS)
-#define WINPAST G(KC_V)
-#define CAPTURE SGUI(KC_S)
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
+#define A_GUI LGUI_T(KC_A)
+#define S_ALT LALT_T(KC_S)
+#define D_SFT LSFT_T(KC_D)
+#define F_CTL LCTL_T(KC_F)
+#define J_CTL RCTL_T(KC_J)
+#define K_SFT RSFT_T(KC_K)
+#define L_ALT RALT_T(KC_L)
+#define SC_GUI RGUI_T(KC_SCLN)
 enum layers {
     _QWERTY,
-    _MOUSE,
-    _ARROWS,
-    _LOWER,
-    _RAISE,
-    _ADJUST
+    _GAMING,
+    _NAVR,
+    _MOUR,
+    _MEDR,
+    _NSL,
+    _NSLG,
+    _NSSL,
+    _FUNL,
 };
+
+#define NAVR LT(_NAVR, KC_SPC)
+#define MOUR LT(_MOUR, KC_TAB)
+#define MEDR LT(_MEDR, KC_DEL)
+#define NSL LT(_NSL, KC_ENT)
+#define NSLG MO(_NSLG)
+#define NSSL LT(_NSSL, KC_ESC)
+#define FUNL LT(_FUNL, KC_BSPC)
+#define GAMING TG(_GAMING)
+
 enum custom_keycodes {
-    ARROW = SAFE_RANGE,
-    DBLARR,
-    ATAB,
-    ASFT,
-    WIN0,
-    WIN1,
-    WIN2,
-    WIN3,
-    WIN4,
-    WIN5,
-    WIN6,
-    WIN7,
-    WIN8,
-    WIN9,
-    RSTROM
+    ATAB = SAFE_RANGE,
+    CAPSLK
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+     KC_MINS, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT,
+     CAPSLK,  A_GUI,   S_ALT,   D_SFT,   F_CTL,   KC_G,                               KC_H,    J_CTL,   K_SFT,   L_ALT,   SC_GUI,  KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RALT,
+     KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    KC_LCTL, KC_SPC,  LOWER,                     RAISE,   KC_ENT,  KC_RCTL
+                                    MOUR,    NSL,     NSSL,                      FUNL,    NAVR,    MEDR
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
-  [_MOUSE] = LAYOUT(
+  [_GAMING] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, _______, _______, _______, _______, _______,                            _______, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN4, _______,
+     KC_ESC,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            KC_BTN3, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5, _______,
+     KC_LCTL, KC_G,    KC_A,    KC_S,    KC_D,    KC_F,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______,
+     KC_LSFT, KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,                               KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    KC_LALT, KC_SPC,  NSLG,                      FUNL,    NAVR,    MEDR
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
-  [_ARROWS] = LAYOUT(
+  [_NSL] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+     _______, _______, ATAB,    GAMING,  _______, _______,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            _______, _______,  KC_UP,  _______, _______, _______,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    _______, _______, _______,                   KC_BSPC, KC_SPC,  KC_DEL
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
-  [_LOWER] = LAYOUT(
+  [_NSLG] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
+     _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                               _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, MOUSE,   KC_DEL,  ATAB,    KC_TAB,  _______,                            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_CAPS, KC_PIPE,
+     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
+     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                              _______, _______, _______, _______, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    _______, _______, _______,                   KC_BSPC, KC_SPC,  KC_DEL
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
-  [_RAISE] = LAYOUT(
+  [_NSSL] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     KC_GRV,  KC_LBRC, KC_PLUS, KC_DQT,  KC_MINS, KC_RBRC,                            KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY, _______,
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, KC_LCBR, KC_RCBR, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TILD, KC_LCBR ,KC_EQL,  KC_QUOT, KC_UNDS, KC_RCBR,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_APP,  _______,
+     _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, KC_LBRC, KC_RBRC, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    _______, _______, _______,                   KC_BSPC, KC_SPC,  KC_DEL
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
-  [_ADJUST] = LAYOUT(
+  [_MOUR] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     RSTROM,  WIN1,    WIN2,    WIN3,    WIN4,    WIN5,                               WIN6,    WIN7,    WIN8,    WIN9,    WIN0,    _______,
+     _______, _______, _______, _______, _______, _______,                            _______, KC_WH_D, _______, KC_WH_U, KC_BTN4, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, ARROWS,  DBLARR,  WINPAST, ARROW,   CAPTURE,                            _______, KC_BRID, KC_BRIU, _______, _______, _______,
+     _______, _______, _______, _______, _______, _______,                            _______, KC_MS_L, KC_MS_U, KC_MS_R, KC_BTN5, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, RESET,                              _______, _______, _______, _______, _______,  _______,
+     _______, _______, _______, _______, _______, _______,                            _______, KC_WH_L, KC_MS_D, KC_WH_R, _______, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    _______, _______, _______,                   KC_BTN2, KC_BTN1, KC_BTN3
+                                // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
+  ),
+
+  [_MEDR] = LAYOUT(
+  //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+     _______, _______, _______, KC_VOLU, RESET,   _______,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, _______, KC_MPRV, KC_VOLD, KC_MNXT, _______,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                    _______, KC_MPLY, _______,                   _______, _______, _______
+                                // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
+  ),
+
+  [_NAVR] = LAYOUT(
+  //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+     _______, KC_HOME, KC_PGUP, KC_UP,   KC_PGDN, _______,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, KC_END,  KC_LEFT, KC_DOWN, KC_RGHT, _______,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                    KC_TAB,  KC_ENT,  _______,                   _______, _______, _______
+                                // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
+  ),
+
+  [_FUNL] = LAYOUT(
+  //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+     _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,                            _______, _______, _______, _______, _______, _______,
+  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,                            _______, _______, _______, _______, _______, _______,
+  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┐                 ┌────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                    KC_TAB,  KC_ENT,  _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   )
 };
@@ -183,39 +221,14 @@ void register_alt(void) {
     }
 }
 
-static bool is_gui_set = false;
-
-void release_gui(void) {
-    bool is_gui_on = get_mods() & MOD_BIT(KC_LGUI);
-    if (is_gui_set && is_gui_on) {
-        unregister_mods(MOD_LGUI);
-        is_gui_set = false;
-    }
-};
-
-void register_gui(void) {
-    bool is_gui_on = get_mods() & MOD_BIT(KC_LGUI);
-    if (!is_gui_on) {
-        register_mods(MOD_LGUI);
-        is_gui_set = true;
-    }
-}
-
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
-        case _LOWER:
-            release_gui();
-            break;
-        case _RAISE:
-            release_gui();
-            break;
         default:
             release_alt();
-            release_gui();
             break;
     }
 
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    return state;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -225,16 +238,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     #endif
     }
     switch (keycode) {
-        case ARROW:
-            if (record->event.pressed) {
-                SEND_STRING("->");
-            }
-            return false;
-        case DBLARR:
-            if (record->event.pressed) {
-                SEND_STRING("=>");
-            }
-            return false;
         case ATAB:
             if (record->event.pressed) {
                 register_alt();
@@ -242,87 +245,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_TAB);
             }
             return false;
-        case ASFT:
+        case CAPSLK:
             if (record->event.pressed) {
-                register_alt();
-                register_mods(MOD_LSFT);
-            } else {
-                unregister_mods(MOD_LSFT);
+                tap_code(KC_CAPS);
             }
-            return false;
-        case WIN0:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_0);
-                unregister_code(KC_0);
-            }
-            return false;
-        case WIN1:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_1);
-                unregister_code(KC_1);
-            }
-            return false;
-        case WIN2:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_2);
-                unregister_code(KC_2);
-            }
-            return false;
-        case WIN3:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_3);
-                unregister_code(KC_3);
-            }
-            return false;
-        case WIN4:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_4);
-                unregister_code(KC_4);
-            }
-            return false;
-        case WIN5:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_5);
-                unregister_code(KC_5);
-            }
-            return false;
-        case WIN6:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_6);
-                unregister_code(KC_6);
-            }
-            return false;
-        case WIN7:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_7);
-                unregister_code(KC_7);
-            }
-            return false;
-        case WIN8:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_8);
-                unregister_code(KC_8);
-            }
-            return false;
-        case WIN9:
-            if (record->event.pressed) {
-                register_gui();
-                register_code(KC_9);
-                unregister_code(KC_9);
-            }
-            return false;
-        case RSTROM:
-            eeconfig_init();
-            return false;
     }
     return true;
 }
