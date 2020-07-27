@@ -4,18 +4,25 @@ extern keymap_config_t keymap_config;
 
 extern uint8_t is_master;
 
+#define A_ALT LALT_T(KC_A)
 #define A_GUI LGUI_T(KC_A)
+#define S_CTL LCTL_T(KC_S)
 #define S_ALT LALT_T(KC_S)
 #define D_SFT LSFT_T(KC_D)
+#define F_GUI LGUI_T(KC_F)
 #define F_CTL LCTL_T(KC_F)
 
+#define J_GUI RGUI_T(KC_J)
 #define J_CTL RCTL_T(KC_J)
 #define K_SFT RSFT_T(KC_K)
+#define L_CTL RCTL_T(KC_L)
 #define L_ALT RALT_T(KC_L)
+#define SC_ALT RALT_T(KC_SCLN)
 #define SC_GUI RGUI_T(KC_SCLN)
 
 enum layers {
     _QWERTY,
+    _QWERTY_MAC,
     _GAMING,
     _NAVR,
     _MOUR,
@@ -27,6 +34,8 @@ enum layers {
 };
 enum custom_keycodes {
     ATAB = SAFE_RANGE,
+    WINDOWS,
+    MACOS,
     CAPSLK,
 };
 
@@ -46,6 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, _______,    _______, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
                                    GAMING,  MOUR,    NSL,     NSSL,    _______,    _______, FUNL,    NAVR,    MEDR,    KC_MPLY
      ),
+
+    [_QWERTY_MAC] = LAYOUT(
+        _______, _______, _______, _______, _______, _______,                                        _______, _______, _______, _______, _______, _______,
+        _______, A_ALT,   S_CTL,   D_SFT,   F_GUI,   _______,                                        _______, J_GUI,   K_SFT,   L_CTL,   SC_ALT,  _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
+    ),
 
     [_GAMING] = LAYOUT(
         KC_ESC,  KC_T,    KC_Q,    KC_X,    KC_E,    KC_R,                                              _______, _______, _______, _______, _______, _______,
@@ -192,6 +208,10 @@ static bool is_alt_set = false;
 void release_alt(void) {
     int kc = KC_LALT;
     int mod = MOD_LALT;
+    if (default_layer_state > 1) {
+        kc = KC_LGUI;
+        mod = MOD_LGUI;
+    }
     bool is_alt_on = get_mods() & MOD_BIT(kc);
     if (is_alt_set && is_alt_on) {
         unregister_mods(mod);
@@ -202,6 +222,10 @@ void release_alt(void) {
 void register_alt(void) {
     int kc = KC_LALT;
     int mod = MOD_LALT;
+    if (default_layer_state > 1) {
+        kc = KC_LGUI;
+        mod = MOD_LGUI;
+    }
     bool is_alt_on = get_mods() & MOD_BIT(kc);
     if (!is_alt_on) {
         register_mods(mod);
@@ -228,6 +252,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_TAB);
             }
             return false;
+        case WINDOWS:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+        case MACOS:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY_MAC);
+            }
         case CAPSLK:
             if (record->event.pressed) {
                 tap_code(KC_CAPS);
