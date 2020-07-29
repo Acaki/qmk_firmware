@@ -40,12 +40,12 @@ enum custom_keycodes {
 };
 
 #define GAMING TG(_GAMING)
-#define NAVR LT(_NAVR, KC_ENT)
+#define NAVR LT(_NAVR, KC_SPC)
 #define MOUR LT(_MOUR, KC_TAB)
 #define MEDR LT(_MEDR, KC_DEL)
-#define NSL LT(_NSL, KC_SPC)
+#define NSL LT(_NSL, KC_ESC)
 #define NSLG MO(_NSLG)
-#define NSSL LT(_NSSL, KC_ESC)
+#define NSSL LT(_NSSL, KC_ENT)
 #define FUNL LT(_FUNL, KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MINS, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
         CAPSLK,  A_GUI,   S_ALT,   D_SFT,   F_CTL,   KC_G,                                           KC_H,    J_CTL,   K_SFT,   L_ALT,   SC_GUI,  KC_QUOT,
         KC_GRV,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, _______,    _______, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                                   GAMING,  MOUR,    NSL,     NSSL,    _______,    _______, FUNL,    NAVR,    MEDR,    KC_MPLY
+                                   GAMING,  MOUR,    NAVR,    NSL,     _______,    _______, FUNL,    NSSL,    MEDR,    KC_MPLY
      ),
 
     [_QWERTY_MAC] = LAYOUT(
@@ -71,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NAVR] = LAYOUT(
-        _______, KC_HOME, KC_PGDN, _______, KC_PGUP, _______,                                        _______, _______, _______, _______, _______, _______,
-        _______, KC_END,  KC_LEFT, KC_UP,   KC_RGHT, _______,                                        _______, _______, _______, _______,   _______, _______,
-        _______, _______, _______, KC_DOWN, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______,  _______,
+        _______, _______, _______, _______, _______, _______,                                        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
+        _______, _______, _______, _______, ATAB,    _______,                                        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______,  _______,
                                    _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
     ),
 
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NSL] = LAYOUT(
-        _______, _______, ATAB,    _______, _______, _______,                                         _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                                         _______, _______, _______, _______, _______, _______,
         _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
         _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______, _______,     _______, KC_BSPC, KC_ENT,  KC_DEL,  _______
@@ -107,10 +107,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_NSSL] = LAYOUT(
-        _______, _______, _______, _______, _______, _______,                                         _______, _______, _______, KC_LCBR, KC_RCBR, _______,
-        _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                         KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, _______,
-                                   _______, _______, _______, _______, _______,     _______, KC_BSPC, KC_ENT,  KC_DEL,  _______
+        _______, KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, _______,                                         _______, _______, _______, _______, _______, _______,
+        _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                         KC_CIRC, KC_AMPR, KC_ASTR, _______, _______, _______,
+        _______, _______, _______, KC_LBRC, KC_RBRC, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______, _______,
+                                   _______, KC_TAB,  KC_SPC,  _______, _______,     _______, _______, _______, _______, _______
     ),
 
     [_FUNL] = LAYOUT(
