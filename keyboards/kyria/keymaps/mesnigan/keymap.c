@@ -10,7 +10,7 @@
       KC_TAB,  K01, K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_DEL, \
       KC_LSFT, K11, K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_RSFT, \
       KC_GRV,  LALT_T(K21),  K22,  K23,     K24,    K25,   _______, _______,   _______,  _______,  K26,     K27,     K28,     K29, RALT_T(K2A), KC_RGUI, \
-                                 _______, KC_LCTL, KC_SPC,  ESC_LWR,  _______,     _______, BSC_RAS,  KC_ENT, KC_RCTL, _______ \
+                                 _______, LCTL_T(KC_ESC), KC_SPC,  LOWER,  _______,     _______, RAISE,  KC_ENT, RCTL_T(KC_BSPC), _______ \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_kyria_base_wrapper(...)       LAYOUT_kyria_base(__VA_ARGS__)
