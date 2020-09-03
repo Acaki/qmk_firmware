@@ -31,7 +31,7 @@ NOTE: These are all the same length.  If you do a search/replace
 */
 
 #define _________________QWERTY_L1_________________        KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-#define _________________QWERTY_L2_________________        KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G
+#define _________________QWERTY_L2_________________        OSMSFT,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G
 #define _________________QWERTY_L3_________________        KC_TAB,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
 #define _________________QWERTY_LT_________________                                   OSMCTL,  KC_SPC,  LOWER 
 
