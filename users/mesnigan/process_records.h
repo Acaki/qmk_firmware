@@ -18,10 +18,8 @@ enum userspace_custom_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GAMING TG(_GAMING)
-#define OSMCTL OSM(MOD_LCTL)
-#define OSMSFT OSM(MOD_LSFT)
-#define OSMALT OSM(MOD_LALT)
-#define OSMGUI OSM(MOD_LGUI)
+#define LALTKCZ LALT_T(KC_Z)
+#define RALTSLH RALT_T(KC_SLSH)
 
 #define ESC_LWR LT(_LOWER, KC_ESC)
 #define BSC_RAS LT(_RAISE, KC_BSPC)

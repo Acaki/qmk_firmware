@@ -31,19 +31,19 @@ NOTE: These are all the same length.  If you do a search/replace
 */
 
 #define _________________QWERTY_L1_________________        KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-#define _________________QWERTY_L2_________________        OSMSFT,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G
-#define _________________QWERTY_L3_________________        KC_TAB,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define _________________QWERTY_LT_________________                                   OSMCTL,  KC_SPC,  LOWER 
+#define _________________QWERTY_L2_________________        KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G
+#define _________________QWERTY_L3_________________        KC_TAB,  LALTKCZ, KC_X,    KC_C,    KC_V,    KC_B
+#define _________________QWERTY_LT_________________                                   KC_LCTL, KC_SPC,  LOWER 
 
 #define _________________GAMING_L1_________________        KC_TAB,  KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
 #define _________________GAMING_L2_________________        KC_LSFT, KC_G,    KC_A,    KC_W,    KC_D,    KC_F
 #define _________________GAMING_L3_________________        KC_LCTL, KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
 #define _________________GAMING_LT_________________                                   KC_LALT, KC_SPC,  LOWER 
 
-#define _________________QWERTY_R1_________________        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL
-#define _________________QWERTY_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, OSMALT
-#define _________________QWERTY_R3_________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSMGUI
-#define _________________QWERTY_RT_________________        RAISE,   KC_ENT,  KC_BSPC
+#define _________________QWERTY_R1_________________        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC
+#define _________________QWERTY_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_RSFT
+#define _________________QWERTY_R3_________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  RALTSLH, KC_DEL
+#define _________________QWERTY_RT_________________        RAISE,   KC_ENT,  KC_RCTL
 
 #define ________________NUMBER_LEFT________________        _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5
 #define ________________NUMBER_RIGHT_______________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______
@@ -59,7 +59,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 
 #define _________________LOWER_L1__________________        ________________NUMBER_LEFT________________
-#define _________________LOWER_L2__________________        _______, KC_6,    KC_7,    ASFT,    ATAB,    GAMING
+#define _________________LOWER_L2__________________        OSM(MOD_LGUI), KC_6,    KC_7,    ASFT,    ATAB,    GAMING
 #define _________________LOWER_L3__________________        _________________FUNC_LEFT_________________
 
 #define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
