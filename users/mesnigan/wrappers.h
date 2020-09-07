@@ -63,12 +63,12 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_L3__________________        _________________FUNC_LEFT_________________
 
 #define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
-#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______
+#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_PIPE
 #define _________________LOWER_R3__________________        _________________FUNC_RIGHT________________
 
 #define _________________RAISE_L1__________________        KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
-#define _________________RAISE_L2__________________        KC_TILD, KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, KC_GRV
-#define _________________RAISE_L3__________________        _______, KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, KC_TILD
+#define _________________RAISE_L2__________________        KC_TILD, KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, _______
+#define _________________RAISE_L3__________________        _______, KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, _______
 
 #define _________________RAISE_R1__________________        KC_CIRC, KC_AMPR, KC_ASTR, _______, _______, _______
 #define _________________RAISE_R2__________________        KC_BSLS, KC_QUOT, KC_DQT,  KC_EQL,  KC_PLUS, _______
