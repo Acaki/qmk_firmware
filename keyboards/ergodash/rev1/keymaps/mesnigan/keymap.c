@@ -1,59 +1,59 @@
 #include "mesnigan.h"
 
 // clang-format off
-#define LAYOUT_kyria_base( \
+#define LAYOUT_ergodash_base( \
     K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, \
     K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, \
     K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, \
               K31, K32, K33, K34, K35, K36 \
   ) \
   LAYOUT_wrapper( \
-      KC_TAB,  K01,     K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_DEL, \
-      KC_LSFT, K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_RSFT, \
-      KC_GRV,  K21,     K22,     K23,     K24,     K25,    KC_LALT, _______,    _______,  KC_RALT,  K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-                                 KC_LGUI, K31,     K32,    K33,     KC_ESC,     KC_BSPC,  K34,      K35,     K36,     KC_RGUI \
+      _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,                                      _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______, \
+      KC_TAB,  K01,     K02,     K03,     K04,     K05,     KC_7,                                      _______, K06,     K07,     K08,     K09,     K0A,     KC_DEL,  \
+      KC_LSFT, K11,     K12,     K13,     K14,     K15,     KC_8,                                      _______, K16,     K17,     K18,     K19,     K1A,     KC_RSFT, \
+      KC_GRV,  K21,     K22,     K23,     K24,     K25,     KC_LALT,                                   KC_RALT, K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
+      _______, _______, KC_LGUI,          K31,     K32,     K33,     KC_ESC,                 KC_BSPC,  K34,     K35,     K36,     KC_RGUI,          _______, _______  \
     )
 /* Re-pass though to allow templates to be used */
-#define LAYOUT_kyria_base_wrapper(...)       LAYOUT_kyria_base(__VA_ARGS__)
-
+#define LAYOUT_ergodash_base_wrapper(...)       LAYOUT_ergodash_base(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-     [_QWERTY] = LAYOUT_kyria_base_wrapper(
+    [_QWERTY] = LAYOUT_ergodash_base_wrapper(
         _________________QWERTY_L1_________________, _________________QWERTY_R1_________________,
         _________________QWERTY_L2_________________, _________________QWERTY_R2_________________,
         _________________QWERTY_L3_________________, _________________QWERTY_R3_________________,
         _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
      ),
 
-    [_GAMING] = LAYOUT_kyria_base_wrapper(
+    [_GAMING] = LAYOUT_ergodash_base_wrapper(
         _________________GAMING_L1_________________, _________________QWERTY_R1_________________,
         _________________GAMING_L2_________________, _________________QWERTY_R2_________________,
         _________________GAMING_L3_________________, _________________QWERTY_R3_________________,
         _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
     ),
 
-    [_MOUSE] = LAYOUT_kyria_base_wrapper(
+    [_MOUSE] = LAYOUT_ergodash_base_wrapper(
         ___________________BLANK___________________, _________________MOUSE_R1__________________,
         ___________________BLANK___________________, _________________MOUSE_R2__________________,
         ___________________BLANK___________________, _________________MOUSE_R3__________________,
         _________________QWERTY_LT_________________, _________________MOUSE_RT__________________
     ),
 
-    [_LOWER] = LAYOUT_kyria_base_wrapper(
-        _________________LOWER_L1__________________, ________________NUMBER_RIGHT_______________,
+    [_LOWER] = LAYOUT_ergodash_base_wrapper(
+        _________________LOWER_L1__________________, _________________LOWER_R1__________________,
         _________________LOWER_L2__________________, _________________LOWER_R2__________________,
         _________________LOWER_L3__________________, _________________LOWER_R3__________________,
         _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
     ),
 
-    [_RAISE] = LAYOUT_kyria_base_wrapper(
+    [_RAISE] = LAYOUT_ergodash_base_wrapper(
         _________________RAISE_L1__________________, _________________RAISE_R1__________________,
         _________________RAISE_L2__________________, _________________RAISE_R2__________________,
         _________________RAISE_L3__________________, _________________RAISE_R3__________________,
         _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
     ),
 
-    [_ADJUST] = LAYOUT_kyria_base_wrapper(
+    [_ADJUST] = LAYOUT_ergodash_base_wrapper(
         _________________ADJUST_L1_________________, _________________ADJUST_R1_________________,
         _________________ADJUST_L2_________________, _________________ADJUST_R2_________________,
         _________________ADJUST_L3_________________, _________________ADJUST_R3_________________,

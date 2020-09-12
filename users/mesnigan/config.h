@@ -1,7 +1,10 @@
 #pragma once
 
+#ifndef TAPPING_TERM
+#    define TAPPING_TERM 150
+#endif
+
 #define FORCE_NKRO
-#define TAPPING_TERM 150
 #define TAP_CODE_DELAY 25
 #define ONESHOT_TAP_TOGGLE 2
 #define IGNORE_MOD_TAP_INTERRUPT

@@ -2,16 +2,16 @@
 
 // clang-format off
 #define LAYOUT_crkbd_base( \
-    K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K11, K12, \
-    K13, K14, K15, K16, K17, K18, K19, K1A, K21, K22, K23, K24, \
-    K25, K26, K27, K28, K29, K2A, K31, K32, K33, K34, K35, K36, \
-                   K37, K38, K39, K3A, K40, K41 \
+    K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, \
+    K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, \
+    K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, \
+              K31, K32, K33, K34, K35, K36 \
   ) \
   LAYOUT_wrapper( \
-      K01,    K02,     K03,     K04,     K05,     K06,                                             K07,     K08,     K09,     K0A,     K11,     K12, \
-      K13,    K14,     K15,     K16,     K17,     K18,                                             K19,     K1A,     K21,     K22,     K23,     K24, \
-      K25,    K26,     K27,     K28,     K29,     K2A,                                             K31,     K32,     K33,     K34,     K35,     K36, \
-                                         K37,     K38,     K39,                          K3A,      K40,     K41     \
+      KC_ESC,  K01,     K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_BSPC, \
+      KC_LSFT, K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_RSFT, \
+      KC_TAB,  LALT_T(K21),     K22,     K23,     K24,     K25,                            K26,     K27,     K28,     K29,     RALT_T(K2A),     RGUI_T(KC_DEL), \
+                                          K31,     K32,     K33,                          K34,      K35,     K36 \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_crkbd_base_wrapper(...)       LAYOUT_crkbd_base(__VA_ARGS__)
@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _________________GAMING_L1_________________, _________________QWERTY_R1_________________,
         _________________GAMING_L2_________________, _________________QWERTY_R2_________________,
         _________________GAMING_L3_________________, _________________QWERTY_R3_________________,
-        _________________GAMING_LT_________________, _________________QWERTY_RT_________________
+        _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
     ),
 
     [_MOUSE] = LAYOUT_crkbd_base_wrapper(
