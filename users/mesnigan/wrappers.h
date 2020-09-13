@@ -52,11 +52,11 @@ NOTE: These are all the same length.  If you do a search/replace
 
 
 #define _________________LOWER_L1__________________        ________________NUMBER_LEFT________________
-#define _________________LOWER_L2__________________        KC_F11,  _______, ASFT,    ATAB,    GAMING
+#define _________________LOWER_L2__________________        KC_6,    KC_7,    KC_8,     ATAB,    KC_F11
 #define _________________LOWER_L3__________________        _________________FUNC_LEFT_________________
 
 #define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
-#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12
+#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,  KC_F12
 #define _________________LOWER_R3__________________        _________________FUNC_RIGHT________________
 
 #define _________________RAISE_L1__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
@@ -68,7 +68,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_R3__________________        KC_PIPE, _______, _______, _______, _______
 
 #define _________________ADJUST_L1_________________        RSTROM,  _______, KC_HOME, RESET,   _______
-#define _________________ADJUST_L2_________________        _______, KC_PGUP, KC_END,  KC_PGDN, _______
+#define _________________ADJUST_L2_________________        _______, KC_PGUP, KC_END,  KC_PGDN, GAMING
 #define _________________ADJUST_L3_________________        ___________________BLANK___________________
 
 #define _________________ADJUST_R1_________________        ___________________BLANK___________________
