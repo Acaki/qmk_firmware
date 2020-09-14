@@ -35,7 +35,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________QWERTY_RT_________________        RAISE,   KC_ENT,  KC_RCTL
 
 #define _________________GAMING_L1_________________        KC_T,    KC_Q,    KC_W,    KC_E,    KC_R
-#define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
+#define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_S,    KC_D,    KC_F
 #define _________________GAMING_L3_________________        KC_B,    KC_Z,    KC_X,    KC_C,    KC_V
 
 #define ________________NUMBER_LEFT________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
