@@ -38,8 +38,8 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
 #define _________________GAMING_L3_________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
 
-#define ________________NUMBER_LEFT________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
-#define ________________NUMBER_RIGHT_______________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
+#define ________________NUMBER_LEFT________________        KC_5,    KC_3,    KC_1,    KC_2,    KC_4
+#define ________________NUMBER_RIGHT_______________        KC_8,    KC_6,    KC_0,    KC_7,    KC_9
 #define _________________FUNC_LEFT_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define _________________FUNC_RIGHT________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
 
@@ -51,21 +51,21 @@ NOTE: These are all the same length.  If you do a search/replace
 #define ___________________BLANK___________________        _______, _______, _______, _______, _______
 
 
-#define _________________LOWER_L1__________________        ________________NUMBER_LEFT________________
-#define _________________LOWER_L2__________________        KC_6,    KC_7,    KC_8,     ATAB,    KC_F11
+#define _________________LOWER_L1__________________        _______, ATAB,    _______, _______, _______
+#define _________________LOWER_L2__________________        ________________NUMBER_LEFT________________
 #define _________________LOWER_L3__________________        _________________FUNC_LEFT_________________
 
-#define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
-#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,  KC_F12
+#define _________________LOWER_R1__________________        _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+#define _________________LOWER_R2__________________        ________________NUMBER_RIGHT_______________
 #define _________________LOWER_R3__________________        _________________FUNC_RIGHT________________
 
-#define _________________RAISE_L1__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
+#define _________________RAISE_L1__________________        KC_PERC, KC_HASH, KC_EXLM, KC_AT,   KC_DLR
 #define _________________RAISE_L2__________________        KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, _______
 #define _________________RAISE_L3__________________        KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, _______
 
-#define _________________RAISE_R1__________________        KC_CIRC, KC_AMPR, KC_ASTR, _______, _______
-#define _________________RAISE_R2__________________        KC_BSLS, KC_QUOT, KC_DQT,  KC_EQL,  KC_PLUS
-#define _________________RAISE_R3__________________        KC_PIPE, _______, _______, _______, _______
+#define _________________RAISE_R1__________________        KC_ASTR, KC_CIRC, _______, KC_AMPR, _______
+#define _________________RAISE_R2__________________        _______, KC_QUOT, KC_DQT,  KC_EQL,  KC_PLUS
+#define _________________RAISE_R3__________________        _______, _______, _______, _______, _______
 
 #define _________________ADJUST_L1_________________        RSTROM,  _______, KC_HOME, RESET,   _______
 #define _________________ADJUST_L2_________________        _______, KC_PGUP, KC_END,  KC_PGDN, GAMING
