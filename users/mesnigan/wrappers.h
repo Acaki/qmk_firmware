@@ -51,12 +51,12 @@ NOTE: These are all the same length.  If you do a search/replace
 #define ___________________BLANK___________________        _______, _______, _______, _______, _______
 
 
-#define _________________LOWER_L1__________________        _______, ATAB,    _______, _______, _______
-#define _________________LOWER_L2__________________        ________________NUMBER_LEFT________________
+#define _________________LOWER_L1__________________        ________________NUMBER_LEFT________________
+#define _________________LOWER_L2__________________        KC_APP,  KC_CAPS, ASFT,    ATAB,    GAMING
 #define _________________LOWER_L3__________________        _________________FUNC_LEFT_________________
 
-#define _________________LOWER_R1__________________        _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-#define _________________LOWER_R2__________________        ________________NUMBER_RIGHT_______________
+#define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
+#define _________________LOWER_R2__________________        _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 #define _________________LOWER_R3__________________        _________________FUNC_RIGHT________________
 
 #define _________________RAISE_L1__________________        KC_PERC, KC_HASH, KC_EXLM, KC_AT,   KC_DLR
