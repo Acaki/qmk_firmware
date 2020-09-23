@@ -51,21 +51,21 @@ NOTE: These are all the same length.  If you do a search/replace
 #define ___________________BLANK___________________        _______, _______, _______, _______, _______
 
 
-#define _________________LOWER_L1__________________        ________________NUMBER_LEFT________________
-#define _________________LOWER_L2__________________        KC_APP,  KC_CAPS, ASFT,    ATAB,    GAMING
+#define _________________LOWER_L1__________________        _______, ATAB,    ASFT,    _______, _______
+#define _________________LOWER_L2__________________        ________________NUMBER_LEFT________________
 #define _________________LOWER_L3__________________        _________________FUNC_LEFT_________________
 
-#define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
-#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
+#define _________________LOWER_R1__________________        _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+#define _________________LOWER_R2__________________        ________________NUMBER_RIGHT_______________
 #define _________________LOWER_R3__________________        _________________FUNC_RIGHT________________
 
 #define _________________RAISE_L1__________________        KC_PERC, KC_AT,   KC_EXLM, KC_HASH, KC_DLR
-#define _________________RAISE_L2__________________        KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, _______
-#define _________________RAISE_L3__________________        KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, _______
+#define _________________RAISE_L2__________________        KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, KC_GRV
+#define _________________RAISE_L3__________________        KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, KC_TILD
 
 #define _________________RAISE_R1__________________        KC_ASTR, KC_AMPR, _______, KC_CIRC, _______
-#define _________________RAISE_R2__________________        _______, KC_QUOT, KC_DQT,  KC_EQL,  KC_PLUS
-#define _________________RAISE_R3__________________        _______, _______, _______, _______, _______
+#define _________________RAISE_R2__________________        KC_BSLS, KC_QUOT, KC_DQT,  KC_EQL,  KC_PLUS
+#define _________________RAISE_R3__________________        KC_PIPE, _______, _______, _______, _______
 
 #define _________________ADJUST_L1_________________        RSTROM,  _______, _______, RESET,   _______
 #define _________________ADJUST_L2_________________        _______, KC_PGUP, KC_HOME, KC_PGDN, GAMING

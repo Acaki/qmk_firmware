@@ -9,10 +9,10 @@
   ) \
   LAYOUT_wrapper( \
       _______, ________________NUMBER_LEFT________________, KC_8,                                      _______, ________________NUMBER_RIGHT_______________, _______, \
-      KC_ESC,  K01,     K02,     K03,     K04,     K05,     KC_6,                                      _______, K06,     K07,     K08,     K09,     K0A,     KC_BSPC, \
-      KC_LSFT, K11,     K12,     K13,     K14,     K15,     KC_7,                                      _______, K16,     K17,     K18,     K19,     K1A,     KC_RSFT, \
-      KC_GRV,  K21,     K22,     K23,     K24,     K25,     KC_LALT,                                   KC_RALT, K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-      _______, GAMING,  MOUSE,            K31,     K32,     K33,     KC_TAB,                 KC_DEL,   K34,     K35,     K36,     KC_RGUI,          _______, _______  \
+      KC_TAB,  K01,     K02,     K03,     K04,     K05,     KC_6,                                      _______, K06,     K07,     K08,     K09,     K0A,     KC_DEL, \
+      KC_ESC,  K11,     K12,     K13,     K14,     K15,     KC_7,                                      _______, K16,     K17,     K18,     K19,     K1A,     KC_BSPC, \
+      KC_LSFT, K21,     K22,     K23,     K24,     K25,     KC_LALT,                                   KC_RALT, K26,     K27,     K28,     K29,     K2A,     KC_RSFT, \
+      _______, GAMING,  MOUSE,            K31,     K32,     K33,     KC_CAPS,                KC_APP,   K34,     K35,     K36,     KC_RGUI,          _______, _______  \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_ergodash_base_wrapper(...)       LAYOUT_ergodash_base(__VA_ARGS__)
