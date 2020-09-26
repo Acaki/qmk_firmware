@@ -1,7 +1,8 @@
 #pragma once
 
-#ifndef TAPPING_TERM
-#    define TAPPING_TERM 150
+#ifdef TAPPING_TERM
+#    undef TAPPING_TERM
+#    define TAPPING_TERM 125
 #endif
 
 #define FORCE_NKRO
@@ -17,3 +18,4 @@
 #define QMK_KEYS_PER_SCAN 4
 #define USE_POLLING_INTERVAL_MS 1
 #define HOLD_ON_OTHER_KEY_PRESS
+#define RETRO_TAPPING
