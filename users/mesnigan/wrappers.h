@@ -34,10 +34,6 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________QWERTY_R3_________________                 KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 #define _________________QWERTY_RT_________________        LT(_RAISE, KC_ENT), KC_BSPC, KC_RCTL
 
-#define _________________GAMING_L1_________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
-#define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
-#define _________________GAMING_L3_________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
-
 #define ________________NUMBER_LEFT________________        KC_5,    KC_2,    KC_1,    KC_3,    KC_4
 #define ________________NUMBER_RIGHT_______________        KC_8,    KC_7,    KC_0,    KC_6,    KC_9
 #define _________________FUNC_LEFT_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
@@ -68,7 +64,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_R3__________________        _________________FUNC_RIGHT________________
 
 #define _________________ADJUST_L1_________________        RSTROM,  _______, _______, RESET,   _______
-#define _________________ADJUST_L2_________________        _______, KC_PGUP, KC_HOME, KC_PGDN, GAMING
+#define _________________ADJUST_L2_________________        _______, KC_PGUP, KC_HOME, KC_PGDN, _______
 #define _________________ADJUST_L3_________________        _______, _______, KC_END,  _______, _______
 
 #define _________________ADJUST_R1_________________        ___________________BLANK___________________
