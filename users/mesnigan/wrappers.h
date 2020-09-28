@@ -52,16 +52,16 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_L3__________________        _________________FUNC_LEFT_________________
 
 #define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
-#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN
-#define _________________LOWER_R3__________________        _______, _______, KC_LABK, KC_RABK, KC_QUES
+#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
+#define _________________LOWER_R3__________________        _________________FUNC_RIGHT________________
 
 #define _________________RAISE_L1__________________        KC_PERC, KC_AT,   KC_EXLM, KC_HASH, KC_DLR
-#define _________________RAISE_L2__________________        KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, _______
-#define _________________RAISE_L3__________________        KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, _______
+#define _________________RAISE_L2__________________        KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, KC_EQL
+#define _________________RAISE_L3__________________        KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, KC_PLUS
 
 #define _________________RAISE_R1__________________        KC_ASTR, KC_AMPR, _______, KC_CIRC, _______
-#define _________________RAISE_R2__________________        _______, KC_QUOT, KC_DQT,  KC_EQL,  KC_PLUS
-#define _________________RAISE_R3__________________        _________________FUNC_RIGHT________________
+#define _________________RAISE_R2__________________        _______, KC_QUOT, KC_DQT,  _______, _______
+#define _________________RAISE_R3__________________        ___________________BLANK___________________
 
 #define _________________ADJUST_L1_________________        RSTROM,  _______, _______, RESET,   _______
 #define _________________ADJUST_L2_________________        _______, KC_PGUP, KC_HOME, KC_PGDN, _______
