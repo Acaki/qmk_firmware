@@ -48,11 +48,11 @@ NOTE: These are all the same length.  If you do a search/replace
 
 
 #define _________________LOWER_L1__________________        ________________NUMBER_LEFT________________
-#define _________________LOWER_L2__________________        _______, KC_CAPS, ASFT,    ATAB,    _______
+#define _________________LOWER_L2__________________        KC_F11,  KC_CAPS, ASFT,    ATAB,    _______
 #define _________________LOWER_L3__________________        _________________FUNC_LEFT_________________
 
 #define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
-#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
+#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12
 #define _________________LOWER_R3__________________        _________________FUNC_RIGHT________________
 
 #define _________________RAISE_L1__________________        KC_PERC, KC_AT,   KC_EXLM, KC_HASH, KC_DLR
