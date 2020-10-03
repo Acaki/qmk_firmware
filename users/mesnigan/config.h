@@ -6,7 +6,7 @@
 #endif
 
 #define FORCE_NKRO
-#define TAP_CODE_DELAY 25
+#define TAP_CODE_DELAY 50
 #define ONESHOT_TAP_TOGGLE 2
 
 #define EE_HANDS
