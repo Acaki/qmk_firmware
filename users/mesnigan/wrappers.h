@@ -39,9 +39,9 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________FUNC_LEFT_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define _________________FUNC_RIGHT________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
 
-#define _________________MOUSE_R1__________________                 _______, KC_WH_D, _______, KC_WH_U, KC_BTN4
-#define _________________MOUSE_R2__________________                 _______, KC_MS_L, KC_MS_U, KC_MS_R, KC_BTN5
-#define _________________MOUSE_R3__________________                 _______, KC_WH_L, KC_MS_D, KC_WH_R, _______
+#define _________________MOUSE_R1__________________                 _______, KC_WH_D, KC_MS_U, KC_WH_U, KC_BTN4
+#define _________________MOUSE_R2__________________                 _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5
+#define _________________MOUSE_R3__________________                 _______, KC_WH_L, _______, KC_WH_R, _______
 #define _________________MOUSE_RT__________________        KC_BTN3, KC_BTN1, KC_BTN2
 
 #define ___________________BLANK___________________        _______, _______, _______, _______, _______
