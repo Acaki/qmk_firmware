@@ -36,6 +36,11 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define ________________NUMBER_LEFT________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
 #define ________________NUMBER_RIGHT_______________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
+
+#define _________________GAMING_L1_________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
+#define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
+#define _________________GAMING_L3_________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
+
 #define _________________FUNC_LEFT_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define _________________FUNC_RIGHT________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
 
