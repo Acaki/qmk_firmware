@@ -68,12 +68,12 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_R2__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
 #define _________________RAISE_R3__________________        ___________________BLANK___________________
 
-#define _________________ADJUST_L1_________________        RSTROM,  _______, KC_HOME, RESET,   _______
+#define _________________ADJUST_L1_________________        RSTROM,  WINDOWS, KC_HOME, RESET,   _______
 #define _________________ADJUST_L2_________________        _______, KC_PGUP, KC_END,  KC_PGDN, _______
 #define _________________ADJUST_L3_________________        _______, _______, _______, _______, _______
 
 #define _________________ADJUST_R1_________________        _______, _______, KC_INS,  _______, KC_PSCR
 #define _________________ADJUST_R2_________________        ___________________BLANK___________________
-#define _________________ADJUST_R3_________________        ___________________BLANK___________________
+#define _________________ADJUST_R3_________________        _______, MACOS,   _______, _______, _______
 
 // clang-format on

@@ -20,6 +20,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_mods(MOD_LSFT);
             }
             return false;
+        case WINDOWS:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+        case MACOS:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY_MAC);
+            }
+            return false;
     }
     return true;
 }

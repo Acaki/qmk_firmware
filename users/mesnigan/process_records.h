@@ -11,6 +11,8 @@ enum userspace_custom_keycodes {
     ATAB = PLACEHOLDER_SAFE_RANGE,
     ASFT,
     RSTROM,
+    WINDOWS,
+    MACOS,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 
@@ -20,6 +22,3 @@ enum userspace_custom_keycodes {
 #define GAMING TG(_GAMING)
 #define LALTKCZ LALT_T(KC_Z)
 #define RALTSLH RALT_T(KC_SLSH)
-
-#define ESC_LWR LT(_LOWER, KC_ESC)
-#define BSC_RAS LT(_RAISE, KC_BSPC)
