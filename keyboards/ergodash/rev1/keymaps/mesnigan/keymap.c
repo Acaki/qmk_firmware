@@ -12,7 +12,7 @@
       KC_TAB,  K01,     K02,     K03,     K04,     K05,     KC_7,                                      _______, K06,     K07,     K08,     K09,     K0A,     KC_DEL,  \
       KC_LSFT, K11,     K12,     K13,     K14,     K15,     KC_8,                                      _______, K16,     K17,     K18,     K19,     K1A,     KC_RSFT, \
       KC_GRV,  K21,     K22,     K23,     K24,     K25,     KC_LALT,                                   KC_RALT, K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-      _______, GAMING,  KC_LGUI,          K31,     K32,     K33,     MOUSE,                  KC_APP,   K34,     K35,     K36,     KC_RGUI,          _______, _______  \
+      _______, GAMING,  MOUSE,            K31,     K32,     K33,     KC_LGUI,                 KC_RGUI, K34,     K35,     K36,     KC_APP,           _______, _______  \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_ergodash_base_wrapper(...)       LAYOUT_ergodash_base(__VA_ARGS__)
@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, ___________________BLANK___________________, _______,                           _______, ___________________BLANK___________________, _______,
         _______, ___________________BLANK___________________, _______,                           _______, ___________________BLANK___________________, _______,
         _______, ___________________BLANK___________________, KC_LCTL,                           KC_RCTL, _______, _______, _______, _______, _______, _______,
-        _______, _______, KC_LALT, KC_LGUI, KC_SPC, LT(_LOWER, KC_ESC), MOUSE,         KC_APP, LT(_RAISE, KC_ENT), KC_BSPC, KC_RGUI, KC_RALT, _______, _______
+        _______, _______, _______,          KC_LGUI, _______, _______, KC_LALT,         KC_RALT, _______, _______, KC_RGUI, _______, _______, _______
     ),
 
     [_GAMING] = LAYOUT_ergodash_base_wrapper(
