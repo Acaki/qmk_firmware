@@ -22,3 +22,24 @@ enum userspace_custom_keycodes {
 #define GAMING TG(_GAMING)
 #define LALTKCZ LALT_T(KC_Z)
 #define RALTSLH RALT_T(KC_SLSH)
+// Left-hand home row mods
+#define WIN_A LGUI_T(KC_A)
+#define WIN_S LALT_T(KC_S)
+#define WIN_D LSFT_T(KC_D)
+#define WIN_F LCTL_T(KC_F)
+
+#define MAC_A LALT_T(KC_A)
+#define MAC_S LCTL_T(KC_S)
+#define MAC_D LSFT_T(KC_D)
+#define MAC_F LGUI_T(KC_F)
+
+// Right-hand home row mods
+#define WIN_J RCTL_T(KC_J)
+#define WIN_K RSFT_T(KC_K)
+#define WIN_L LALT_T(KC_L)
+#define WIN_SCLN RGUI_T(KC_SCLN)
+
+#define MAC_J RGUI_T(KC_J)
+#define MAC_K RSFT_T(KC_K)
+#define MAC_L RCTL_T(KC_L)
+#define MAC_SCLN LALT_T(KC_SCLN)
