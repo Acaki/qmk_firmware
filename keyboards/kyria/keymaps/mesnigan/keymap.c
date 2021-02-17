@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
      ),
 
-    [_QWERTY_MAC] = LAYOUT_ergodash_base_wrapper(
+    [_QWERTY_MAC] = LAYOUT_kyria_base_wrapper(
         ___________________BLANK___________________, ___________________BLANK___________________,
         _______________QWERTY_MAC_L2_______________, _______________QWERTY_MAC_R2_______________,
         ___________________BLANK___________________, ___________________BLANK___________________,
