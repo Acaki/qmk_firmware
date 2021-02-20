@@ -11,7 +11,7 @@
       KC_CAPS, K01,     K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_DEL,  \
       KC_TAB,  K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,     K22,     K23,     K24,     K25,    KC_LALT, _______,    _______,  KC_RALT,  K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-                                 MOUSE,   K31,     K32,    K33,     KC_LGUI,    KC_RGUI,  K34,      K35,     K36,     KC_APP \
+                                 MOUSE,   K31,     K32,    K33,     KC_LGUI,    KC_RGUI,  K34,      K35,     K36,     KC_MPLY \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_kyria_base_wrapper(...)       LAYOUT_kyria_base(__VA_ARGS__)
@@ -154,10 +154,21 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_WH_D);
         }
     } else if (index == 1) { /* Second encoder */
-        if (clockwise) {
-            tap_code(KC_VOLD);
-        } else {
-            tap_code(KC_VOLU);
+        switch (get_highest_layer(layer_state)) {
+            case _LOWER:
+                if (clockwise) {
+                    tap_code(KC_MPRV);
+                } else {
+                    tap_code(KC_MNXT);
+                }
+                break;
+            default:
+                if (clockwise) {
+                    tap_code(KC_VOLD);
+                } else {
+                    tap_code(KC_VOLU);
+                }
+                break;
         }
     }
 }
