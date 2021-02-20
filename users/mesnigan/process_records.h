@@ -10,6 +10,7 @@
 enum userspace_custom_keycodes {
     ATAB = PLACEHOLDER_SAFE_RANGE,
     ASFT,
+    ATAB_ONE,
     RSTROM,
     WINDOWS,
     MACOS,

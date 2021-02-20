@@ -26,3 +26,7 @@ enum userspace_layers { _QWERTY = 0, _QWERTY_MAC, _GAMING, _MOUSE, _LOWER, _RAIS
 
 void release_alt(void);
 void register_alt(void);
+
+bool is_alt_tab_active;
+uint16_t alt_tab_timer;
+

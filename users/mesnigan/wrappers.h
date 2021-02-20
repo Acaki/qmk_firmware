@@ -28,7 +28,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________QWERTY_L2_________________        WIN_A,   WIN_S,   WIN_D,   WIN_F,   KC_G
 #define _______________QWERTY_MAC_L2_______________        MAC_A,   MAC_S,   MAC_D,   MAC_F,   KC_G
 #define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define _________________QWERTY_LT_________________                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC)
+#define _________________QWERTY_LT_________________                                   MOUSE,   KC_SPC,  LT(_LOWER, KC_ESC)
 
 #define _________________QWERTY_R1_________________                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define _________________QWERTY_R2_________________                            KC_H,    WIN_J,   WIN_K,   WIN_L,   WIN_SCLN

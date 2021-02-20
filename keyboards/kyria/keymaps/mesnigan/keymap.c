@@ -11,7 +11,7 @@
       KC_CAPS, K01,     K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_DEL,  \
       KC_TAB,  K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,     K22,     K23,     K24,     K25,    KC_LALT, _______,    _______,  KC_RALT,  K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-                                 MOUSE,   K31,     K32,    K33,     KC_LGUI,    KC_RGUI,  K34,      K35,     K36,     KC_MPLY \
+                                 ATAB_ONE,K31,     K32,    K33,     KC_LGUI,    KC_RGUI,  K34,      K35,     K36,     KC_MPLY \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_kyria_base_wrapper(...)       LAYOUT_kyria_base(__VA_ARGS__)
@@ -32,11 +32,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
     ),
 
-    [_GAMING] = LAYOUT_kyria_base_wrapper(
-        _________________GAMING_L1_________________, ___________________BLANK___________________,
-        _________________GAMING_L2_________________, ___________________BLANK___________________,
-        _________________GAMING_L3_________________, ___________________BLANK___________________,
-        _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
+    [_GAMING] = LAYOUT_wrapper(
+        KC_TAB,  _________________GAMING_L1_________________,                                       ___________________BLANK___________________, _______,
+        KC_LSFT, _________________GAMING_L2_________________,                                       ___________________BLANK___________________, _______,
+        _______, _________________GAMING_L3_________________, _______, _______,   _______, _______, ___________________BLANK___________________, _______,
+                                   _______, KC_LCTL, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
 
     [_MOUSE] = LAYOUT_kyria_base_wrapper(
@@ -145,31 +145,3 @@ void oled_task_user(void) {
 }
 #endif
 
-#ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) { /* First encoder */
-        if (clockwise) {
-            tap_code(KC_WH_U);
-        } else {
-            tap_code(KC_WH_D);
-        }
-    } else if (index == 1) { /* Second encoder */
-        switch (get_highest_layer(layer_state)) {
-            case _LOWER:
-                if (clockwise) {
-                    tap_code(KC_MPRV);
-                } else {
-                    tap_code(KC_MNXT);
-                }
-                break;
-            default:
-                if (clockwise) {
-                    tap_code(KC_VOLD);
-                } else {
-                    tap_code(KC_VOLU);
-                }
-                break;
-        }
-    }
-}
-#endif
