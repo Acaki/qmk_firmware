@@ -41,7 +41,7 @@ uint16_t alt_tab_timer = 0;
 
 void matrix_scan_user(void) {
     if (is_alt_tab_active) {
-        if (timer_elapsed(alt_tab_timer) > 500) {
+        if (timer_elapsed(alt_tab_timer) > 750) {
             if (default_layer_state > 1) {
                 unregister_code(KC_LGUI);
             } else {
