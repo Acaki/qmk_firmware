@@ -60,19 +60,19 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________LOWER_R1__________________        _________________FUNC_RIGHT________________
 #define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12
-#define _________________LOWER_R3__________________        KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
+#define _________________LOWER_R3__________________        KC_CIRC, KC_AMPR, KC_ASTR, _______, _______
 
 #define _________________RAISE_L1__________________        ________________NUMBER_LEFT________________
-#define _________________RAISE_L2__________________        KC_LCBR, KC_LBRC, KC_EQL,  KC_UNDS, _______
-#define _________________RAISE_L3__________________        KC_RCBR, KC_RBRC, KC_PLUS, KC_MINS, _______
+#define _________________RAISE_L2__________________        KC_LBRC, KC_LPRN, KC_DQT,  KC_UNDS, KC_LCBR
+#define _________________RAISE_L3__________________        KC_RBRC, KC_RPRN, KC_QUOT, KC_MINS, KC_RCBR
 
 #define _________________RAISE_R1__________________        ________________NUMBER_RIGHT_______________
 #define _________________RAISE_R2__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
 #define _________________RAISE_R3__________________        ___________________BLANK___________________
 
 #define _________________ADJUST_L1_________________        RSTROM,  WINDOWS, _______, RESET,   _______
-#define _________________ADJUST_L2_________________        _______, _______, _______, _______, _______
-#define _________________ADJUST_L3_________________        _______, _______, _______, _______, _______
+#define _________________ADJUST_L2_________________        ___________________BLANK___________________
+#define _________________ADJUST_L3_________________        ___________________BLANK___________________
 
 #define _________________ADJUST_R1_________________        _______, _______, _______, _______, KC_PSCR
 #define _________________ADJUST_R2_________________        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS

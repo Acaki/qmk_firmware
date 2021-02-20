@@ -15,9 +15,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case ASFT:
             if (record->event.pressed) {
                 register_alt();
-                register_mods(MOD_LSFT);
+                register_code(KC_LSFT);
             } else {
-                unregister_mods(MOD_LSFT);
+                unregister_code(KC_LSFT);
             }
             return false;
         case ATAB_ONE:
