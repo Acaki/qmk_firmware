@@ -20,22 +20,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_LSFT);
             }
             return false;
-        case ATAB_ONE:
-            if (record->event.pressed) {
-                if (!is_alt_tab_active) {
-                    is_alt_tab_active = true;
-                    if (default_layer_state > 1) {
-                        register_code(KC_LGUI);
-                    } else {
-                        register_code(KC_LALT);
-                    }
-                }
-                alt_tab_timer = timer_read();
-                register_code(KC_TAB);
-            } else {
-                unregister_code(KC_TAB);
-            }
-            return false;
         case WINDOWS:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_QWERTY);
