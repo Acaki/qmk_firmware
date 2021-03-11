@@ -1,6 +1,7 @@
 #include "mesnigan.h"
 
 static bool is_alt_set = false;
+static bool is_ctrl_set = false;
 
 void release_alt(void) {
     int kc  = KC_LALT;
@@ -26,10 +27,29 @@ void register_alt(void) {
     }
 }
 
+void release_ctrl(void) {
+    int kc  = KC_LCTL;
+    bool is_ctrl_on = get_mods() & MOD_BIT(kc);
+    if (is_ctrl_set && is_ctrl_on) {
+        unregister_code(kc);
+        is_ctrl_set = false;
+    }
+};
+
+void register_ctrl(void) {
+    int kc  = KC_LCTL;
+    bool is_ctrl_on = get_mods() & MOD_BIT(kc);
+    if (!is_ctrl_on) {
+        register_code(kc);
+        is_ctrl_set = true;
+    }
+}
+
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         default:
             release_alt();
+            release_ctrl();
             break;
     }
 

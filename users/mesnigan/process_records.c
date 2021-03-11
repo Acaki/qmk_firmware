@@ -5,6 +5,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case RSTROM:
             eeconfig_init();
             return false;
+        case CTAB:
+            if (record->event.pressed) {
+                register_ctrl();
+                register_code(KC_TAB);
+                unregister_code(KC_TAB);
+            }
+            return false;
         case ATAB:
             if (record->event.pressed) {
                 register_alt();

@@ -55,7 +55,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
-#define _________________LOWER_L2__________________        KC_F11,  _______, ASFT,    ATAB,    _______
+#define _________________LOWER_L2__________________        KC_F11,  CTAB,    ASFT,    ATAB,    _______
 #define _________________LOWER_L3__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
 
 #define _________________LOWER_R1__________________        _________________FUNC_RIGHT________________

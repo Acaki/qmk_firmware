@@ -10,6 +10,7 @@
 enum userspace_custom_keycodes {
     ATAB = PLACEHOLDER_SAFE_RANGE,
     ASFT,
+    CTAB,
     RSTROM,
     WINDOWS,
     MACOS,
@@ -20,8 +21,6 @@ enum userspace_custom_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GAMING TG(_GAMING)
-#define LALTKCZ LALT_T(KC_Z)
-#define RALTSLH RALT_T(KC_SLSH)
 // Left-hand home row mods
 #define WIN_A LGUI_T(KC_A)
 #define WIN_S LALT_T(KC_S)
