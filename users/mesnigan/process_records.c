@@ -53,3 +53,14 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
+
+bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LGUI, KC_A):
+            return true;
+        case MT(MOD_RGUI, KC_SCLN):
+            return true;
+        default:
+            return false;
+    }
+}
