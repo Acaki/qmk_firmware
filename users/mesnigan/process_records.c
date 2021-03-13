@@ -53,3 +53,18 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case WIN_A:
+            return TAPPING_TERM + 150;
+        case WIN_SCLN:
+            return TAPPING_TERM + 150;
+        case WIN_D:
+            return TAPPING_TERM - 25;
+        case WIN_K:
+            return TAPPING_TERM - 25;
+        default:
+            return TAPPING_TERM;
+    }
+}

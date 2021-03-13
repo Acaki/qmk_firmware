@@ -5,6 +5,7 @@
 #    define TAPPING_TERM 150
 #endif
 
+#define TAPPING_TERM_PER_KEY
 #define FORCE_NKRO
 #define TAP_CODE_DELAY 50
 #define ONESHOT_TAP_TOGGLE 2
