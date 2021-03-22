@@ -73,3 +73,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     }
 }
 #endif
+
+#ifdef CONSOLE_ENABLE
+#include "print.h"
+#endif
