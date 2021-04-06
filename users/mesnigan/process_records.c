@@ -1,11 +1,11 @@
 #include "mesnigan.h"
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    #ifdef CONSOLE_ENABLE
-        if (record->event.pressed) {
-                uprintf("0x%04X,%u,%u,%u\n", keycode, record->event.key.row, record->event.key.col, get_highest_layer(layer_state));
-            }
-    #endif
+#ifdef CONSOLE_ENABLE
+    if (record->event.pressed) {
+        uprintf("0x%04X,%u,%u,%u\n", keycode, record->event.key.row, record->event.key.col, get_highest_layer(layer_state));
+    }
+#endif
     switch (keycode) {
         case RSTROM:
             eeconfig_init();
@@ -26,20 +26,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case ASFT:
             if (record->event.pressed) {
-                register_alt();
+                register_code(KC_LALT);
                 register_code(KC_LSFT);
             } else {
+                unregister_code(KC_LALT);
                 unregister_code(KC_LSFT);
             }
             return false;
-        case WINDOWS:
+        case TOG_OS:
             if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
-        case MACOS:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY_MAC);
+                if (default_layer_state > 1) {
+                    set_single_persistent_default_layer(_QWERTY);
+                } else {
+                    set_single_persistent_default_layer(_QWERTY_MAC);
+                }
             }
             return false;
     }

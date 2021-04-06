@@ -12,8 +12,7 @@ enum userspace_custom_keycodes {
     ASFT,
     CTAB,
     RSTROM,
-    WINDOWS,
-    MACOS,
+    TOG_OS,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 
