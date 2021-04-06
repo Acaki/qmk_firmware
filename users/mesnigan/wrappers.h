@@ -26,13 +26,13 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________QWERTY_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________        WIN_A,   WIN_S,   WIN_D,   WIN_F,   KC_G
-#define _______________QWERTY_MAC_L2_______________        MAC_A,   MAC_S,   MAC_D,   MAC_F,   KC_G
+#define _______________QWERTY_MAC_L2_______________        MAC_A,   _______, _______, MAC_F,   KC_G
 #define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
 #define _________________QWERTY_LT_________________                                   LT(_MOUSE, KC_TAB), KC_SPC, LT(_LOWER, KC_ESC)
 
 #define _________________QWERTY_R1_________________                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define _________________QWERTY_R2_________________                            KC_H,    WIN_J,   WIN_K,   WIN_L,   WIN_SCLN
-#define _______________QWERTY_MAC_R2_______________                            KC_H,    MAC_J,   MAC_K,   MAC_L,   MAC_SCLN
+#define _______________QWERTY_MAC_R2_______________                            KC_H,    MAC_J,   _______, _______, MAC_SCLN
 #define _________________QWERTY_R3_________________                            KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 #define _________________QWERTY_RT_________________        LT(_RAISE, KC_ENT), KC_BSPC, KC_DEL
 

@@ -24,11 +24,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Define layer names */
 enum userspace_layers { _QWERTY = 0, _QWERTY_MAC, _GAMING, _MOUSE, _LOWER, _RAISE, _ADJUST };
 
-void release_alt(void);
-void register_alt(void);
-void release_ctrl(void);
-void register_ctrl(void);
-
-bool is_alt_tab_active;
-uint16_t alt_tab_timer;
-

@@ -10,20 +10,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case RSTROM:
             eeconfig_init();
             return false;
-        case CTAB:
-            if (record->event.pressed) {
-                register_ctrl();
-                register_code(KC_TAB);
-                unregister_code(KC_TAB);
-            }
-            return false;
-        case ATAB:
-            if (record->event.pressed) {
-                register_alt();
-                register_code(KC_TAB);
-                unregister_code(KC_TAB);
-            }
-            return false;
         case ASFT:
             if (record->event.pressed) {
                 register_code(KC_LALT);
@@ -61,13 +47,13 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case WIN_A:
+        case LGUI_T(KC_A):
             return TAPPING_TERM + 150;
-        case WIN_SCLN:
+        case RGUI_T(KC_SCLN):
             return TAPPING_TERM + 150;
-        case WIN_D:
+        case LSFT_T(KC_D):
             return TAPPING_TERM - 25;
-        case WIN_K:
+        case RSFT_T(KC_K):
             return TAPPING_TERM - 25;
         default:
             return TAPPING_TERM;
