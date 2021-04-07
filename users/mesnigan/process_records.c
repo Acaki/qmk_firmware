@@ -19,15 +19,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_LSFT);
             }
             return false;
-        case TOG_OS:
-            if (record->event.pressed) {
-                if (default_layer_state > 1) {
-                    set_single_persistent_default_layer(_QWERTY);
-                } else {
-                    set_single_persistent_default_layer(_QWERTY_MAC);
-                }
-            }
-            return false;
     }
     return true;
 }

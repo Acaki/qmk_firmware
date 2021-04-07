@@ -25,14 +25,12 @@ NOTE: These are all the same length.  If you do a search/replace
 */
 
 #define _________________QWERTY_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-#define _________________QWERTY_L2_________________        WIN_A,   WIN_S,   WIN_D,   WIN_F,   KC_G
-#define _______________QWERTY_MAC_L2_______________        MAC_A,   _______, _______, MAC_F,   KC_G
+#define _________________QWERTY_L2_________________        HOME_L4, HOME_L3, HOME_L2, HOME_L1, KC_G
 #define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
 #define _________________QWERTY_LT_________________                                   LT(_MOUSE, KC_ESC), KC_SPC, LT(_LOWER, KC_TAB)
 
 #define _________________QWERTY_R1_________________                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define _________________QWERTY_R2_________________                            KC_H,    WIN_J,   WIN_K,   WIN_L,   WIN_SCLN
-#define _______________QWERTY_MAC_R2_______________                            KC_H,    MAC_J,   _______, _______, MAC_SCLN
+#define _________________QWERTY_R2_________________                            KC_H,    HOME_R1, HOME_R2, HOME_R3, HOME_R4
 #define _________________QWERTY_R3_________________                            KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 #define _________________QWERTY_RT_________________        LT(_RAISE, KC_ENT), KC_BSPC, KC_DEL
 
@@ -63,7 +61,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_R3__________________        KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
 
 #define _________________RAISE_L1__________________        ________________NUMBER_LEFT________________
-#define _________________RAISE_L2__________________        KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, KC_PLUS
+#define _________________RAISE_L2__________________        KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, _______
 #define _________________RAISE_L3__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
 
 #define _________________RAISE_R1__________________        ________________NUMBER_RIGHT_______________
