@@ -12,7 +12,7 @@
       KC_CAPS, K01,     K02,     K03,     K04,     K05,     KC_7,                                      _______, K06,     K07,     K08,     K09,     K0A,     KC_EQL,  \
       KC_MINS, K11,     K12,     K13,     K14,     K15,     KC_8,                                      _______, K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,     K22,     K23,     K24,     K25,     KC_F13,                                    KC_F14,  K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-      _______, KC_APP,  GAMING,           K31,     K32,     K33,     ASFT,                 TOG_OS,     K34,     K35,     K36,     KC_MPLY,          _______, _______  \
+      _______, KC_APP,  GAMING,           K31,     K32,     K33,     TOG_IME,              TOG_OS,     K34,     K35,     K36,     KC_MPLY,          _______, _______  \
     )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_ergodash_base_wrapper(...)       LAYOUT_ergodash_base(__VA_ARGS__)

@@ -10,7 +10,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case RSTROM:
             eeconfig_init();
             return false;
-        case ASFT:
+        case TOG_IME:
             if (record->event.pressed) {
                 register_code(KC_LALT);
                 register_code(KC_LSFT);

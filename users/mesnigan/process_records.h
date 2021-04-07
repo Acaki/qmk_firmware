@@ -8,7 +8,7 @@
 #endif
 
 enum userspace_custom_keycodes {
-    ASFT = PLACEHOLDER_SAFE_RANGE,
+    TOG_IME = PLACEHOLDER_SAFE_RANGE,
     CTAB,
     RSTROM,
     TOG_OS,
