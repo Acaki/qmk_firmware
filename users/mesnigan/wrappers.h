@@ -63,6 +63,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_L1__________________        ________________NUMBER_LEFT________________
 #define _________________RAISE_L2__________________        KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, _______
 #define _________________RAISE_L3__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
+#define _________________RAISE_LT__________________                          _______, KC_LPRN, KC_RPRN
 
 #define _________________RAISE_R1__________________        ________________NUMBER_RIGHT_______________
 #define _________________RAISE_R2__________________        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS
