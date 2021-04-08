@@ -18,16 +18,13 @@ enum userspace_custom_keycodes {
 #define RAISE MO(_RAISE)
 #define GAMING TG(_GAMING)
 // Left-hand home row mods
-#define HOME_L4 LGUI_T(KC_A)
-#define HOME_L3 LALT_T(KC_S)
-#define HOME_L2 LSFT_T(KC_D)
 #define HOME_L1 LCTL_T(KC_F)
+#define HOME_L2 LSFT_T(KC_D)
+#define HOME_L3 LGUI_T(KC_S)
+#define HOME_L4 LALT_T(KC_A)
 
 // Right-hand home row mods
 #define HOME_R1 RCTL_T(KC_J)
 #define HOME_R2 RSFT_T(KC_K)
-#define HOME_R3 LALT_T(KC_L)
-#define HOME_R4 RGUI_T(KC_SCLN)
-
-#define MAC_J RGUI_T(KC_J)
-#define MAC_SCLN LCTL_T(KC_SCLN)
+#define HOME_R3 RGUI_T(KC_L)
+#define HOME_R4 LALT_T(KC_SCLN)
