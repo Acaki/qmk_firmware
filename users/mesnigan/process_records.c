@@ -48,9 +48,9 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LSFT_T(KC_D):
-            return TAPPING_TERM - 25;
+            return TAPPING_TERM - 15;
         case RSFT_T(KC_K):
-            return TAPPING_TERM - 25;
+            return TAPPING_TERM - 15;
         default:
             return TAPPING_TERM;
     }

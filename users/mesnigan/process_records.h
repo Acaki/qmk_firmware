@@ -25,7 +25,7 @@ enum userspace_custom_keycodes {
 #define WIN_F LCTL_T(KC_F)
 
 #define MAC_A LALT_T(KC_A)
-#define MAC_S LCTL_T(KC_A)
+#define MAC_S LCTL_T(KC_S)
 #define MAC_F LGUI_T(KC_F)
 
 // Right-hand home row mods
@@ -35,5 +35,5 @@ enum userspace_custom_keycodes {
 #define WIN_SCLN RGUI_T(KC_SCLN)
 
 #define MAC_J RGUI_T(KC_J)
-#define MAC_L RCTL_T(KC_J)
+#define MAC_L RCTL_T(KC_L)
 #define MAC_SCLN RALT_T(KC_SCLN)
