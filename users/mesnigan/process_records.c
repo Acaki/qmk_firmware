@@ -16,7 +16,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(_LOWER, KC_ESC):
+        case LT(_LOWER, KC_TAB):
             // Immediately select the hold action when another key is pressed.
             return true;
         case LT(_RAISE, KC_ENT):
@@ -29,6 +29,10 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LGUI_T(KC_A):
+            return TAPPING_TERM + 50;
+        case RGUI_T(KC_SCLN):
+            return TAPPING_TERM + 50;
         case LSFT_T(KC_D):
             return TAPPING_TERM - 15;
         case RSFT_T(KC_K):
