@@ -10,8 +10,8 @@
   LAYOUT_wrapper( \
       KC_CAPS, K01,     K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_EQL,  \
       KC_MINS, K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
-      KC_GRV,  K21,     K22,     K23,     K24,     K25,    KC_F13,  _______,    _______,  KC_F14,   K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-                                 GAMING,  K31,     K32,    K33,     _______,    _______,  K34,      K35,     K36,     KC_MPLY \
+      KC_GRV,  K21,     K22,     K23,     K24,     K25,    _______, _______,    _______,  _______,  K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
+                                 _______, K31,     K32,    K33,     _______,    _______,  K34,      K35,     K36,     _______ \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_kyria_base_wrapper(...)       LAYOUT_kyria_base(__VA_ARGS__)
@@ -27,8 +27,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_GAMING] = LAYOUT_wrapper(
         KC_ESC,  _________________GAMING_L1_________________,                                       ___________________BLANK___________________, _______,
         KC_LSFT, _________________GAMING_L2_________________,                                       ___________________BLANK___________________, _______,
-        _______, _________________GAMING_L3_________________, KC_LALT, _______,   _______, KC_RALT, ___________________BLANK___________________, _______,
-                                   _______, KC_LCTL, _______, _______, KC_LGUI,   KC_RGUI, _______, _______, _______, _______
+        _______, _________________GAMING_L3_________________, _______, _______,   _______, _______, ___________________BLANK___________________, _______,
+                                   _______, KC_LCTL, _______, _______, _______,   _______, _______, _______, _______, _______
     ),
 
     [_MOUSE] = LAYOUT_kyria_base_wrapper(
