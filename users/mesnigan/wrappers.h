@@ -72,7 +72,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________ADJUST_L2_________________        ___________________BLANK___________________
 #define _________________ADJUST_L3_________________        ___________________BLANK___________________
 
-#define _________________ADJUST_R1_________________        KC_0,    _______, _______, _______, KC_PSCR
+#define _________________ADJUST_R1_________________        _______, _______, _______, _______, KC_PSCR
 #define _________________ADJUST_R2_________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
 #define _________________ADJUST_R3_________________        ___________________BLANK___________________
 
