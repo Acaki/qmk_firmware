@@ -58,7 +58,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
 #define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12
-#define _________________LOWER_R3__________________        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_F11
+#define _________________LOWER_R3__________________        _______, KC_HOME, KC_END,  _______, KC_F11
 
 #define _________________RAISE_L1__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
 #define _________________RAISE_L2__________________        _______, KC_LCBR, KC_LBRC, KC_LPRN, _______
