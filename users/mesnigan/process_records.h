@@ -9,6 +9,8 @@
 
 enum userspace_custom_keycodes {
     RSTROM = PLACEHOLDER_SAFE_RANGE,
+    WINDOWS,
+    MACOS,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 

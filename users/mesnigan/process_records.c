@@ -10,6 +10,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case RSTROM:
             eeconfig_init();
             return false;
+        case WINDOWS:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_LSCR)SS_TAP(X_LSCR)"1");
+            }
+            break;
+        case MACOS:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_LSCR)SS_TAP(X_LSCR)"2");
+            }
+            break;
     }
     return true;
 }
