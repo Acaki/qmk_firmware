@@ -15,7 +15,7 @@
       KC_MINS, K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,     K22,     K23,     K24,     K25,                                             K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
                                  K31,     K32,     K33,                                             K34,     K35,     K36,     \
-                                          _______, _______,                                         _______, _______ \
+                                          KC_LEFT, KC_RGHT,                                         KC_UP,   KC_DOWN \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_scylla_base_wrapper(...)       LAYOUT_scylla_base(__VA_ARGS__)
@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,  _________________GAMING_L1_________________,                                       ___________________BLANK___________________, _______,
         KC_LSFT, _________________GAMING_L2_________________,                                       ___________________BLANK___________________, _______,
         _______, _________________GAMING_L3_________________,                                       ___________________BLANK___________________, _______,
-                                   _______, KC_LCTL, _______,                                       _______, _______, _______,
+                                   KC_LCTL, _______, _______,                                       _______, _______, _______,
                                             _______, _______,                                       _______, _______
     ),
 
