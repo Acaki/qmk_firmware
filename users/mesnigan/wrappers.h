@@ -27,12 +27,12 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________QWERTY_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________        HOME_L4, HOME_L3, HOME_L2, HOME_L1, KC_G
 #define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define _________________QWERTY_LT_________________                                   LT(_MOUSE, KC_DEL), KC_BSPC, LT(_LOWER, KC_TAB)
+#define _________________QWERTY_LT_________________                                   LT(_MOUSE, KC_DEL), KC_SPC, LT(_LOWER, KC_TAB)
 
 #define _________________QWERTY_R1_________________                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define _________________QWERTY_R2_________________                            KC_H,    HOME_R1, HOME_R2, HOME_R3, HOME_R4
 #define _________________QWERTY_R3_________________                            KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
-#define _________________QWERTY_RT_________________        LT(_RAISE, KC_ENT), KC_SPC,  KC_ESC
+#define _________________QWERTY_RT_________________        LT(_RAISE, KC_ENT), KC_BSPC, KC_ESC
 
 #define ________________NUMBER_LEFT________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
 #define ________________NUMBER_RIGHT_______________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
