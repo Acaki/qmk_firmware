@@ -11,11 +11,11 @@
   ) \
   LAYOUT_split_4x6_5_wrapper( \
       KC_GRV,  ________________NUMBER_LEFT________________,                                         ________________NUMBER_RIGHT_______________, KC_MPLY, \
-      KC_CAPS, K01,     K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_EQL, \
-      KC_MINS, K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
+      KC_EQL,  K01,     K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_MINS, \
+      KC_ESC,  K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,     K22,     K23,     K24,     K25,                                             K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-                                 K31,     K32,     K33,                                             K34,     K35,     K36,     \
-                                          KC_LEFT, KC_RGHT,                                         KC_UP,   KC_DOWN \
+                                 K32,     K33,     KC_UP,                                           KC_LEFT, K34,     K35,     \
+                                          K31,     KC_DOWN,                                         KC_RGHT, K36 \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_scylla_base_wrapper(...)       LAYOUT_scylla_base(__VA_ARGS__)

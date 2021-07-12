@@ -27,12 +27,12 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________QWERTY_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________        HOME_L4, HOME_L3, HOME_L2, HOME_L1, KC_G
 #define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define _________________QWERTY_LT_________________                                   LT(_MOUSE, KC_DEL), KC_SPC, LT(_LOWER, KC_TAB)
+#define _________________QWERTY_LT_________________                                   LT(_MOUSE, KC_DEL), KC_BSPC, LT(_LOWER, KC_TAB)
 
 #define _________________QWERTY_R1_________________                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define _________________QWERTY_R2_________________                            KC_H,    HOME_R1, HOME_R2, HOME_R3, HOME_R4
 #define _________________QWERTY_R3_________________                            KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
-#define _________________QWERTY_RT_________________        LT(_RAISE, KC_ENT), KC_BSPC, KC_ESC
+#define _________________QWERTY_RT_________________        LT(_RAISE, KC_ENT), KC_SPC,  KC_CAPS
 
 #define ________________NUMBER_LEFT________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
 #define ________________NUMBER_RIGHT_______________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
@@ -55,11 +55,11 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________LOWER_L1__________________        ________________NUMBER_LEFT________________
 #define _________________LOWER_L2__________________        _________________FUNC_LEFT_________________
-#define _________________LOWER_L3__________________        C(KC_Z), C(KC_X), C(KC_C), C(KC_V), GAMING
+#define _________________LOWER_L3__________________        A(KC_F1), A(KC_F2), A(KC_F9), A(KC_F10), GAMING
 
 #define _________________LOWER_R1__________________        ________________NUMBER_RIGHT_______________
 #define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
-#define _________________LOWER_R3__________________        KC_PGUP, KC_HOME, KC_END,  KC_PGDN, _______
+#define _________________LOWER_R3__________________        _______, KC_HOME, KC_END,  _______, _______
 
 #define _________________RAISE_L1__________________        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC
 #define _________________RAISE_L2__________________        _______, KC_LCBR, KC_LBRC, KC_LPRN, _______
@@ -69,13 +69,13 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_R2__________________        _________________FUNC_RIGHT________________
 #define _________________RAISE_R3__________________        KC_F11,  KC_F12, _______, _______, _______
 
-#define _________________ADJUST_L1_________________        RSTROM,  WINDOWS, _______, RESET,   _______
-#define _________________ADJUST_L2_________________        _______, KC_SLCK, _______, _______, _______
+#define _________________ADJUST_L1_________________        _______, _______, _______, RESET, RSTROM
+#define _________________ADJUST_L2_________________        _______, KC_SLCK, WINDOWS, MACOS, _______
 #define _________________ADJUST_L3_________________        ___________________BLANK___________________
 
-#define _________________ADJUST_R1_________________        _______, _______, _______, _______, KC_PSCR
+#define _________________ADJUST_R1_________________        _______, _______, KC_INS,  _______, KC_PSCR
 #define _________________ADJUST_R2_________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
-#define _________________ADJUST_R3_________________        _______, MACOS,   _______, _______, _______
+#define _________________ADJUST_R3_________________        _______, KC_MUTE, KC_PGUP, KC_PGDN, _______
 
 
 
