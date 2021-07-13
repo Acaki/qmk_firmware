@@ -17,21 +17,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define USE_I2C
-#define MASTER_LEFT
-
-#undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 12
-#define RGBLIGHT_HUE_STEP 8
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
-
-#define MOUSEKEY_DELAY 200
-#define MOUSEKEY_INTERVAL 6
-#define MOUSEKEY_TIME_TO_MAX 250
-#define MOUSEKEY_MAX_SPEED 2
-#define MOUSEKEY_WHEEL_MAX_SPEED 1
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 0
-#define FORCE_NKRO
-#define TAPPING_TERM 125
+#define EE_HANDS

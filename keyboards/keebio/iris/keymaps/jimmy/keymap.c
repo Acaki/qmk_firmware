@@ -5,19 +5,12 @@ extern keymap_config_t keymap_config;
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define MOUSE TG(_MOUSE)
-#define ARROWS TG(_ARROWS)
-#define RETURN TO(_QWERTY)
+
 enum layers {
     _QWERTY,
     _LOWER,
     _RAISE,
     _ADJUST
-};
-enum custom_keycodes {
-    ARROW = SAFE_RANGE,
-    DBLARR,
-    ATAB,
-    ASFT
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -79,60 +72,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
-static bool is_alt_set = false;
-
-void release_alt(void) {
-    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
-    if (is_alt_set && is_alt_on) {
-        unregister_mods(MOD_LALT);
-        is_alt_set = false;
-    }
-};
-
-void register_alt(void) {
-    bool is_alt_on = get_mods() & MOD_BIT(KC_LALT);
-    if (!is_alt_on) {
-        register_mods(MOD_LALT);
-        is_alt_set = true;
-    }
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case ARROW:
-            if (record->event.pressed) {
-                SEND_STRING("->");
-            }
-            return false;
-        case DBLARR:
-            if (record->event.pressed) {
-                SEND_STRING("=>");
-            }
-            return false;
-        case ATAB:
-            if (record->event.pressed) {
-                register_alt();
-                register_code(KC_TAB);
-                unregister_code(KC_TAB);
-            }
-            return false;
-        case ASFT:
-            if (record->event.pressed) {
-                register_alt();
-                register_mods(MOD_LSFT);
-            } else {
-                unregister_mods(MOD_LSFT);
-            }
-            return false;
-    }
-    return true;
-}
-
 uint32_t layer_state_set_user(uint32_t state) {
-    switch (get_highest_layer(state)) {
-        case _QWERTY:
-            release_alt();
-            break;
-    }
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
