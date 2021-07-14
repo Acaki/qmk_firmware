@@ -22,5 +22,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "process_records.h"
 
 /* Define layer names */
-enum userspace_layers { _QWERTY = 0, _GAMING, _MOUSE, _LOWER, _RAISE, _ADJUST };
+enum userspace_layers { _QWERTY = 0, _GAMING, _MOUSE, _NAV, _LOWER, _RAISE, _ADJUST };
 

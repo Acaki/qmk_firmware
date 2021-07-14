@@ -31,6 +31,10 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return true;
         case LT(_RAISE, KC_ENT):
             return true;
+        case LT(_NAV, KC_DEL):
+            return true;
+        case LT(_MOUSE, KC_ESC):
+            return true;
         default:
             // Do not select the hold action when another key is pressed.
             return false;
