@@ -15,7 +15,7 @@
       KC_MINS, K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,     K22,     K23,     K24,     K25,                                             K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
                                  K31,     K32,     K33,                                             K34,     K35,     K36,     \
-                                          KC_UP,   KC_DOWN,                                         KC_LEFT, KC_RGHT \
+                                          KC_DOWN, KC_UP,                                           KC_LEFT, KC_RGHT \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_scylla_base_wrapper(...)       LAYOUT_scylla_base(__VA_ARGS__)
