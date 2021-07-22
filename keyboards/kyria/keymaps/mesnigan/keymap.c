@@ -10,8 +10,8 @@
   LAYOUT_wrapper( \
       KC_EQL,  K01,     K02,     K03,     K04,     K05,                                             K06,     K07,     K08,     K09,     K0A,     KC_MINS, \
       KC_ESC,  K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
-      KC_GRV,  K21,     K22,     K23,     K24,     K25,     K31,     KC_UP,     KC_LEFT,    K36,    K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
-                                 KC_MPLY, _______, K32,     K33,     KC_DOWN    KC_RGHT,    K34,    K35,     _______, KC_MUTE \
+      KC_GRV,  K21,     K22,     K23,     K24,     K25,    KC_DOWN, KC_UP,        KC_LEFT, KC_RGHT, K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
+                                 KC_MPLY, _______, K31,    K32,     K33,          K36,     K35,     K34,     _______, KC_MUTE \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_kyria_base_wrapper(...)       LAYOUT_kyria_base(__VA_ARGS__)
@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,  _________________GAMING_L1_________________,                                       ___________________BLANK___________________, _______,
         KC_LSFT, _________________GAMING_L2_________________,                                       ___________________BLANK___________________, _______,
         _______, _________________GAMING_L3_________________, _______, _______,   _______, _______, ___________________BLANK___________________, _______,
-                                   _______, KC_LCTL, _______, _______, _______,   _______, _______, _______, _______, _______
+                                   _______, KC_LCTL, KC_SPC,  _______, _______,   _______, _______, _______, _______, _______
     ),
 
     [_MOUSE] = LAYOUT_kyria_base_wrapper(
@@ -36,6 +36,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ___________________BLANK___________________, _________________MOUSE_R2__________________,
         ___________________BLANK___________________, _________________MOUSE_R3__________________,
         _________________QWERTY_LT_________________, _________________MOUSE_RT__________________
+    ),
+
+    [_NAV] = LAYOUT_kyria_base_wrapper(
+        ___________________BLANK___________________, _________________NAV_R1____________________,
+        _________________NAV_L2____________________, _________________NAV_R2____________________,
+        ___________________BLANK___________________, _________________NAV_R3____________________,
+        _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
     ),
 
     [_LOWER] = LAYOUT_kyria_base_wrapper(
