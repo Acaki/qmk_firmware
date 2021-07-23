@@ -26,14 +26,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(_LOWER, KC_DEL):
+        case LT(_LOWER, KC_ESC):
             // Immediately select the hold action when another key is pressed.
             return true;
         case LT(_RAISE, KC_ENT):
             return true;
-        case LT(_NAV, KC_TAB):
-            return true;
-        case LT(_MOUSE, KC_ESC):
+        case LT(_NUMBL, KC_TAB):
             return true;
         default:
             // Do not select the hold action when another key is pressed.
