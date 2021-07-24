@@ -24,3 +24,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Define layer names */
 enum userspace_layers { _QWERTY = 0, _GAMING, _MOUSE, _NUMBL, _LOWER, _RAISE, _ADJUST };
 
+
+void register_mod(int mod);
+void release_mod(int mod);

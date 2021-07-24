@@ -9,6 +9,8 @@
 
 enum userspace_custom_keycodes {
     RSTROM = PLACEHOLDER_SAFE_RANGE,
+    ATAB,
+    CTAB,
     WINDOWS,
     MACOS,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
@@ -19,6 +21,7 @@ enum userspace_custom_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GAMING TG(_GAMING)
+
 // Left-hand home row mods
 #define HOME_L1 LCTL_T(KC_F)
 #define HOME_L2 LSFT_T(KC_D)
@@ -30,3 +33,10 @@ enum userspace_custom_keycodes {
 #define HOME_R2 RSFT_T(KC_K)
 #define HOME_R3 RALT_T(KC_L)
 #define HOME_R4 RGUI_T(KC_SCLN)
+
+#define THUMB_L1 LT(_NUMBL, KC_ENT) 
+#define THUMB_L2 LT(_LOWER, KC_BSPC) 
+#define THUMB_L3 KC_DEL
+#define THUMB_R1 MOUSE
+#define THUMB_R2 LT(_RAISE, KC_SPC)
+#define THUMB_R3 KC_ESC

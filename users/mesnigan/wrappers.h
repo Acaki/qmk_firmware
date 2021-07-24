@@ -35,14 +35,13 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________QWERTY_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________        HOME_L4, HOME_L3, HOME_L2, HOME_L1, KC_G
 #define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define _________________QWERTY_LT_________________                                   LT(_NUMBL, KC_TAB), KC_BSPC, LT(_LOWER, KC_ESC)
+#define _________________QWERTY_LT_________________                                      THUMB_L1, THUMB_L2, THUMB_L3
 
-#define _________________QWERTY_R1_________________                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define _________________QWERTY_R2_________________                            KC_H,    HOME_R1, HOME_R2, HOME_R3, HOME_R4
-#define _________________QWERTY_R3_________________                            KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
-#define _________________QWERTY_RT_________________        LT(_RAISE, KC_ENT), KC_SPC,  MO(_MOUSE)
+#define _________________QWERTY_R1_________________                          KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
+#define _________________QWERTY_R2_________________                          KC_H,    HOME_R1, HOME_R2, HOME_R3, HOME_R4
+#define _________________QWERTY_R3_________________                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
+#define _________________QWERTY_RT_________________        THUMB_R3, THUMB_R2, THUMB_R1
 
-#define ________________GAMING_NUML________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
 #define _________________GAMING_L1_________________        KC_T,    KC_Q,    KC_W,    KC_E,    KC_R
 #define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_S,    KC_D,    KC_F
 #define _________________GAMING_L3_________________        KC_B,    KC_Z,    KC_X,    KC_C,    KC_V
@@ -65,8 +64,8 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________NUMBL_RT__________________        _______, KC_0,    KC_DOT
 
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
-#define _________________LOWER_L2__________________        A(KC_F1),A(KC_F2),A(KC_F9),A(KC_F10), _______
-#define _________________LOWER_L3__________________        _______, _______, _______, _______, _______
+#define _________________LOWER_L2__________________        _______, _______, CTAB,    ATAB,    _______
+#define _________________LOWER_L3__________________        A(KC_F1),A(KC_F2),A(KC_F9),A(KC_F10), _______
 
 #define _________________LOWER_R1__________________        _________________FUNC_RIGHT________________
 #define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12

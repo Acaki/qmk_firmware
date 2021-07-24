@@ -10,6 +10,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case RSTROM:
             eeconfig_init();
             return false;
+        case ATAB:
+            if (record->event.pressed) {
+                register_mod(KC_LALT);
+                register_code(KC_TAB);
+                unregister_code(KC_TAB);
+            }
+            return false;
+        case CTAB:
+            if (record->event.pressed) {
+                register_mod(KC_LCTL);
+                register_code(KC_TAB);
+                unregister_code(KC_TAB);
+            }
+            return false;
         case WINDOWS:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_SLCK)SS_TAP(X_SLCK)"1");
@@ -26,12 +40,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(_LOWER, KC_ESC):
+        case THUMB_L1:
             // Immediately select the hold action when another key is pressed.
             return true;
-        case LT(_RAISE, KC_ENT):
+        case THUMB_L2:
             return true;
-        case LT(_NUMBL, KC_TAB):
+        case THUMB_R2:
             return true;
         default:
             // Do not select the hold action when another key is pressed.
@@ -41,15 +55,38 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LGUI_T(KC_A):
+        case HOME_L4:
             return TAPPING_TERM + 50;
-        case RGUI_T(KC_SCLN):
+        case HOME_R4:
             return TAPPING_TERM + 50;
-        case LSFT_T(KC_D):
+        case HOME_L2:
             return TAPPING_TERM - 15;
-        case RSFT_T(KC_K):
+        case HOME_R2:
             return TAPPING_TERM - 15;
         default:
             return TAPPING_TERM;
+    }
+}
+
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case HOME_L1:
+            return true;
+        case HOME_L2:
+            return true;
+        case HOME_L3:
+            return true;
+        case HOME_L4:
+            return true;
+        case HOME_R1:
+            return true;
+        case HOME_R2:
+            return true;
+        case HOME_R3:
+            return true;
+        case HOME_R4:
+            return true;
+        default:
+            return false;
     }
 }
