@@ -40,12 +40,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case THUMB_L1:
+        case THUMB_L2:
             // Immediately select the hold action when another key is pressed.
             return true;
-        case THUMB_L2:
-            return true;
         case THUMB_R2:
+            return true;
+        case THUMB_R3:
             return true;
         default:
             // Do not select the hold action when another key is pressed.
