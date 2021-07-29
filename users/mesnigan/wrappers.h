@@ -64,7 +64,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________NUMBL_LT__________________                          KC_DOT,  KC_0,    _______
 
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
-#define _________________LOWER_L2__________________        _______, _______, CTAB,    ATAB,    _______
+#define _________________LOWER_L2__________________        _______, ATAB,    KC_LSFT, CTAB,     _______
 #define _________________LOWER_L3__________________        A(KC_F1),A(KC_F2),A(KC_F9),A(KC_F10), _______
 
 #define _________________LOWER_R1__________________        _________________FUNC_RIGHT________________
