@@ -25,5 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum userspace_layers { _QWERTY = 0, _GAMING, _MOUSE, _NUMBL, _LOWER, _RAISE, _ADJUST };
 
 
-void register_mod(int mod);
-void release_mod(int mod);
+void register_ctrl(void);
+void register_alt(void);
+void release_ctrl(void);
+void release_alt(void);

@@ -12,14 +12,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case ATAB:
             if (record->event.pressed) {
-                register_mod(KC_LALT);
+                register_alt();
                 register_code(KC_TAB);
                 unregister_code(KC_TAB);
             }
             return false;
         case CTAB:
             if (record->event.pressed) {
-                register_mod(KC_LCTL);
+                register_ctrl();
                 register_code(KC_TAB);
                 unregister_code(KC_TAB);
             }
