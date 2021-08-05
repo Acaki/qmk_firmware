@@ -72,8 +72,8 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_R3__________________        KC_PGUP, KC_HOME, KC_END,  KC_PGDN, KC_F11
 
 #define _________________RAISE_L1__________________        _________________FUNC_LEFT_________________
-#define _________________RAISE_L2__________________        _______, KC_LCBR, KC_LBRC, KC_LPRN, _______
-#define _________________RAISE_L3__________________        _______, KC_RCBR, KC_RBRC, KC_RPRN, _______
+#define _________________RAISE_L2__________________        KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, _______
+#define _________________RAISE_L3__________________        KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, _______
 
 #define _________________RAISE_R1__________________        _________________FUNC_RIGHT________________
 #define _________________RAISE_R2__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
