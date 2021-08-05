@@ -13,6 +13,7 @@ enum userspace_custom_keycodes {
     CTAB,
     WINDOWS,
     MACOS,
+    FARM,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 
@@ -20,7 +21,7 @@ enum userspace_custom_keycodes {
 #define NUMBL MO(_NUMBL)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define GAMING TG(_GAMING)
+#define GAMING TD(GAMING_TD)
 
 // Left-hand home row mods
 #define HOME_L1 LCTL_T(KC_F)

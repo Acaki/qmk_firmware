@@ -1,5 +1,9 @@
 #include "mesnigan.h"
 
+bool spam_kd;
+uint16_t spam_timer = false;
+uint16_t spam_interval = 185;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
     if (record->event.pressed) {
@@ -29,6 +33,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_TAP(X_SLCK)SS_TAP(X_SLCK)"1");
             }
             break;
+        case FARM:
+            if (record->event.pressed) {
+                spam_kd = true;
+                spam_timer = timer_read();
+            } else {
+                spam_kd = false;
+            }
+            return false;
         case MACOS:
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_SLCK)SS_TAP(X_SLCK)"2");
@@ -36,6 +48,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
     }
     return true;
+}
+
+void matrix_scan_user(void) {
+  if (spam_kd && timer_elapsed(spam_timer) >= spam_interval) {
+      spam_timer = timer_read();
+      SEND_STRING(SS_DOWN(X_K)SS_DELAY(50)SS_DOWN(X_D)SS_DELAY(50)SS_UP(X_K)SS_UP(X_D));
+  }
 }
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
