@@ -2,7 +2,7 @@
 
 bool spam_kd;
 uint16_t spam_timer = false;
-uint16_t spam_interval = 185;
+uint16_t spam_interval = 200;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
@@ -39,6 +39,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 spam_timer = timer_read();
             } else {
                 spam_kd = false;
+            }
+            return false;
+        case FIRE:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_D)SS_DELAY(50)SS_TAP(X_D)SS_DELAY(50)SS_TAP(X_I)SS_DELAY(50)SS_TAP(X_I));
             }
             return false;
         case MACOS:

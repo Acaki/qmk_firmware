@@ -14,6 +14,7 @@ enum userspace_custom_keycodes {
     WINDOWS,
     MACOS,
     FARM,
+    FIRE,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 
