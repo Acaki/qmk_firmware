@@ -63,6 +63,12 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________NUMBL_L3__________________        KC_SLSH, KC_1,    KC_2,    KC_3,    KC_MINS
 #define _________________NUMBL_LT__________________                          KC_DOT,  KC_0,    _______
 
+#define _________________NUMBR_L2__________________        KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______
+#define _________________NUMBR_R1__________________        _______, KC_7,    KC_8,    KC_9,    _______
+#define _________________NUMBR_R2__________________        KC_PLUS, KC_4,    KC_5,    KC_6,    KC_ASTR
+#define _________________NUMBR_R3__________________        KC_MINS, KC_1,    KC_2,    KC_3,    _______
+#define _________________NUMBR_RT__________________        _______, KC_0,    KC_DOT
+
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
 #define _________________LOWER_L2__________________        _______, ATAB,    KC_LSFT, CTAB,     _______
 #define _________________LOWER_L3__________________        A(KC_F1),A(KC_F2),A(KC_F9),A(KC_F10), _______
@@ -72,8 +78,8 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_R3__________________        KC_PGUP, KC_HOME, KC_END,  KC_PGDN, KC_F11
 
 #define _________________RAISE_L1__________________        _________________FUNC_LEFT_________________
-#define _________________RAISE_L2__________________        KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, _______
-#define _________________RAISE_L3__________________        KC_RCBR, KC_RBRC, KC_RPRN, KC_MINS, _______
+#define _________________RAISE_L2__________________        _______, KC_LCBR, KC_LBRC, KC_LPRN, _______
+#define _________________RAISE_L3__________________        _______, KC_RCBR, KC_RBRC, KC_RPRN, _______
 
 #define _________________RAISE_R1__________________        _________________FUNC_RIGHT________________
 #define _________________RAISE_R2__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY

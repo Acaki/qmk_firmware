@@ -1,8 +1,10 @@
 #include "mesnigan.h"
 
 bool spam_kd;
+bool spam_lc;
 uint16_t spam_timer = false;
 uint16_t spam_interval = 200;
+uint16_t spam_lc_interval = 100;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef CONSOLE_ENABLE
@@ -33,6 +35,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_TAP(X_SLCK)SS_TAP(X_SLCK)"1");
             }
             break;
+        case CCLICK:
+            if (record->event.pressed) {
+                if (spam_lc) {
+                    spam_lc = false;
+                    return false;
+                }
+                spam_lc = true;
+                spam_timer = timer_read();
+            }
+            return false;
         case FARM:
             if (record->event.pressed) {
                 spam_kd = true;
@@ -59,6 +71,10 @@ void matrix_scan_user(void) {
   if (spam_kd && timer_elapsed(spam_timer) >= spam_interval) {
       spam_timer = timer_read();
       SEND_STRING(SS_DOWN(X_K)SS_DELAY(50)SS_DOWN(X_D)SS_DELAY(50)SS_UP(X_K)SS_UP(X_D));
+  }
+  else if (spam_lc && timer_elapsed(spam_timer) >= spam_lc_interval) {
+      spam_timer = timer_read();
+      tap_code(KC_BTN1);
   }
 }
 
