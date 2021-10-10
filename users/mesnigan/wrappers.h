@@ -42,9 +42,9 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________QWERTY_R3_________________                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 #define _________________QWERTY_RT_________________        THUMB_R3, THUMB_R2, THUMB_R1
 
-#define _________________GAMING_L1_________________        KC_T,    KC_Q,    KC_W,    KC_E,    KC_R
-#define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_S,    KC_D,    KC_F
-#define _________________GAMING_L3_________________        KC_B,    KC_Z,    KC_X,    KC_C,    KC_V
+#define _________________GAMING_L1_________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
+#define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
+#define _________________GAMING_L3_________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
 #define _________________GAMING_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN
 
 #define _________________MOUSE_L1__________________        KC_BTN4, KC_WH_U, KC_MS_U, KC_WH_D, _______
