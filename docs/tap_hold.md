@@ -71,6 +71,11 @@ Normally, if you do all this within the `TAPPING_TERM` (default: 200ms), this wi
 
 However, this slightly different sequence will not be affected by the “permissive hold” mode:
 
+- `LT(2, KC_A)` Down
+- `KC_L` Down (the `L` key is also mapped to `KC_RGHT` on layer 2)
+- `LT(2, KC_A)` Up
+- `KC_L` Up
+
 In the sequence above the dual-role key is released before the other key is released, and if that happens within the tapping term, the “permissive hold” mode will still choose the tap action for the dual-role key, and the sequence will be registered as `al` by the host.
 
 ?> The `PERMISSIVE_HOLD` option also affects Mod Tap keys, but this may not be noticeable if you do not also enable the `IGNORE_MOD_TAP_INTERRUPT` option for those keys, because the default handler for Mod Tap keys also considers both the “nested press” and “rolling press” sequences like shown above as a modifier hold, not the tap action.  If you do not enable `IGNORE_MOD_TAP_INTERRUPT`, the effect of `PERMISSIVE_HOLD` on Mod Tap keys would be limited to reducing the delay before the key events are made visible to the host.
@@ -162,9 +167,9 @@ An example of a sequence which will be affected by the `IGNORE_MOD_TAP_INTERRUPT
 - `SFT_T(KC_A)` Up
 - `KC_X` Up
 
-Normally, this would send `X` (`SHIFT`+`x`), even if the sequence is performed faster than the `TAPPING_TERM`.  However, if the `IGNORE_MOD_TAP_INTERRUPT` option is enabled, the `SFT_T(KC_A)` key must be held longer than the `TAPPING_TERM` to register the hold action.  A quick tap will output `ax` in this case, while a hold will still output `X` (`SHIFT`+`x`).
+Normally, this would send a capital `X` (`SHIFT`+`x`), even if the sequence is performed faster than the `TAPPING_TERM`.  However, if the `IGNORE_MOD_TAP_INTERRUPT` option is enabled, the `SFT_T(KC_A)` key must be held longer than the `TAPPING_TERM` to register the hold action.  A quick tap will output `ax` in this case, while a hold will still output a capital `X` (`SHIFT`+`x`).
 
-However, if the `HOLD_ON_OTHER_KEY_PRESS` option is enabled in addition to `IGNORE_MOD_TAP_INTERRUPT`, the above sequence will again send `X` (`SHIFT`+`x`) even if performed faster that the `TAPPING_TERM`.  The difference from the default configuration is that by default the host will receive the key events only after the `SFT_T(KC_A)` key is released, but with the `HOLD_ON_OTHER_KEY_PRESS` option the host will start receiving key events when the `KC_X` key is pressed.
+However, if the `HOLD_ON_OTHER_KEY_PRESS` option is enabled in addition to `IGNORE_MOD_TAP_INTERRUPT`, the above sequence will again send a capital `X` (`SHIFT`+`x`) even if performed faster that the `TAPPING_TERM`.  The difference from the default configuration is that by default the host will receive the key events only after the `SFT_T(KC_A)` key is released, but with the `HOLD_ON_OTHER_KEY_PRESS` option the host will start receiving key events when the `KC_X` key is pressed.
 
 For more granular control of this feature, you can add the following to your `config.h`:
 
