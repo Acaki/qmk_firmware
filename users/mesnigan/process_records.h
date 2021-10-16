@@ -8,14 +8,8 @@
 #endif
 
 enum userspace_custom_keycodes {
-    RSTROM = PLACEHOLDER_SAFE_RANGE,
-    ATAB,
+    ATAB = PLACEHOLDER_SAFE_RANGE,
     CTAB,
-    WINDOWS,
-    MACOS,
-    FARM,
-    FIRE,
-    CCLICK,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 
@@ -23,7 +17,8 @@ enum userspace_custom_keycodes {
 #define NUMBL MO(_NUMBL)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define GAMING TD(GAMING_TD)
+#define GAMING (_GAMING)
+#define GAMING_S MO(_GAMING_S)
 
 // Left-hand home row mods
 #define HOME_L1 LCTL_T(KC_F)

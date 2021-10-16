@@ -22,29 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "process_records.h"
 
 /* Define layer names */
-enum userspace_layers { _QWERTY = 0, _GAMING, _GAMING_S, _MOUSE, _NUMBL, _LOWER, _RAISE, _ADJUST };
-
-typedef enum {
-    TD_NONE,
-    TD_UNKNOWN,
-    TD_SINGLE_TAP,
-    TD_SINGLE_HOLD,
-    TD_DOUBLE_TAP
-} td_state_t;
-
-typedef struct {
-    bool is_press_action;
-    td_state_t state;
-} td_tap_t;
-
-enum {
-    GAMING_TD,
-};
-
-td_state_t cur_dance(qk_tap_dance_state_t *state);
-void ql_finished(qk_tap_dance_state_t *state, void *user_data);
-void ql_reset(qk_tap_dance_state_t *state, void *user_data);
-
+enum userspace_layers { _QWERTY = 0, _GAMING, _GAMING_S, _MOUSE, _LOWER, _RAISE, _ADJUST };
 
 void register_ctrl(void);
 void register_alt(void);
