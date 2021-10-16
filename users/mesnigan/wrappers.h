@@ -35,16 +35,17 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________QWERTY_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________        HOME_L4, HOME_L3, HOME_L2, HOME_L1, KC_G
 #define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define _________________QWERTY_LT_________________                                      THUMB_L1, THUMB_L2, THUMB_L3
+#define _________________QWERTY_LT_________________                          THUMB_L1, THUMB_L2, THUMB_L3
 
-#define _________________QWERTY_R1_________________                          KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define _________________QWERTY_R2_________________                          KC_H,    HOME_R1, HOME_R2, HOME_R3, HOME_R4
-#define _________________QWERTY_R3_________________                          KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
+#define _________________QWERTY_R1_________________        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
+#define _________________QWERTY_R2_________________        KC_H,    HOME_R1, HOME_R2, HOME_R3, HOME_R4
+#define _________________QWERTY_R3_________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 #define _________________QWERTY_RT_________________        THUMB_R3, THUMB_R2, THUMB_R1
 
-#define _________________GAMING_L1_________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
-#define _________________GAMING_L2_________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
-#define _________________GAMING_L3_________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
+#define _________________GAMING_L1S________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
+#define _________________GAMING_L2S________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
+#define _________________GAMING_L2_________________        KC_A,    KC_S,    KC_D,    KC_F,    KC_G
+#define _________________GAMING_L3S________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
 #define _________________GAMING_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN
 
 #define _________________MOUSE_L1__________________        KC_BTN4, KC_WH_U, KC_MS_U, KC_WH_D, _______
@@ -82,16 +83,16 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_L3__________________        _______, KC_RCBR, KC_RBRC, KC_RPRN, _______
 
 #define _________________RAISE_R1__________________        _________________FUNC_RIGHT________________
-#define _________________RAISE_R2__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
-#define _________________RAISE_R3__________________        _______, KC_MUTE, _______, _______, _______
+#define _________________RAISE_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
+#define _________________RAISE_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
 
 #define _________________ADJUST_L1_________________        _______, _______, _______, RESET,   RSTROM
 #define _________________ADJUST_L2_________________        _______, KC_SLCK, WINDOWS, MACOS,   _______
 #define _________________ADJUST_L3_________________        ___________________BLANK___________________
 
-#define _________________ADJUST_R1_________________        _______, _______, KC_INS,  _______, KC_PSCR
-#define _________________ADJUST_R2_________________        ___________________BLANK___________________
-#define _________________ADJUST_R3_________________        ___________________BLANK___________________
+#define _________________ADJUST_R1_________________        _______, _______, _______, _______, _______
+#define _________________ADJUST_R2_________________        _______, _______, _______, _______, _______
+#define _________________ADJUST_R3_________________        _______, _______, _______, _______, _______
 
 
 

@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "process_records.h"
 
 /* Define layer names */
-enum userspace_layers { _QWERTY = 0, _GAMING, _GAMING_GC, _MOUSE, _NUMBL, _LOWER, _RAISE, _ADJUST };
+enum userspace_layers { _QWERTY = 0, _GAMING, _GAMING_S, _MOUSE, _NUMBL, _LOWER, _RAISE, _ADJUST };
 
 typedef enum {
     TD_NONE,

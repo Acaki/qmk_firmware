@@ -73,10 +73,10 @@ void ql_finished(qk_tap_dance_state_t *state, void *user_data) {
             }
             break;
         case TD_SINGLE_HOLD:
-            if (layer_state_is(_GAMING_GC)) {
-                layer_off(_GAMING_GC);
+            if (layer_state_is(_GAMING_S)) {
+                layer_off(_GAMING_S);
             } else {
-                layer_on(_GAMING_GC);
+                layer_on(_GAMING_S);
             }
             break;
         case TD_DOUBLE_TAP:
