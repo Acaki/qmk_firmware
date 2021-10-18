@@ -1,7 +1,7 @@
 #pragma once
 #include "mesnigan.h"
 
-#if defined(KEYMAP_SAFE_RANGE)
+#if defined(KEYBOARD_bastardkb_charybdis_4x6)
 #    define PLACEHOLDER_SAFE_RANGE KEYMAP_SAFE_RANGE
 #else
 #    define PLACEHOLDER_SAFE_RANGE SAFE_RANGE
@@ -17,8 +17,8 @@ enum userspace_custom_keycodes {
 #define NUMBL MO(_NUMBL)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define GAMING (_GAMING)
-#define GAMING_S MO(_GAMING_S)
+#define GAMING TG(_GAMING)
+#define GAMING_S TG(_GAMING_S)
 
 // Left-hand home row mods
 #define HOME_L1 LCTL_T(KC_F)
@@ -37,4 +37,4 @@ enum userspace_custom_keycodes {
 #define THUMB_L3 KC_TAB
 #define THUMB_R1 MOUSE
 #define THUMB_R2 LT(_RAISE, KC_ENT)
-#define THUMB_R3 KC_ESC
+#define THUMB_R3 KC_DEL
