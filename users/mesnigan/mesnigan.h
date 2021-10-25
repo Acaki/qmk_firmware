@@ -28,3 +28,4 @@ void register_ctrl(void);
 void register_alt(void);
 void release_ctrl(void);
 void release_alt(void);
+void matrix_scan_keymap(void);

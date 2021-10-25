@@ -1,0 +1,6 @@
+#pragma once
+
+#ifdef CHARYBDIS_AUTO_SNIPER_LAYER
+#    undef CHARYBDIS_AUTO_SNIPER_LAYER
+#    define CHARYBDIS_AUTO_SNIPER_LAYER 4
+#endif

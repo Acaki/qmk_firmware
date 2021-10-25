@@ -10,6 +10,7 @@
 enum userspace_custom_keycodes {
     ATAB = PLACEHOLDER_SAFE_RANGE,
     CTAB,
+    MOFFESC,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 
@@ -34,7 +35,7 @@ enum userspace_custom_keycodes {
 
 #define THUMB_L1 KC_BSPC 
 #define THUMB_L2 LT(_LOWER, KC_SPC) 
-#define THUMB_L3 KC_TAB
+#define THUMB_L3 KC_ESC
 #define THUMB_R1 MOUSE
 #define THUMB_R2 LT(_RAISE, KC_ENT)
-#define THUMB_R3 KC_DEL
+#define THUMB_R3 KC_TAB

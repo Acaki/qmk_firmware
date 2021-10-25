@@ -1,5 +1,7 @@
 #include "mesnigan.h"
 
+__attribute__((weak)) bool process_record_keymap(uint16_t keycode, keyrecord_t *record) { return true; }
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case ATAB:
@@ -16,8 +18,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_TAB);
             }
             return false;
+        case MOFFESC:
+            if (record->event.pressed) {
+                layer_off(_MOUSE);
+                register_code(KC_ESC);
+                unregister_code(KC_ESC);
+            }
+            return false;
     }
-    return true;
+    return process_record_keymap(keycode, record);
 }
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
@@ -26,6 +35,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             // Immediately select the hold action when another key is pressed.
             return true;
         case THUMB_R2:
+            return true;
+        case LT(_LOWER, KC_ESC):
             return true;
         default:
             // Do not select the hold action when another key is pressed.
