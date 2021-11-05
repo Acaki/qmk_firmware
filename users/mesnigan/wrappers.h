@@ -59,19 +59,19 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________MOUSE_RT__________________        KC_BTN3, KC_BTN1, KC_BTN2
 
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
-#define _________________LOWER_L2__________________        _______, ATAB,    KC_LSFT, CTAB,     _______
+#define _________________LOWER_L2__________________        KC_F11,  ATAB,    KC_LSFT, CTAB,     _______
 #define _________________LOWER_L3__________________        A(KC_F1),A(KC_F2),A(KC_F9),A(KC_F10), _______
 
 #define _________________LOWER_R1__________________        _________________FUNC_RIGHT________________
 #define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12
-#define _________________LOWER_R3__________________        KC_PGUP, KC_HOME, KC_END,  KC_PGDN, KC_F11
+#define _________________LOWER_R3__________________        KC_PGUP, KC_HOME, KC_END,  KC_PGDN, KC_INS
 
 #define _________________RAISE_L1__________________        _________________FUNC_LEFT_________________
-#define _________________RAISE_L2__________________        _______, KC_LCBR, KC_LBRC, KC_LPRN, _______
+#define _________________RAISE_L2__________________        KC_F11,  KC_LCBR, KC_LBRC, KC_LPRN, _______
 #define _________________RAISE_L3__________________        _______, KC_RCBR, KC_RBRC, KC_RPRN, _______
 
 #define _________________RAISE_R1__________________        _________________FUNC_RIGHT________________
-#define _________________RAISE_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______
+#define _________________RAISE_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12
 #define _________________RAISE_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
 
 #define _________________ADJUST_L1_________________        _______, _______, _______, RESET,   _______
