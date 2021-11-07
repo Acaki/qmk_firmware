@@ -16,7 +16,6 @@ enum userspace_custom_keycodes {
 };
 
 #define MOUSE MO(_MOUSE)
-#define NUMBL MO(_NUMBL)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GAMING TG(_GAMING)
