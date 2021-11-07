@@ -29,3 +29,7 @@ void register_alt(void);
 void release_ctrl(void);
 void release_alt(void);
 void matrix_scan_keymap(void);
+
+bool spam_rc;
+uint16_t spam_timer;
+uint16_t spam_interval;

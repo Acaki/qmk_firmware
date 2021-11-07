@@ -1,5 +1,9 @@
 #include "mesnigan.h"
 
+bool spam_rc;
+uint16_t spam_timer = false;
+uint16_t spam_interval = 100;
+
 static bool is_ctrl_set = false;
 static bool is_alt_set = false;
 
@@ -48,5 +52,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 __attribute__((weak)) void matrix_scan_keymap(void) {}
 void matrix_scan_user(void) {
+    if (spam_rc && timer_elapsed(spam_timer) >= spam_interval) {
+        spam_timer = timer_read();
+        tap_code(KC_BTN2);
+    }
     matrix_scan_keymap();
 }

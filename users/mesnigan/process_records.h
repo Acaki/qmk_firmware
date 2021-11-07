@@ -11,6 +11,7 @@ enum userspace_custom_keycodes {
     ATAB = PLACEHOLDER_SAFE_RANGE,
     CTAB,
     MOFFESC,
+    SPAMRC,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 

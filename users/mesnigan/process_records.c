@@ -25,6 +25,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_ESC);
             }
             return false;
+        case SPAMRC:
+            if (record->event.pressed) {
+                if (spam_rc) {
+                    spam_rc = false;
+                    return false;
+                }
+                spam_rc = true;
+                spam_timer = timer_read();
+            }
+            return false;
     }
     return process_record_keymap(keycode, record);
 }
