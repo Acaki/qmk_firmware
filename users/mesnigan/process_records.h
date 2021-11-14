@@ -11,6 +11,7 @@ enum userspace_custom_keycodes {
     ATAB = PLACEHOLDER_SAFE_RANGE,
     CTAB,
     MOFFESC,
+    SPAMLC,
     SPAMRC,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
@@ -18,8 +19,7 @@ enum userspace_custom_keycodes {
 #define MOUSE MO(_MOUSE)
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define GAMING TG(_GAMING)
-#define GAMING_S TG(_GAMING_S)
+#define GAMING TD(GAMING_TD)
 
 // Left-hand home row mods
 #define HOME_L1 LCTL_T(KC_F)
