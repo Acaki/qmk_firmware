@@ -1,14 +1,8 @@
 #pragma once
 #include "mesnigan.h"
 
-#if defined(KEYBOARD_bastardkb_charybdis_4x6)
-#    define PLACEHOLDER_SAFE_RANGE KEYMAP_SAFE_RANGE
-#else
-#    define PLACEHOLDER_SAFE_RANGE SAFE_RANGE
-#endif
-
 enum userspace_custom_keycodes {
-    ATAB = PLACEHOLDER_SAFE_RANGE,
+    ATAB = SAFE_RANGE,
     CTAB,
     MOFFESC,
     SPAMLC,
