@@ -15,7 +15,7 @@
       KC_MINS, K11,    K12,    K13,    K14,    K15,                                                      K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,    K22,    K23,    K24,    K25,                                                      K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
                                        K31,    K32,    K33,                                              K34,     K36,     K35,     \
-                                          DRAG_SCROLL, KC_DEL,                                           _______, DRAG_SCROLL  \
+                                          DRAG_SCROLL, KC_LOCK,                                          _______, DRAG_SCROLL  \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_charybdis_base_wrapper(...)       LAYOUT_charybdis_base(__VA_ARGS__)
@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, _______,
         _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, KC_MINS,
                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             KC_BSPC, _______, _______,
-                                           KC_LALT, KC_LOCK,                                        _______, KC_DEL
+                                           KC_LALT, _______,                                        _______, KC_DEL
     ),
 
     [_GAMING_S] = LAYOUT_split_4x6_5_wrapper(
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,  _________________GAMING_L2S________________,                                      ___________________BLANK___________________, _______,
         _______,  _________________GAMING_L3S________________,                                      ___________________BLANK___________________, KC_MINS,
                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             KC_BSPC, _______, _______,
-                                           KC_LALT, KC_LOCK,                                        _______, KC_DEL
+                                           KC_LALT, _______,                                        _______, KC_DEL
     ),
 
     [_MOUSE] = LAYOUT_split_4x6_5_wrapper(
@@ -56,8 +56,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_LOWER] = LAYOUT_split_4x6_5_wrapper(
-        _______, KC_6,    KC_7,   KC_8,     KC_9,    KC_0,                                          KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-        _______, _________________LOWER_L1__________________,                                       _________________LOWER_R1__________________, KC_PLUS,
+        KC_F11,  _________________FUNC_LEFT_________________,                                       _________________FUNC_RIGHT________________, KC_F12,
+        _______, ___________________BLANK___________________,                                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
         _______, _________________LOWER_L2__________________,                                       _________________LOWER_R2__________________, KC_DQT,
         _______, KC_BTN4, KC_BTN3, KC_BTN2, KC_BTN1, KC_BTN5,                                       _________________LOWER_R3__________________, KC_PIPE,
                                    _______, _______, _______,                                       _______, _______, _______,
@@ -65,8 +65,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_RAISE] = LAYOUT_split_4x6_5_wrapper(
+        KC_F11,  _________________FUNC_LEFT_________________,                                       _________________FUNC_RIGHT________________, KC_F12,
         _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                       ___________________BLANK___________________, _______,
-        _______, _________________RAISE_L1__________________,                                       _________________RAISE_R1__________________, _______,
         KC_UNDS, _________________RAISE_L2__________________,                                       _________________RAISE_R2__________________, _______,
         KC_TILD, _________________RAISE_L3__________________,                                       _________________RAISE_R3__________________, _______,
                                    _______, _______, _______,                                       _______, _______, _______,
