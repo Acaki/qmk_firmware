@@ -42,7 +42,7 @@ void register_alt() {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
-        default:
+        case _QWERTY ... _MOUSE:
             release_ctrl();
             release_alt();
             break;
