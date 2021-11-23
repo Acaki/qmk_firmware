@@ -102,19 +102,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_LOWER] = LAYOUT_split_4x6_5_wrapper(
-        KC_F11,  _________________FUNC_LEFT_________________,                                       _________________FUNC_RIGHT________________, KC_F12,
-        _______, ___________________BLANK___________________,                                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
-        _______, _________________LOWER_L2__________________,                                       _________________LOWER_R2__________________, KC_DQT,
-        _______, KC_BTN4, KC_BTN3, KC_BTN2, KC_BTN1, KC_BTN5,                                       _________________LOWER_R3__________________, KC_PIPE,
+        _______, ________________NUMBER_RIGHT_______________,                                       ___________________BLANK___________________, _______,
+        _______, _________________FUNC_LEFT_________________,                                       _________________FUNC_RIGHT________________, _______,
+        _______, _________________LOWER_L2__________________,                                       _________________LOWER_R2__________________, _______,
+        _______, KC_BTN4, KC_BTN3, KC_BTN2, KC_BTN1, KC_BTN5,                                       _________________LOWER_R3__________________, _______,
                                    _______, _______, _______,                                       _______, _______, _______,
                                             _______, _______,                                       _______, _______
     ),
 
     [_RAISE] = LAYOUT_split_4x6_5_wrapper(
-        KC_F11,  _________________FUNC_LEFT_________________,                                       _________________FUNC_RIGHT________________, KC_F12,
-        _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                       ___________________BLANK___________________, _______,
-        KC_UNDS, _________________RAISE_L2__________________,                                       _________________RAISE_R2__________________, _______,
-        KC_TILD, _________________RAISE_L3__________________,                                       _________________RAISE_R3__________________, _______,
+        _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, _______,
+        _______, _________________FUNC_LEFT_________________,                                       _________________FUNC_RIGHT________________, _______,
+        _______, _________________RAISE_L2__________________,                                       _________________RAISE_R2__________________, _______,
+        _______, _________________RAISE_L3__________________,                                       _________________RAISE_R3__________________, _______,
                                    _______, _______, _______,                                       _______, _______, _______,
                                             _______, _______,                                       _______, _______
     ),
@@ -139,9 +139,21 @@ static bool _has_shift_mod(void) {
 #ifdef POINTING_DEVICE_ENABLE
 bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
+    case HOME_L1:
+    case HOME_L2:
+    case HOME_L3:
+    case HOME_L4:
+    case HOME_R1:
+    case HOME_R2:
+    case HOME_R3:
+    case HOME_R4:
+      if (layer_state_is(_MOUSE)) {
+        layer_off(_MOUSE);
+      }
+      break;
     case KC_MS_UP ... KC_MS_WH_RIGHT:
-        auto_pointer_layer_timer = timer_read();
-        break;
+      auto_pointer_layer_timer = timer_read();
+      break;
     case POINTER_DEFAULT_DPI_FORWARD:
       if (record->event.pressed) {
         // Step backward if shifted, forward otherwise.
