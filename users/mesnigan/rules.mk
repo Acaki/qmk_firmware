@@ -1,5 +1,6 @@
 SRC += mesnigan.c \
-       process_records.c
+       process_records.c \
+       features/caps_word.c
 
 RGBLIGHT_ENABLE = no
 BOOTLOADER = atmel-dfu
