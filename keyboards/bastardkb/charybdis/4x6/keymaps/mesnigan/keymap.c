@@ -61,7 +61,7 @@ static uint16_t auto_pointer_layer_timer = 0;
       KC_MINS, K11,    K12,    K13,    K14,    K15,                                                      K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,    K22,    K23,    K24,    K25,                                                      K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
                                        K31,    K32,    K33,                                              K34,     K35,     K36,     \
-                                               DRGSCRL,KC_LOCK,                                          _______, DRGSCRL  \
+                                               DRGSCRL,SH_TT,                                            _______, SH_TT  \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_charybdis_base_wrapper(...)       LAYOUT_charybdis_base(__VA_ARGS__)
@@ -76,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_GAMING] = LAYOUT_split_4x6_5_wrapper(
         _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, TD(SHADOWPLAY),
-        _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, _______,
+        _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, KC_DEL,
         KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, _______,
         _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, KC_MINS,
                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             KC_BSPC, _______, _______,
-                                           KC_LALT, _______,                                        _______, KC_DEL
+                                           KC_LALT, _______,                                        _______, _______
     ),
 
     [_GAMING_S] = LAYOUT_split_4x6_5_wrapper(
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,  _________________GAMING_L2S________________,                                      ___________________BLANK___________________, _______,
         _______,  _________________GAMING_L3S________________,                                      ___________________BLANK___________________, KC_MINS,
                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             KC_BSPC, _______, _______,
-                                           KC_LALT, _______,                                        _______, KC_DEL
+                                           KC_LALT, _______,                                        _______, _______
     ),
 
     [_MOUSE] = LAYOUT_split_4x6_5_wrapper(
