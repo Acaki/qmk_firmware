@@ -57,7 +57,7 @@ static uint16_t auto_pointer_layer_timer = 0;
   ) \
   LAYOUT_split_4x6_5_wrapper( \
       GAMING,  ________________NUMBER_LEFT________________,                                              ________________NUMBER_RIGHT_______________, KC_MPLY, \
-      KC_TAB,  K01,    K02,    K03,    K04,    K05,                                                      K06,     K07,     K08,     K09,     K0A,     KC_EQL,  \
+      KC_DEL,  K01,    K02,    K03,    K04,    K05,                                                      K06,     K07,     K08,     K09,     K0A,     KC_EQL,  \
       KC_MINS, K11,    K12,    K13,    K14,    K15,                                                      K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,    K22,    K23,    K24,    K25,                                                      K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
                                        K31,    K32,    K33,                                              K34,     K35,     K36,     \
@@ -67,27 +67,34 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define LAYOUT_charybdis_base_wrapper(...)       LAYOUT_charybdis_base(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-     [_QWERTY] = LAYOUT_charybdis_base_wrapper(
-        _________________QWERTY_L1_________________, _________________QWERTY_R1_________________,
-        _________________QWERTY_L2_________________, _________________QWERTY_R2_________________,
-        _________________QWERTY_L3_________________, _________________QWERTY_R3_________________,
-        _________________QWERTY_LT_________________, _________________QWERTY_RT_________________
-     ),
+    [_QWERTY] = LAYOUT_charybdis_base_wrapper(
+      _________________QWERTY_L1_________________, _________________QWERTY_R1_________________,
+      _________________QWERTY_L2_________________, _________________QWERTY_R2_________________,
+      _________________QWERTY_L3_________________, _________________QWERTY_R3_________________,
+      _________________COMMON_LT_________________, _________________COMMON_RT_________________
+    ),
+
+    [_COLEMAK_MOD_DH] = LAYOUT_charybdis_base_wrapper(
+      ______________COLEMAK_MOD_DH_L1____________, ______________COLEMAK_MOD_DH_R1____________,
+      ______________COLEMAK_MOD_DH_L2____________, ______________COLEMAK_MOD_DH_R2____________,
+      ______________COLEMAK_MOD_DH_L3____________, ______________COLEMAK_MOD_DH_R3____________,
+      _________________COMMON_LT_________________, _________________COMMON_RT_________________
+    ),
 
     [_GAMING] = LAYOUT_split_4x6_5_wrapper(
         _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, TD(SHADOWPLAY),
-        _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, KC_DEL,
+        KC_TAB,  ______________COLEMAK_MOD_DH_L1____________,                                       ______________COLEMAK_MOD_DH_R1____________, KC_DEL,
         KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, _______,
-        _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, KC_MINS,
+        _______, ______________COLEMAK_MOD_DH_L3____________,                                       ______________COLEMAK_MOD_DH_R3____________, KC_MINS,
                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             KC_BSPC, _______, _______,
                                            KC_LALT, _______,                                        _______, _______
     ),
 
     [_GAMING_S] = LAYOUT_split_4x6_5_wrapper(
         _______,  ___________________BLANK___________________,                                      ___________________BLANK___________________, TD(SHADOWPLAY),
-        _______,  _________________GAMING_L1S________________,                                      ___________________BLANK___________________, _______,
-        KC_LSFT,  _________________GAMING_L2S________________,                                      ___________________BLANK___________________, _______,
-        _______,  _________________GAMING_L3S________________,                                      ___________________BLANK___________________, KC_MINS,
+        KC_TAB,   _________________GAMING_L1S________________,                                      _________________QWERTY_R1_________________, KC_DEL,
+        KC_LSFT,  _________________GAMING_L2S________________,                                      _________________QWERTY_R2_________________, _______,
+        _______,  _________________GAMING_L3S________________,                                      _________________QWERTY_L3_________________, KC_MINS,
                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             KC_BSPC, _______, _______,
                                            KC_LALT, _______,                                        _______, _______
     ),
@@ -96,14 +103,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, _______,
         _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, _______,
         _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, _______,
-        _______, KC_BTN4, KC_BTN3, KC_BTN2, KC_BTN1, KC_BTN5,                                       KC_BTN5, KC_BTN1, KC_BTN2, KC_BTN3, KC_BTN4, _______,
-                                   _______, _______, MOUSE,                                         _______, _______, _______,
+        _______, _______, KC_BTN3, KC_BTN2, KC_BTN1, _______,                                       _______, KC_BTN1, KC_BTN2, KC_BTN3, _______, _______,
+                                   _______, _______, _______,                                       _______, _______, _______,
                                             _______, _______,                                       _______, _______
     ),
 
     [_LOWER] = LAYOUT_split_4x6_5_wrapper(
         _______, ________________NUMBER_RIGHT_______________,                                       ___________________BLANK___________________, _______,
-        _______, _________________FUNC_LEFT_________________,                                       _________________FUNC_RIGHT________________, _______,
+        _______, _________________LOWER_L1__________________,                                       _________________LOWER_R1__________________, _______,
         _______, _________________LOWER_L2__________________,                                       _________________LOWER_R2__________________, _______,
         _______, KC_BTN4, KC_BTN3, KC_BTN2, KC_BTN1, KC_BTN5,                                       _________________LOWER_R3__________________, _______,
                                    _______, _______, _______,                                       _______, _______, _______,
@@ -112,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_RAISE] = LAYOUT_split_4x6_5_wrapper(
         _______, ___________________BLANK___________________,                                       ___________________BLANK___________________, _______,
-        _______, _________________FUNC_LEFT_________________,                                       _________________FUNC_RIGHT________________, _______,
+        _______, _________________RAISE_L1__________________,                                       _________________RAISE_R1__________________, _______,
         _______, _________________RAISE_L2__________________,                                       _________________RAISE_R2__________________, _______,
         _______, _________________RAISE_L3__________________,                                       _________________RAISE_R3__________________, _______,
                                    _______, _______, _______,                                       _______, _______, _______,
@@ -121,9 +128,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_ADJUST] = LAYOUT_charybdis_base_wrapper(
         _________________ADJUST_L1_________________,          _________________ADJUST_R1_________________,
-        _______, S_D_MOD, DPI_MOD, _______, _______,          _________________ADJUST_R2_________________,
-        _________________ADJUST_L3_________________,          _________________ADJUST_R3_________________,
-        _________________QWERTY_LT_________________,          _________________QWERTY_RT_________________
+        _________________ADJUST_L2_________________,          _________________ADJUST_R2_________________,
+        _______, S_D_MOD, DPI_MOD, _______, _______,          _________________ADJUST_R3_________________,
+        _________________COMMON_LT_________________,          _________________COMMON_RT_________________
     ),
 };
 
@@ -139,15 +146,23 @@ static bool _has_shift_mod(void) {
 #ifdef POINTING_DEVICE_ENABLE
 bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
-    case HOME_L1:
-    case HOME_L2:
-    case HOME_L3:
-    case HOME_L4:
-    case HOME_R1:
-    case HOME_R2:
-    case HOME_R3:
-    case HOME_R4:
+    case QWERTY_HOME_L1:
+    case QWERTY_HOME_L2:
+    case QWERTY_HOME_L3:
+    case QWERTY_HOME_L4:
+    case QWERTY_HOME_R1:
+    case QWERTY_HOME_R2:
+    case QWERTY_HOME_R3:
+    case QWERTY_HOME_R4:
+    case COLEMAK_HOME_L1:
+    case COLEMAK_HOME_L2:
+    case COLEMAK_HOME_L3:
+    case COLEMAK_HOME_R1:
+    case COLEMAK_HOME_R2:
+    case COLEMAK_HOME_R3:
+    case COLEMAK_HOME_R4:
       if (layer_state_is(_MOUSE)) {
+        auto_pointer_layer_timer = 0;
         layer_off(_MOUSE);
       }
       break;

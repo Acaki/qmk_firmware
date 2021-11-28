@@ -37,6 +37,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 spam_timer = timer_read();
             }
             return false;
+        case COLEMAK:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_COLEMAK_MOD_DH);
+            }
+            return false;
+        case QWERTY:
+            if (record->event.pressed) {
+                set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
     }
     return process_record_keymap(keycode, record);
 }
@@ -44,10 +54,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case THUMB_L2:
-            // Immediately select the hold action when another key is pressed.
-            return true;
         case THUMB_R2:
-            return true;
         case LT(_LOWER, KC_ESC):
             return true;
         default:
@@ -58,13 +65,16 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case HOME_L4:
+        case QWERTY_HOME_L4:
             return TAPPING_TERM + 50;
-        case HOME_R4:
+        case QWERTY_HOME_R4:
+        case COLEMAK_HOME_R4:
             return TAPPING_TERM + 50;
-        case HOME_L2:
+        case QWERTY_HOME_L2:
+        case COLEMAK_HOME_L2:
             return TAPPING_TERM - 15;
-        case HOME_R2:
+        case QWERTY_HOME_R2:
+        case COLEMAK_HOME_R2:
             return TAPPING_TERM - 15;
         default:
             return TAPPING_TERM;
@@ -73,21 +83,21 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case HOME_L1:
-            return true;
-        case HOME_L2:
-            return true;
-        case HOME_L3:
-            return true;
-        case HOME_L4:
-            return true;
-        case HOME_R1:
-            return true;
-        case HOME_R2:
-            return true;
-        case HOME_R3:
-            return true;
-        case HOME_R4:
+        case QWERTY_HOME_L1:
+        case COLEMAK_HOME_L1:
+        case QWERTY_HOME_L2:
+        case COLEMAK_HOME_L2:
+        case QWERTY_HOME_L3:
+        case COLEMAK_HOME_L3:
+        case QWERTY_HOME_L4:
+        case QWERTY_HOME_R1:
+        case COLEMAK_HOME_R1:
+        case QWERTY_HOME_R2:
+        case COLEMAK_HOME_R2:
+        case QWERTY_HOME_R3:
+        case COLEMAK_HOME_R3:
+        case QWERTY_HOME_R4:
+        case COLEMAK_HOME_R4:
             return true;
         default:
             return false;

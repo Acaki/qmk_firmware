@@ -33,20 +33,28 @@ NOTE: These are all the same length.  If you do a search/replace
 #define ________________NUMBER_RIGHT_______________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
 
 #define _________________QWERTY_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
-#define _________________QWERTY_L2_________________        HOME_L4, HOME_L3, HOME_L2, HOME_L1, KC_G
+#define _________________QWERTY_L2_________________        QWERTY_HOME_L4, QWERTY_HOME_L3, QWERTY_HOME_L2, QWERTY_HOME_L1, KC_G
 #define _________________QWERTY_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define _________________QWERTY_LT_________________                          THUMB_L1, THUMB_L2, THUMB_L3
+#define _________________COMMON_LT_________________                          THUMB_L1, THUMB_L2, THUMB_L3
 
 #define _________________QWERTY_R1_________________        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define _________________QWERTY_R2_________________        KC_H,    HOME_R1, HOME_R2, HOME_R3, HOME_R4
+#define _________________QWERTY_R2_________________        KC_H,    QWERTY_HOME_R1, QWERTY_HOME_R2, QWERTY_HOME_R3, QWERTY_HOME_R4
 #define _________________QWERTY_R3_________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
-#define _________________QWERTY_RT_________________        THUMB_R3, THUMB_R2, THUMB_R1
+#define _________________COMMON_RT_________________        THUMB_R3, THUMB_R2, THUMB_R1
+
+#define ______________COLEMAK_MOD_DH_L1____________       KC_Q,    KC_W,    KC_F,    KC_P,    KC_B
+#define ______________COLEMAK_MOD_DH_L2____________       COLEMAK_HOME_L4, COLEMAK_HOME_L3, COLEMAK_HOME_L2, COLEMAK_HOME_L1, KC_G
+#define ______________COLEMAK_MOD_DH_L3____________       KC_Z,    KC_X,    KC_C,    KC_D,    KC_V
+
+#define ______________COLEMAK_MOD_DH_R1____________       KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
+#define ______________COLEMAK_MOD_DH_R2____________       KC_M, COLEMAK_HOME_R1, COLEMAK_HOME_R2, COLEMAK_HOME_R3, COLEMAK_HOME_R4
+#define ______________COLEMAK_MOD_DH_R3____________       KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLASH
 
 #define _________________GAMING_L1S________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
 #define _________________GAMING_L2S________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
-#define _________________GAMING_L2_________________        KC_A,    KC_S,    KC_D,    KC_F,    KC_G
+#define _________________GAMING_L2_________________        KC_A,    KC_R,    KC_S,    KC_T,    KC_G
 #define _________________GAMING_L3S________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
-#define _________________GAMING_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN
+#define _________________GAMING_R2_________________        KC_M,    KC_N,    KC_E,    KC_I,    KC_O
 
 #define _________________MOUSE_L1__________________        KC_BTN4, KC_WH_U, KC_MS_U, KC_WH_D, _______
 #define _________________MOUSE_L2__________________        KC_BTN5, KC_MS_L, KC_MS_D, KC_MS_R, _______
@@ -63,19 +71,19 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_L3__________________        A(KC_F1),A(KC_F2),A(KC_F9),A(KC_F10), _______
 
 #define _________________LOWER_R1__________________        _________________FUNC_RIGHT________________
-#define _________________LOWER_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12
-#define _________________LOWER_R3__________________        KC_PGUP, KC_HOME, KC_END,  KC_PGDN, KC_INS
+#define _________________LOWER_R2__________________        KC_F12,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+#define _________________LOWER_R3__________________        KC_INS,  KC_PGUP, KC_HOME, KC_END,  KC_PGDN
 
-#define _________________RAISE_L1__________________        _________________FUNC_LEFT_________________
-#define _________________RAISE_L2__________________        KC_F11,  KC_LCBR, KC_LBRC, KC_LPRN, _______
-#define _________________RAISE_L3__________________        _______, KC_RCBR, KC_RBRC, KC_RPRN, _______
+#define _________________RAISE_L1__________________        KC_EXLM, KC_AT  , KC_HASH, KC_DLR,  KC_PERC
+#define _________________RAISE_L2__________________        KC_CIRC, KC_LCBR, KC_LBRC, KC_LPRN, KC_ASTR
+#define _________________RAISE_L3__________________        KC_AMPR, KC_RCBR, KC_RBRC, KC_RPRN, _______
 
 #define _________________RAISE_R1__________________        _________________FUNC_RIGHT________________
-#define _________________RAISE_R2__________________        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F12
-#define _________________RAISE_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
+#define _________________RAISE_R2__________________        KC_F12,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+#define _________________RAISE_R3__________________        KC_MUTE, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
 
 #define _________________ADJUST_L1_________________        _______, _______, _______, RESET,   _______
-#define _________________ADJUST_L2_________________        ___________________BLANK___________________
+#define _________________ADJUST_L2_________________        _______, _______, COLEMAK, QWERTY,  _______
 #define _________________ADJUST_L3_________________        ___________________BLANK___________________
 
 #define _________________ADJUST_R1_________________        _______, _______, _______, _______, KC_PSCR
