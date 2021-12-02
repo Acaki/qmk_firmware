@@ -55,6 +55,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case THUMB_L2:
         case THUMB_R2:
+        case THUMB_R3:
         case LT(_LOWER, KC_ESC):
             return true;
         default:

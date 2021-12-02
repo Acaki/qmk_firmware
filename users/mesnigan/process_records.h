@@ -16,6 +16,7 @@ enum userspace_custom_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define GAMING TD(GAMING_TD)
+#define FUNCL MO(_FUNCL)
 
 // Left-hand home row mods
 #define QWERTY_HOME_L1 LCTL_T(KC_F)
@@ -43,4 +44,4 @@ enum userspace_custom_keycodes {
 #define THUMB_L3 KC_TAB
 #define THUMB_R1 MOUSE
 #define THUMB_R2 LT(_RAISE, KC_ENT)
-#define THUMB_R3 KC_ESC
+#define THUMB_R3 LT(_FUNCL, KC_ESC)

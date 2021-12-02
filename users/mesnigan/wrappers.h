@@ -70,17 +70,21 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_L2__________________        KC_F11,  ATAB,    KC_LSFT, CTAB,    KC_LOCK
 #define _________________LOWER_L3__________________        A(KC_F1),A(KC_F2),A(KC_F9),A(KC_F10), _______
 
-#define _________________LOWER_R1__________________        _________________FUNC_RIGHT________________
-#define _________________LOWER_R2__________________        KC_F12,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-#define _________________LOWER_R3__________________        KC_INS,  KC_PGUP, KC_HOME, KC_END,  KC_PGDN
+#define _________________LOWER_R1__________________        _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP
+#define _________________LOWER_R2__________________        _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN
+#define _________________LOWER_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
 
 #define _________________RAISE_L1__________________        KC_EXLM, KC_AT  , KC_HASH, KC_DLR,  KC_PERC
 #define _________________RAISE_L2__________________        KC_CIRC, KC_LCBR, KC_LBRC, KC_LPRN, KC_ASTR
 #define _________________RAISE_L3__________________        KC_AMPR, KC_RCBR, KC_RBRC, KC_RPRN, _______
 
-#define _________________RAISE_R1__________________        _________________FUNC_RIGHT________________
-#define _________________RAISE_R2__________________        KC_F12,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-#define _________________RAISE_R3__________________        KC_MUTE, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
+#define _________________RAISE_R1__________________        _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP
+#define _________________RAISE_R2__________________        _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN
+#define _________________RAISE_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
+
+#define _________________FUNCL_R1__________________        KC_F12,  KC_F7,   KC_F8,   KC_F9,   _______
+#define _________________FUNCL_R2__________________        KC_F11,  KC_F4,   KC_F5,   KC_F6,   _______
+#define _________________FUNCL_R3__________________        KC_F10,  KC_F1,   KC_F2,   KC_F3,   _______
 
 #define _________________ADJUST_L1_________________        _______, _______, _______, RESET,   _______
 #define _________________ADJUST_L2_________________        _______, _______, COLEMAK, QWERTY,  _______
