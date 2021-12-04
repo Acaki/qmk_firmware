@@ -52,9 +52,9 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________GAMING_L1S________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
 #define _________________GAMING_L2S________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
-#define _________________GAMING_L2_________________        KC_A,    KC_R,    KC_S,    KC_T,    KC_G
+#define _________________GAMING_L2_________________        KC_A,    KC_S,    KC_D,    KC_F,    KC_G
 #define _________________GAMING_L3S________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
-#define _________________GAMING_R2_________________        KC_M,    KC_N,    KC_E,    KC_I,    KC_O
+#define _________________GAMING_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN
 
 #define _________________MOUSE_L1__________________        KC_BTN4, KC_WH_U, KC_MS_U, KC_WH_D, _______
 #define _________________MOUSE_L2__________________        KC_BTN5, KC_MS_L, KC_MS_D, KC_MS_R, _______
@@ -82,9 +82,14 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_R2__________________        _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN
 #define _________________RAISE_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
 
-#define _________________FUNCL_R1__________________        KC_F12,  KC_F7,   KC_F8,   KC_F9,   _______
-#define _________________FUNCL_R2__________________        KC_F11,  KC_F4,   KC_F5,   KC_F6,   _______
-#define _________________FUNCL_R3__________________        KC_F10,  KC_F1,   KC_F2,   KC_F3,   _______
+#define _________________FUNCL_L1__________________        KC_F12,  KC_F7,   KC_F8,   KC_F9,   _______
+#define _________________FUNCL_L2__________________        KC_F11,  KC_F4,   KC_F5,   KC_F6,   _______
+#define _________________FUNCL_L3__________________        KC_F10,  KC_F1,   KC_F2,   KC_F3,   _______
+
+#define _________________NUMBL_R1__________________        _______, KC_7,    KC_8,    KC_9,    _______
+#define _________________NUMBL_R2__________________        _______, KC_4,    KC_5,    KC_6,    _______
+#define _________________NUMBL_R3__________________        _______, KC_1,    KC_2,    KC_3,    _______
+#define _________________NUMBL_RT__________________        THUMB_R3,KC_0, THUMB_R1
 
 #define _________________ADJUST_L1_________________        _______, _______, _______, RESET,   _______
 #define _________________ADJUST_L2_________________        _______, _______, COLEMAK, QWERTY,  _______
