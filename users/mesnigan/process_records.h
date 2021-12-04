@@ -41,7 +41,7 @@ enum userspace_custom_keycodes {
 
 #define THUMB_L1 KC_BSPC 
 #define THUMB_L2 LT(_LOWER, KC_SPC) 
-#define THUMB_L3 LT(_NUMBL, KC_TAB)
+#define THUMB_L3 LT(_FUNCL, KC_TAB)
 #define THUMB_R1 MOUSE
 #define THUMB_R2 LT(_RAISE, KC_ENT)
-#define THUMB_R3 LT(_FUNCL, KC_ESC)
+#define THUMB_R3 LT(_NUMBL, KC_ESC)
