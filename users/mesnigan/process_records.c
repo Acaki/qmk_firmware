@@ -58,6 +58,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case THUMB_R3:
         case LT(_LOWER, KC_ESC):
             return true;
+        case LT(_FUNCL, KC_BSPC):
+            return true;
         default:
             // Do not select the hold action when another key is pressed.
             return false;
