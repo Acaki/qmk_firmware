@@ -39,7 +39,8 @@ typedef struct {
 
 enum {
     GAMING_TD,
-    SHADOWPLAY
+    SHADOWPLAY,
+    DOT_TD
 };
 
 td_state_t cur_dance(qk_tap_dance_state_t *state);

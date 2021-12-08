@@ -39,7 +39,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________QWERTY_R1_________________        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define _________________QWERTY_R2_________________        KC_H,    QWERTY_HOME_R1, QWERTY_HOME_R2, QWERTY_HOME_R3, QWERTY_HOME_R4
-#define _________________QWERTY_R3_________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
+#define _________________QWERTY_R3_________________        KC_N,    KC_M,    KC_COMM, TD(DOT_TD),  KC_SLSH
 #define _________________COMMON_RT_________________        THUMB_R3, THUMB_R2, THUMB_R1
 
 #define _________________MACRO_L0__________________       C(KC_Z), C(KC_X), C(KC_C), C(KC_V), C(KC_Y)
@@ -50,7 +50,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________MACRO_R0__________________       ________________NUMBER_RIGHT_______________
 #define ______________COLEMAK_MOD_DH_R1____________       KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
 #define ______________COLEMAK_MOD_DH_R2____________       KC_M, COLEMAK_HOME_R1, COLEMAK_HOME_R2, COLEMAK_HOME_R3, COLEMAK_HOME_R4
-#define ______________COLEMAK_MOD_DH_R3____________       KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLASH
+#define ______________COLEMAK_MOD_DH_R3____________       KC_K,    KC_H,    KC_COMM, TD(DOT_TD),  KC_SLSH
 
 #define _________________GAMING_L1S________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
 #define _________________GAMING_L2S________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
