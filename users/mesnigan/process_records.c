@@ -37,16 +37,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 spam_timer = timer_read();
             }
             return false;
-        case COLEMAK:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_COLEMAK_MOD_DH);
-            }
-            return false;
-        case QWERTY:
-            if (record->event.pressed) {
-                set_single_persistent_default_layer(_QWERTY);
-            }
-            return false;
     }
     return process_record_keymap(keycode, record);
 }
@@ -69,15 +59,10 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case QWERTY_HOME_L4:
-            return TAPPING_TERM + 50;
-        case QWERTY_HOME_R4:
+        case COLEMAK_HOME_L4:
         case COLEMAK_HOME_R4:
             return TAPPING_TERM + 50;
-        case QWERTY_HOME_L2:
         case COLEMAK_HOME_L2:
-            return TAPPING_TERM - 15;
-        case QWERTY_HOME_R2:
         case COLEMAK_HOME_R2:
             return TAPPING_TERM - 15;
         default:
@@ -87,20 +72,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case QWERTY_HOME_L1:
         case COLEMAK_HOME_L1:
-        case QWERTY_HOME_L2:
         case COLEMAK_HOME_L2:
-        case QWERTY_HOME_L3:
         case COLEMAK_HOME_L3:
-        case QWERTY_HOME_L4:
-        case QWERTY_HOME_R1:
+        case COLEMAK_HOME_L4:
         case COLEMAK_HOME_R1:
-        case QWERTY_HOME_R2:
         case COLEMAK_HOME_R2:
-        case QWERTY_HOME_R3:
         case COLEMAK_HOME_R3:
-        case QWERTY_HOME_R4:
         case COLEMAK_HOME_R4:
             return true;
         default:

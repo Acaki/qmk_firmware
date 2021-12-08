@@ -13,8 +13,6 @@ enum userspace_custom_keycodes {
     MOFFESC,
     SPAMLC,
     SPAMRC,
-    COLEMAK,
-    QWERTY,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 
@@ -25,20 +23,12 @@ enum userspace_custom_keycodes {
 #define FUNCL MO(_FUNCL)
 
 // Left-hand home row mods
-#define QWERTY_HOME_L1 LCTL_T(KC_F)
-#define QWERTY_HOME_L2 LSFT_T(KC_D)
-#define QWERTY_HOME_L3 LALT_T(KC_S)
-#define QWERTY_HOME_L4 LGUI_T(KC_A)
 #define COLEMAK_HOME_L1 LCTL_T(KC_T)
 #define COLEMAK_HOME_L2 LSFT_T(KC_S)
 #define COLEMAK_HOME_L3 LALT_T(KC_R)
 #define COLEMAK_HOME_L4 LGUI_T(KC_A)
 
 // Right-hand home row mods
-#define QWERTY_HOME_R1 RCTL_T(KC_J)
-#define QWERTY_HOME_R2 RSFT_T(KC_K)
-#define QWERTY_HOME_R3 RALT_T(KC_L)
-#define QWERTY_HOME_R4 RGUI_T(KC_SCLN)
 #define COLEMAK_HOME_R1 RCTL_T(KC_N)
 #define COLEMAK_HOME_R2 RSFT_T(KC_E)
 #define COLEMAK_HOME_R3 RALT_T(KC_I)

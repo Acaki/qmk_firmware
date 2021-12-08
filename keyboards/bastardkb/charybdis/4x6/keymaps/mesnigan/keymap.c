@@ -43,13 +43,6 @@ static uint16_t auto_pointer_layer_timer = 0;
 #define LAYOUT_charybdis_base_wrapper(...)       LAYOUT_charybdis_base(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_QWERTY] = LAYOUT_charybdis_base_wrapper(
-      _________________QWERTY_L1_________________, _________________QWERTY_R1_________________,
-      _________________QWERTY_L2_________________, _________________QWERTY_R2_________________,
-      _________________QWERTY_L3_________________, _________________QWERTY_R3_________________,
-      _________________COMMON_LT_________________, _________________COMMON_RT_________________
-    ),
-
     [_COLEMAK_MOD_DH] = LAYOUT_charybdis_base_wrapper(
       ______________COLEMAK_MOD_DH_L1____________, ______________COLEMAK_MOD_DH_R1____________,
       ______________COLEMAK_MOD_DH_L2____________, ______________COLEMAK_MOD_DH_R2____________,
@@ -57,20 +50,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _________________COMMON_LT_________________, _________________COMMON_RT_________________
     ),
 
-    [_GAMING] =LAYOUT_charybdis_4x6_wrapper(
+    [_GAMING] = LAYOUT_charybdis_4x6_wrapper(
         _______, ________________NUMBER_LEFT________________,                                       ___________________BLANK___________________, TD(SHADOWPLAY),
-        KC_TAB,  _________________QWERTY_L1_________________,                                       _________________QWERTY_R1_________________, KC_DEL,
+        KC_TAB,  _________________GAMING_L1_________________,                                       _________________GAMING_R1_________________, KC_DEL,
         KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, _______,
-        _______, _________________QWERTY_L3_________________,                                       _________________QWERTY_R3_________________, KC_MINS,
+        _______, _________________GAMING_L3_________________,                                       _________________GAMING_R3_________________, KC_MINS,
                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             LT(_FUNCL, KC_BSPC), _______,
                                            KC_LALT, _______,                                        _______
     ),
 
-    [_GAMING_S]LAYOUT_charybdis_4x6_wrapper(
+    [_GAMING_S] = LAYOUT_charybdis_4x6_wrapper(
         _______,  ________________NUMBER_LEFT________________,                                      ___________________BLANK___________________, TD(SHADOWPLAY),
-        KC_TAB,   _________________GAMING_L1S________________,                                      _________________QWERTY_R1_________________, KC_DEL,
+        KC_TAB,   _________________GAMING_L1S________________,                                      _________________GAMING_R1_________________, KC_DEL,
         KC_LSFT,  _________________GAMING_L2S________________,                                      _________________GAMING_R2_________________, _______,
-        _______,  _________________GAMING_L3S________________,                                      _________________QWERTY_L3_________________, KC_MINS,
+        _______,  _________________GAMING_L3S________________,                                      _________________GAMING_R3_________________, KC_MINS,
                                   KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             LT(_FUNCL, KC_BSPC), _______,
                                            KC_LALT, _______,                                        _______
     ),
@@ -136,14 +129,6 @@ static bool _has_shift_mod(void) {
 #ifdef POINTING_DEVICE_ENABLE
 bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
-    case QWERTY_HOME_L1:
-    case QWERTY_HOME_L2:
-    case QWERTY_HOME_L3:
-    case QWERTY_HOME_L4:
-    case QWERTY_HOME_R1:
-    case QWERTY_HOME_R2:
-    case QWERTY_HOME_R3:
-    case QWERTY_HOME_R4:
     case COLEMAK_HOME_L1:
     case COLEMAK_HOME_L2:
     case COLEMAK_HOME_L3:

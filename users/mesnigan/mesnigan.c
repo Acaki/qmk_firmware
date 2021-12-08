@@ -42,7 +42,7 @@ void register_alt() {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
-        case _QWERTY ... _MOUSE:
+        case _COLEMAK_MOD_DH ... _MOUSE:
             release_ctrl();
             release_alt();
             break;
@@ -84,7 +84,7 @@ void dance_gaming_finished(qk_tap_dance_state_t *state, void *user_data) {
     ql_tap_state.state = cur_dance(state);
     switch (ql_tap_state.state) {
         case TD_SINGLE_TAP:
-            if (layer_state_is(_QWERTY)) {
+            if (layer_state_is(_COLEMAK_MOD_DH)) {
                 layer_on(_GAMING);
             } else {
                 layer_clear();

@@ -4,8 +4,7 @@ SRC += mesnigan.c \
 
 RGBLIGHT_ENABLE = no
 BOOTLOADER = atmel-dfu
-# KVM shortcuts compatibility
-NKRO_ENABLE = no
+NKRO_ENABLE = yes
 MOUSEKEY_ENABLE = no
 EXTRAKEY_ENABLE = yes
 SPACE_CADET_ENABLE = no
