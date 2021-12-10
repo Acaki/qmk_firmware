@@ -36,12 +36,10 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________COMMON_RT_________________        THUMB_R3, THUMB_R2, THUMB_R1
 
-#define _________________MACRO_L0__________________       C(KC_Z), C(KC_X), C(KC_C), C(KC_V), C(KC_Y)
 #define ______________COLEMAK_MOD_DH_L1____________       KC_Q,    KC_W,    KC_F,    KC_P,    KC_B
 #define ______________COLEMAK_MOD_DH_L2____________       COLEMAK_HOME_L4, COLEMAK_HOME_L3, COLEMAK_HOME_L2, COLEMAK_HOME_L1, KC_G
 #define ______________COLEMAK_MOD_DH_L3____________       KC_Z,    KC_X,    KC_C,    KC_D,    KC_V
 
-#define _________________MACRO_R0__________________       ________________NUMBER_RIGHT_______________
 #define ______________COLEMAK_MOD_DH_R1____________       KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
 #define ______________COLEMAK_MOD_DH_R2____________       KC_M, COLEMAK_HOME_R1, COLEMAK_HOME_R2, COLEMAK_HOME_R3, COLEMAK_HOME_R4
 #define ______________COLEMAK_MOD_DH_R3____________       KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLASH
@@ -67,16 +65,16 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________MOUSE_RT__________________        KC_BTN3, KC_BTN1, KC_BTN2
 
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
-#define _________________LOWER_L2__________________        KC_F11,  ATAB,    KC_LSFT, CTAB,    KC_LOCK
-#define _________________LOWER_L3__________________        A(KC_F1),A(KC_F2),A(KC_F9),A(KC_F10), _______
+#define _________________LOWER_L2__________________        KC_F12,  ATAB,    KC_LSFT, CTAB,    KC_F11
+#define _________________LOWER_L3__________________        _______, KC_BTN3, KC_BTN2, KC_BTN1, KC_LOCK
 
 #define _________________LOWER_R1__________________        KC_PSCR, KC_HOME, KC_UP,   KC_END,  KC_PGUP
 #define _________________LOWER_R2__________________        KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN
 #define _________________LOWER_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
 
-#define _________________RAISE_L1__________________        KC_EXLM, KC_AT  , KC_HASH, KC_DLR,  KC_PERC
-#define _________________RAISE_L2__________________        KC_CIRC, KC_LCBR, KC_LBRC, KC_LPRN, KC_ASTR
-#define _________________RAISE_L3__________________        KC_AMPR, KC_RCBR, KC_RBRC, KC_RPRN, _______
+#define _________________RAISE_L1__________________        KC_COLN, KC_7,    KC_8,    KC_9,    KC_PLUS
+#define _________________RAISE_L2__________________        KC_0,    KC_4,    KC_5,    KC_6,    KC_ASTR
+#define _________________RAISE_L3__________________        KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS
 
 #define _________________RAISE_R1__________________        _________________LOWER_R1__________________
 #define _________________RAISE_R2__________________        _________________LOWER_R2__________________
@@ -87,17 +85,15 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________FUNCL_R2__________________        _______, KC_F4,   KC_F5,   KC_F6,   KC_F11
 #define _________________FUNCL_R3__________________        _______, KC_F1,   KC_F2,   KC_F3,   KC_F10
 
-#define _________________NUMBL_L1__________________        KC_COLN, KC_7,    KC_8,    KC_9,    KC_PLUS
-#define _________________NUMBL_L2__________________        KC_DOT,  KC_4,    KC_5,    KC_6,    KC_MINS
-#define _________________NUMBL_L3__________________        KC_SLSH, KC_1,    KC_2,    KC_3,    KC_ASTR
-#define _________________NUMBL_LT__________________                          _______, KC_0,    _______
-#define _________________NUMBL_R2__________________        _______, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI
+#define _________________SYMBL_L1__________________        KC_EXLM, KC_AT  , KC_HASH, KC_DLR,  KC_PERC
+#define _________________SYMBL_L2__________________        KC_CIRC, KC_LCBR, KC_LBRC, KC_LPRN, KC_ASTR
+#define _________________SYMBL_L3__________________        KC_AMPR, KC_RCBR, KC_RBRC, KC_RPRN, _______
 
-#define _________________ADJUST_L1_________________        _______, _______, _______, _______, _______
+#define _________________ADJUST_L1_________________        ___________________BLANK___________________
 #define _________________ADJUST_L2_________________        _______, RESET,   _______, _______, _______
 #define _________________ADJUST_L3_________________        ___________________BLANK___________________
 
-#define _________________ADJUST_R1_________________        _______, _______, _______, _______, _______
+#define _________________ADJUST_R1_________________        ___________________BLANK___________________
 #define _________________ADJUST_R2_________________        _______, SPAMLC,  SPAMRC,  _______, _______
 #define _________________ADJUST_R3_________________        ___________________BLANK___________________
 
