@@ -10,6 +10,7 @@
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 static uint16_t auto_pointer_layer_timer = 0;
+static uint16_t mouse_debounce_timer = 0;
 
 #ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
 #define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 1000
@@ -177,16 +178,26 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
             !charybdis_get_pointer_dragscroll_enabled());
       }
       break;
+    default:
+      mouse_debounce_timer  = timer_read();
+      break;
   }
   return true;
 }
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-  if (abs(mouse_report.x) > CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD ||
-      abs(mouse_report.y) > CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD) {
-    if (auto_pointer_layer_timer == 0) {
-      layer_on(_MOUSE);
+  int8_t x = mouse_report.x, y = mouse_report.y;
+  mouse_report.x = 0;
+  mouse_report.y = 0;
+
+  if (x || y) {
+    if (timer_elapsed(mouse_debounce_timer) > TAPPING_TERM) {
+      if (!layer_state_is(_MOUSE)) {
+        layer_on(_MOUSE);
+      }
+      mouse_report.x = x;
+      mouse_report.y = y;
 #ifdef RGB_MATRIX_ENABLE
       rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
       rgb_matrix_sethsv_noeeprom(HSV_GREEN);
@@ -198,10 +209,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 }
 
 void matrix_scan_kb(void) {
-  if (auto_pointer_layer_timer != 0 &&
-      TIMER_DIFF_16(timer_read(), auto_pointer_layer_timer) >=
-          CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS) {
-    auto_pointer_layer_timer = 0;
+  if (timer_elapsed(auto_pointer_layer_timer) >= CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS && layer_state_is(_MOUSE)) {
     layer_off(_MOUSE);
 #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_mode_noeeprom(RGB_MATRIX_STARTUP_MODE);
