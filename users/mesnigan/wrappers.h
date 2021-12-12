@@ -72,13 +72,13 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_R2__________________        KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN
 #define _________________LOWER_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
 
-#define _________________RAISE_L1__________________        KC_COLN, KC_7,    KC_8,    KC_9,    KC_PLUS
-#define _________________RAISE_L2__________________        KC_0,    KC_4,    KC_5,    KC_6,    KC_ASTR
-#define _________________RAISE_L3__________________        KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS
+#define _________________RAISE_L1__________________        KC_COLN, KC_7,    KC_8,    KC_9,    KC_RBRC
+#define _________________RAISE_L2__________________        KC_0,    KC_4,    KC_5,    KC_6,    KC_LBRC
+#define _________________RAISE_L3__________________        _______, KC_1,    KC_2,    KC_3,    KC_PLUS
 
-#define _________________RAISE_R1__________________        _________________LOWER_R1__________________
-#define _________________RAISE_R2__________________        _________________LOWER_R2__________________
-#define _________________RAISE_R3__________________        _________________LOWER_R3__________________
+#define _________________RAISE_R1__________________        ___________________BLANK___________________
+#define _________________RAISE_R2__________________        _______, KC_LCTL, KC_RSFT, KC_RALT, KC_RGUI
+#define _________________RAISE_R3__________________        ___________________BLANK___________________
 
 #define _________________FUNCL_L2__________________        KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______
 #define _________________FUNCL_R1__________________        _______, KC_F7,   KC_F8,   KC_F9,   KC_F12

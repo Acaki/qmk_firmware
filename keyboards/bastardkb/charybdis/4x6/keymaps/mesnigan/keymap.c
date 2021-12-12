@@ -124,6 +124,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
     case COLEMAK_HOME_L1:
     case COLEMAK_HOME_L2:
     case COLEMAK_HOME_L3:
+    case COLEMAK_HOME_L4:
     case COLEMAK_HOME_R1:
     case COLEMAK_HOME_R2:
     case COLEMAK_HOME_R3:
