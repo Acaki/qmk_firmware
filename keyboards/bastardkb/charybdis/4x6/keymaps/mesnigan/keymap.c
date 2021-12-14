@@ -129,6 +129,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
     case COLEMAK_HOME_R2:
     case COLEMAK_HOME_R3:
     case COLEMAK_HOME_R4:
+    case THUMB_L2:
       if (layer_state_is(_MOUSE)) {
         auto_pointer_layer_timer = 0;
         layer_off(_MOUSE);
