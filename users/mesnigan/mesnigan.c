@@ -98,6 +98,11 @@ void dance_gaming_finished(qk_tap_dance_state_t *state, void *user_data) {
             }
             break;
         case TD_DOUBLE_TAP:
+            if (layer_state_is(_ARROW)) {
+                layer_off(_ARROW);
+            } else {
+                layer_on(_ARROW);
+            }
             break;
         default:
             break;
@@ -109,10 +114,13 @@ void dance_shadowplay_finished(qk_tap_dance_state_t *state, void *user_data) {
     switch (ql_tap_state.state) {
         case TD_SINGLE_TAP:
             SEND_STRING(SS_LALT(SS_TAP(X_F1)));
+            break;
         case TD_SINGLE_HOLD:
             SEND_STRING(SS_LALT(SS_TAP(X_F9)));
+            break;
         case TD_DOUBLE_TAP:
             SEND_STRING(SS_LALT(SS_TAP(X_F10)));
+            break;
         default:
             break;
     }

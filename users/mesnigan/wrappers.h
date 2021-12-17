@@ -72,6 +72,9 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________LOWER_R2__________________        KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END
 #define _________________LOWER_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
 
+#define _________________ARROW_R1__________________        _______, _______, KC_UP,   _______, _______
+#define _________________ARROW_R2__________________        _______, KC_LEFT, KC_DOWN, KC_RGHT, _______
+
 #define _________________RAISE_L1__________________        KC_COLN, KC_7,    KC_8,    KC_9,    KC_ASTR
 #define _________________RAISE_L2__________________        KC_0,    KC_4,    KC_5,    KC_6,    KC_PLUS
 #define _________________RAISE_L3__________________        KC_DOT,  KC_1,    KC_2,    KC_3,    KC_SLSH
