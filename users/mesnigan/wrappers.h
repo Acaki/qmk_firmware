@@ -65,8 +65,8 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________MOUSE_RT__________________        KC_BTN3, KC_BTN1, KC_BTN2
 
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
-#define _________________LOWER_L2__________________        KC_F12,  ATAB,    KC_LSFT, CTAB,    KC_F11
-#define _________________LOWER_L3__________________        _______, KC_BTN3, KC_BTN2, KC_BTN1, KC_LOCK
+#define _________________LOWER_L2__________________        KC_F12,  ATAB,    KC_LSFT, CTAB,    KC_LOCK
+#define _________________LOWER_L3__________________        KC_F11,  KC_BTN3, KC_BTN2, KC_BTN1, _______
 
 #define _________________LOWER_R1__________________        KC_PSCR, KC_PGUP, KC_UP,   KC_PGDN, KC_HOME
 #define _________________LOWER_R2__________________        KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END
