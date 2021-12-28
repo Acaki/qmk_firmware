@@ -56,8 +56,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,  _________________GAMING_L1_________________,                                       _________________GAMING_R1_________________, KC_DEL,
       KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, _______,
       _______, _________________GAMING_L3_________________,                                       _________________GAMING_R3_________________, KC_MINS,
-                                KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             KC_BSPC, _______,
-                                         KC_LALT, _______,                                        _______
+                                KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             MO(_RAISE), KC_ENT,
+                                         KC_LALT, _______,                                        KC_BSPC
     ),
 
     [_GAMING_S] = LAYOUT_charybdis_4x6_wrapper(
@@ -65,8 +65,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,   _________________GAMING_L1S________________,                                      _________________GAMING_R1_________________, KC_DEL,
       KC_LSFT,  _________________GAMING_L2S________________,                                      _________________GAMING_R2_________________, _______,
       _______,  _________________GAMING_L3S________________,                                      _________________GAMING_R3_________________, KC_MINS,
-                                KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             KC_BSPC, _______,
-                                         KC_LALT, _______,                                        _______
+                                KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             MO(_RAISE), KC_ENT,
+                                         KC_LALT, _______,                                        KC_BSPC
     ),
 
     [_MOUSE] = LAYOUT_charybdis_base_wrapper(
