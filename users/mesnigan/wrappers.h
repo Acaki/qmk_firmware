@@ -92,7 +92,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________SYMBL_L2__________________        KC_CIRC, KC_LCBR, KC_LBRC, KC_LPRN, KC_ASTR
 #define _________________SYMBL_L3__________________        KC_AMPR, KC_RCBR, KC_RBRC, KC_RPRN, _______
 
-#define _________________SYMBL_R1__________________        KC_PERC, KC_HASH, KC_CIRC, KC_DLR,  KC_EXLM
+#define _________________SYMBL_R1__________________        KC_PERC, KC_CIRC, KC_HASH, KC_DLR,  KC_EXLM
 #define _________________SYMBL_R2__________________        KC_AMPR, KC_LPRN, KC_LBRC, KC_LCBR, KC_ASTR
 #define _________________SYMBL_R3__________________        KC_AT,   KC_RPRN, KC_RBRC, KC_RCBR, _______
 
