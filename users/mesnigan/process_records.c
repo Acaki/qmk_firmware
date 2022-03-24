@@ -10,6 +10,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 register_alt();
                 register_code(KC_TAB);
+            } else {
                 unregister_code(KC_TAB);
             }
             return false;
@@ -17,6 +18,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 register_ctrl();
                 register_code(KC_TAB);
+            } else {
                 unregister_code(KC_TAB);
             }
             return false;
