@@ -96,8 +96,8 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________SYMBL_R2__________________        KC_AMPR, KC_LPRN, KC_LBRC, KC_LCBR, KC_ASTR
 #define _________________SYMBL_R3__________________        KC_AT,   KC_RPRN, KC_RBRC, KC_RCBR, _______
 
-#define _________________ADJUST_L1_________________        ___________________BLANK___________________
-#define _________________ADJUST_L2_________________        _______, RESET,   _______, _______, _______
+#define _________________ADJUST_L1_________________        _______, _______, KVMPC1,  KVMPC2,  _______
+#define _________________ADJUST_L2_________________        _______, RESET,   KC_SLEP, _______, _______
 #define _________________ADJUST_L3_________________        ___________________BLANK___________________
 
 #define _________________ADJUST_R1_________________        ___________________BLANK___________________

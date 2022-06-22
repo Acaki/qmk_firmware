@@ -13,6 +13,8 @@ enum userspace_custom_keycodes {
     MOFFESC,
     SPAMLC,
     SPAMRC,
+    KVMPC1,
+    KVMPC2,
     NEW_SAFE_RANGE  // use "NEWPLACEHOLDER for keymap specific codes
 };
 
