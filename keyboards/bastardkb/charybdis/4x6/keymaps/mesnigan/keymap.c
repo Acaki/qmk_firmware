@@ -115,6 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef POINTING_DEVICE_ENABLE
+#ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
     case COLEMAK_HOME_L1:
@@ -142,38 +143,27 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
   return true;
 }
 
-#ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
   int8_t x = mouse_report.x, y = mouse_report.y;
   mouse_report.x = 0;
   mouse_report.y = 0;
 
   if (x || y) {
+    auto_pointer_layer_timer = timer_read();
     if (timer_elapsed(mouse_debounce_timer) > TAPPING_TERM) {
+      mouse_report.x = x;
+      mouse_report.y = y;
       if (!layer_state_is(_MOUSE)) {
         layer_on(_MOUSE);
       }
-      mouse_report.x = x;
-      mouse_report.y = y;
-#ifdef RGB_MATRIX_ENABLE
-      rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
-      rgb_matrix_sethsv_noeeprom(HSV_GREEN);
-#endif  // RGB_MATRIX_ENABLE
     }
-    auto_pointer_layer_timer = timer_read();
-  }
+  } else if (timer_elapsed(auto_pointer_layer_timer) > CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS && layer_state_is(_MOUSE)) {
+    layer_off(_MOUSE);
+  }  
+
   return mouse_report;
 }
 
-void matrix_scan_kb(void) {
-  if (timer_elapsed(auto_pointer_layer_timer) >= CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS && layer_state_is(_MOUSE)) {
-    layer_off(_MOUSE);
-#ifdef RGB_MATRIX_ENABLE
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_STARTUP_MODE);
-#endif  // RGB_MATRIX_ENABLE
-  }
-  matrix_scan_user();
-}
 #endif  // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER
 
 #ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
