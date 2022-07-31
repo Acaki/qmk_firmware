@@ -10,6 +10,7 @@
 
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 static uint16_t auto_pointer_layer_timer = 0;
+static uint16_t mouse_idle_timer = 0;
 static uint16_t mouse_debounce_timer = 0;
 
 #ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
@@ -147,8 +148,19 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
   int8_t x = mouse_report.x, y = mouse_report.y;
   mouse_report.x = 0;
   mouse_report.y = 0;
+  bool movement = false;
+  if (timer_elapsed(mouse_idle_timer) > MOUSE_IDLE_TIMEOUT) {
+    if (abs(x) > MOUSE_ACTIVE_MOVEMENT_THRESHOLD || abs(y) > MOUSE_ACTIVE_MOVEMENT_THRESHOLD) {
+      movement = true;
+    }
+  } else {
+    if (x || y) {
+      movement = true;
+    }
+  }
 
-  if (x || y) {
+  if (movement) {
+    mouse_idle_timer = timer_read();
     auto_pointer_layer_timer = timer_read();
     if (timer_elapsed(mouse_debounce_timer) > TAPPING_TERM) {
       mouse_report.x = x;
