@@ -58,6 +58,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case THUMB_L2:
         case THUMB_L3:
         case THUMB_R2:
+        case THUMB_R3:
         case LT(_LOWER, KC_ESC):
             return true;
         default:
@@ -70,7 +71,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case COLEMAK_HOME_L4:
         case COLEMAK_HOME_R4:
-            return TAPPING_TERM + 50;
+            return TAPPING_TERM + 25;
         case COLEMAK_HOME_L2:
         case COLEMAK_HOME_R2:
             return TAPPING_TERM - 15;

@@ -83,10 +83,9 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_R2__________________        _________________LOWER_R2__________________
 #define _________________RAISE_R3__________________        _________________LOWER_R3__________________
 
-#define _________________FUNCL_L2__________________        KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, _______
-#define _________________FUNCL_R1__________________        _______, KC_F7,   KC_F8,   KC_F9,   KC_F12
-#define _________________FUNCL_R2__________________        _______, KC_F4,   KC_F5,   KC_F6,   KC_F11
-#define _________________FUNCL_R3__________________        _______, KC_F1,   KC_F2,   KC_F3,   KC_F10
+#define _________________FUNCL_R1__________________        _______, _______, MPRVD,   _______, _______
+#define _________________FUNCL_R2__________________        _______, PRVD,    MNXTD,   NXTD,    _______
+#define _________________FUNCL_R3__________________        ___________________BLANK___________________
 
 #define _________________SYMBL_L1__________________        KC_EXLM, KC_AT  , KC_HASH, KC_DLR,  KC_PERC
 #define _________________SYMBL_L2__________________        KC_CIRC, KC_LCBR, KC_LBRC, KC_LPRN, KC_ASTR
