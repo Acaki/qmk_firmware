@@ -139,7 +139,6 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
       if (layer_state_is(_MOUSE)) {
         auto_pointer_layer_timer = 0;
         layer_off(_MOUSE);
-        return false;
       }
       break;
     case KC_MS_UP ... KC_MS_WH_RIGHT:
