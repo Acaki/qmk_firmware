@@ -84,11 +84,11 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________RAISE_R3__________________        _________________LOWER_R3__________________
 
 #define _________________FUNCL_L1__________________        _______, KC_F20,  KC_F21,  KC_F22, _______
-#define _________________FUNCL_L2__________________        KC_F13,  KC_F17,  KC_F18,  KC_F19, _______
+#define _________________FUNCL_L2__________________        KC_F13,  KC_F17,  KC_F18,  KC_F19, KC_F23
 #define _________________FUNCL_L3__________________        _______, KC_F14,  KC_F15,  KC_F16, _______
 
 #define _________________FUNCL_R1__________________        _______, KC_F20,  KC_F21,  KC_F22, _______
-#define _________________FUNCL_R2__________________        _______, KC_F17,  KC_F18,  KC_F19, KC_F13
+#define _________________FUNCL_R2__________________        KC_F23,  KC_F17,  KC_F18,  KC_F19, KC_F13
 #define _________________FUNCL_R3__________________        _______, KC_F14,  KC_F15,  KC_F16, _______
 
 #define _________________SYMBL_L1__________________        KC_EXLM, KC_AT  , KC_HASH, KC_DLR,  KC_PERC
