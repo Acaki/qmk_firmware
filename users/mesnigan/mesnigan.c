@@ -132,6 +132,6 @@ void ql_reset(qk_tap_dance_state_t *state, void *user_data) {
 
 // Associate our tap dance key with its functionality
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [GAMING_TD] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, dance_gaming_finished, ql_reset, 200),
-    [SHADOWPLAY] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, dance_shadowplay_finished, ql_reset, 200)
+    [GAMING_TD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_gaming_finished, ql_reset),
+    [SHADOWPLAY] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_shadowplay_finished, ql_reset)
 };
