@@ -185,14 +185,15 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 
 #endif  // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER
 
-#ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
-layer_state_t layer_state_set_kb(layer_state_t state) {
-  state = layer_state_set_user(state);
-  charybdis_set_pointer_sniping_enabled(
-      layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
-  return state;
-}
-#endif  // CHARYBDIS_AUTO_SNIPING_ON_LAYER
+// Conflicted with ROTATIONAL_TRANSFORM_ANGLE for some reason, possibly due to eeconfig write bug
+// #ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
+// layer_state_t layer_state_set_kb(layer_state_t state) {
+//   state = layer_state_set_user(state);
+//   charybdis_set_pointer_sniping_enabled(
+//       layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
+//   return state;
+// }
+// #endif  // CHARYBDIS_AUTO_SNIPING_ON_LAYER
 #endif  // POINTING_DEVICE_ENABLE
 
 #ifdef SWAP_HANDS_ENABLE
