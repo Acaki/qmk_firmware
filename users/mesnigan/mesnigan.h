@@ -42,10 +42,10 @@ enum {
     SHADOWPLAY
 };
 
-td_state_t cur_dance(qk_tap_dance_state_t *state);
-void dance_gaming_finished(qk_tap_dance_state_t *state, void *user_data);
-void dance_shadowplay_finished(qk_tap_dance_state_t *state, void *user_data);
-void ql_reset(qk_tap_dance_state_t *state, void *user_data);
+td_state_t cur_dance(tap_dance_state_t *state);
+void dance_gaming_finished(tap_dance_state_t *state, void *user_data);
+void dance_shadowplay_finished(tap_dance_state_t *state, void *user_data);
+void ql_reset(tap_dance_state_t *state, void *user_data);
 
 
 void register_ctrl(void);

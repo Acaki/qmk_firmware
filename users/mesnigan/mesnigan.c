@@ -65,7 +65,7 @@ void matrix_scan_user(void) {
 }
 
 // Determine the current tap dance state
-td_state_t cur_dance(qk_tap_dance_state_t *state) {
+td_state_t cur_dance(tap_dance_state_t *state) {
     if (state->count == 1) {
         if (!state->pressed) return TD_SINGLE_TAP;
         else return TD_SINGLE_HOLD;
@@ -73,16 +73,15 @@ td_state_t cur_dance(qk_tap_dance_state_t *state) {
     else return TD_UNKNOWN;
 }
 
-// Initialize tap structure associated with example tap dance key
-static td_tap_t ql_tap_state = {
+static td_tap_t xtap_state = {
     .is_press_action = true,
     .state = TD_NONE
 };
 
 // Functions that control what our tap dance key does
-void dance_gaming_finished(qk_tap_dance_state_t *state, void *user_data) {
-    ql_tap_state.state = cur_dance(state);
-    switch (ql_tap_state.state) {
+void dance_gaming_finished(tap_dance_state_t *state, void *user_data) {
+    xtap_state.state = cur_dance(state);
+    switch (xtap_state.state) {
         case TD_SINGLE_TAP:
             if (layer_state_is(_COLEMAK_MOD_DH)) {
                 layer_on(_GAMING);
@@ -109,9 +108,9 @@ void dance_gaming_finished(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void dance_shadowplay_finished(qk_tap_dance_state_t *state, void *user_data) {
-    ql_tap_state.state = cur_dance(state);
-    switch (ql_tap_state.state) {
+void dance_shadowplay_finished(tap_dance_state_t *state, void *user_data) {
+    xtap_state.state = cur_dance(state);
+    switch (xtap_state.state) {
         case TD_SINGLE_TAP:
             SEND_STRING(SS_LALT(SS_TAP(X_F1)));
             break;
@@ -126,12 +125,12 @@ void dance_shadowplay_finished(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void ql_reset(qk_tap_dance_state_t *state, void *user_data) {
-    ql_tap_state.state = TD_NONE;
+void ql_reset(tap_dance_state_t *state, void *user_data) {
+    xtap_state.state = TD_NONE;
 }
 
 // Associate our tap dance key with its functionality
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
     [GAMING_TD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_gaming_finished, ql_reset),
     [SHADOWPLAY] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_shadowplay_finished, ql_reset)
 };

@@ -70,7 +70,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case COLEMAK_HOME_L1:
         case COLEMAK_HOME_L2:
@@ -80,8 +80,8 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
         case COLEMAK_HOME_R2:
         case COLEMAK_HOME_R3:
         case COLEMAK_HOME_R4:
-            return true;
+            return 75;
         default:
-            return false;
+            return QUICK_TAP_TERM;
     }
 }
