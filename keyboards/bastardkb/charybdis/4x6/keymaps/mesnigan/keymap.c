@@ -1,28 +1,9 @@
 #include QMK_KEYBOARD_H
 #include "mesnigan.h"
 
-#ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
-#include "timer.h"
-#endif  // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
-
 // Automatically enable sniping-mode on the pointer layer.
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER _LOWER
-
-#ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
-static uint16_t auto_pointer_layer_timer = 0;
 static uint16_t mouse_idle_timer = 0;
-static uint16_t mouse_debounce_timer = 0;
-
-#ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
-#define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 1000
-#endif  // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
-
-#ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
-#define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD 8
-#endif  // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
-#endif  // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
-
-
 
 #define LAYOUT_charybdis_4x6_wrapper(...) LAYOUT_charybdis_4x6(__VA_ARGS__)
 
@@ -122,79 +103,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+bool is_pointing_device_initialized = false;
+
 #ifdef POINTING_DEVICE_ENABLE
-#ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
-bool process_record_keymap(uint16_t keycode, keyrecord_t* record) {
-  switch (keycode) {
-    case COLEMAK_HOME_L1:
-    case COLEMAK_HOME_L2:
-    case COLEMAK_HOME_L3:
-    case COLEMAK_HOME_L4:
-    case COLEMAK_HOME_R1:
-    case COLEMAK_HOME_R2:
-    case COLEMAK_HOME_R3:
-    case COLEMAK_HOME_R4:
-    case THUMB_L2:
-    case THUMB_R3:
-      if (layer_state_is(_MOUSE)) {
-        auto_pointer_layer_timer = 0;
-        layer_off(_MOUSE);
-      }
-      break;
-    case KC_MS_UP ... KC_MS_WH_RIGHT:
-      auto_pointer_layer_timer = timer_read();
-      break;
-    default:
-      mouse_debounce_timer  = timer_read();
-      break;
-  }
-  return true;
+#ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
+layer_state_t layer_state_set_kb(layer_state_t state) {
+    // Ensure that the pointing device is initialized or it will mess up with ROTATIONAL_TRANSFORM_ANGLE
+    if (is_pointing_device_initialized) {
+        charybdis_set_pointer_sniping_enabled(layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
+    }
+    return layer_state_set_user(state);
 }
-
-report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-  int8_t x = mouse_report.x, y = mouse_report.y;
-  mouse_report.x = 0;
-  mouse_report.y = 0;
-  bool movement = false;
-  if (timer_elapsed(mouse_idle_timer) > MOUSE_IDLE_TIMEOUT) {
-    if (abs(x) > MOUSE_ACTIVE_MOVEMENT_THRESHOLD || abs(y) > MOUSE_ACTIVE_MOVEMENT_THRESHOLD) {
-      movement = true;
-    }
-  } else {
-    if (x || y) {
-      movement = true;
-    }
-  }
-
-  if (movement) {
-    mouse_idle_timer = timer_read();
-    auto_pointer_layer_timer = timer_read();
-    if (timer_elapsed(mouse_debounce_timer) > TAPPING_TERM) {
-      mouse_report.x = x;
-      mouse_report.y = y;
-      if (!layer_state_is(_MOUSE)) {
-        layer_on(_MOUSE);
-      }
-    }
-  } else if (timer_elapsed(auto_pointer_layer_timer) > CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS && layer_state_is(_MOUSE)) {
-    layer_off(_MOUSE);
-  }  
-
-  return mouse_report;
-}
-
-#endif  // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER
-
-// Conflicted with ROTATIONAL_TRANSFORM_ANGLE for some reason, possibly due to eeconfig write bug
-// #ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
-// layer_state_t layer_state_set_kb(layer_state_t state) {
-//   state = layer_state_set_user(state);
-//   charybdis_set_pointer_sniping_enabled(
-//       layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
-//   return state;
-// }
-// #endif  // CHARYBDIS_AUTO_SNIPING_ON_LAYER
-#endif  // POINTING_DEVICE_ENABLE
+#endif  // CHARYBDIS_AUTO_SNIPING_ON_LAYER
+#endif     // POINTING_DEVICE_ENABLE
 
 #ifdef SWAP_HANDS_ENABLE
 // clang-format off
@@ -214,3 +135,34 @@ __attribute__ ((weak)) const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATR
 };
 // clang-format on
 #endif
+
+void pointing_device_init_user(void) {
+    set_auto_mouse_layer(_MOUSE);
+    set_auto_mouse_enable(true);
+    is_pointing_device_initialized = true;
+}
+
+
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+  int8_t x = mouse_report.x, y = mouse_report.y;
+  mouse_report.x = 0;
+  mouse_report.y = 0;
+  bool movement = false;
+  if (timer_elapsed(mouse_idle_timer) > MOUSE_IDLE_TIMEOUT) {
+    if (abs(x) > MOUSE_ACTIVE_MOVEMENT_THRESHOLD || abs(y) > MOUSE_ACTIVE_MOVEMENT_THRESHOLD) {
+      movement = true;
+    }
+  } else {
+    if (x || y) {
+      movement = true;
+    }
+  }
+
+  if (movement) {
+    mouse_idle_timer = timer_read();
+    mouse_report.x = x;
+    mouse_report.y = y;
+  } 
+
+  return mouse_report;
+}
