@@ -39,6 +39,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 spam_timer = timer_read();
             }
             return false;
+        case KVMPC1:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_SCRL)SS_TAP(X_SCRL)"1");
+            }
+            return false;
+        case KVMPC2:
+            if (record->event.pressed) {
+                SEND_STRING(SS_TAP(X_SCRL)SS_TAP(X_SCRL)"2");
+            }
+            return false;
     }
     return process_record_keymap(keycode, record);
 }
