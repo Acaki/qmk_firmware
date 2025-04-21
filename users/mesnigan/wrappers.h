@@ -38,10 +38,12 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define ______________COLEMAK_MOD_DH_L1____________       KC_Q,    KC_W,    KC_F,    KC_P,    KC_B
 #define ______________COLEMAK_MOD_DH_L2____________       COLEMAK_HOME_L4, COLEMAK_HOME_L3, COLEMAK_HOME_L2, COLEMAK_HOME_L1, KC_G
+#define ______________COLEMAK_MOD_DH_L2A___________       COLEMAK_HOME_L4A, COLEMAK_HOME_L3A, COLEMAK_HOME_L2, COLEMAK_HOME_L1, KC_G
 #define ______________COLEMAK_MOD_DH_L3____________       KC_Z,    KC_X,    KC_C,    KC_D,    KC_V
 
 #define ______________COLEMAK_MOD_DH_R1____________       KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
 #define ______________COLEMAK_MOD_DH_R2____________       KC_M, COLEMAK_HOME_R1, COLEMAK_HOME_R2, COLEMAK_HOME_R3, COLEMAK_HOME_R4
+#define ______________COLEMAK_MOD_DH_R2A___________       KC_M, COLEMAK_HOME_R1, COLEMAK_HOME_R2, COLEMAK_HOME_R3A, COLEMAK_HOME_R4A
 #define ______________COLEMAK_MOD_DH_R3____________       KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLASH
 
 #define _________________GAMING_L1S________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R

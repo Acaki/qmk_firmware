@@ -22,13 +22,17 @@ enum userspace_custom_keycodes {
 #define COLEMAK_HOME_L1 LCTL_T(KC_T)
 #define COLEMAK_HOME_L2 LSFT_T(KC_S)
 #define COLEMAK_HOME_L3 LALT_T(KC_R)
+#define COLEMAK_HOME_L3A LGUI_T(KC_R)
 #define COLEMAK_HOME_L4 LGUI_T(KC_A)
+#define COLEMAK_HOME_L4A LALT_T(KC_A)
 
 // Right-hand home row mods
 #define COLEMAK_HOME_R1 RCTL_T(KC_N)
 #define COLEMAK_HOME_R2 RSFT_T(KC_E)
 #define COLEMAK_HOME_R3 RALT_T(KC_I)
+#define COLEMAK_HOME_R3A RGUI_T(KC_I)
 #define COLEMAK_HOME_R4 RGUI_T(KC_O)
+#define COLEMAK_HOME_R4A RALT_T(KC_O)
 
 
 #define THUMB_L1 KC_BSPC 
