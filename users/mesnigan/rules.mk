@@ -1,6 +1,6 @@
-SRC += mesnigan.c \
-       process_records.c \
+SRC += process_records.c \
        features/caps_word.c
+INTROSPECTION_KEYMAP_C = mesnigan.c
 
 RGBLIGHT_ENABLE = no
 BOOTLOADER = atmel-dfu
