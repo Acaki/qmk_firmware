@@ -30,6 +30,7 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________FUNC_RIGHT________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
 
 #define ________________NUMBER_LEFT________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
+#define ________________NUMBER_LEFT_S______________        KC_5,    KC_1,    KC_2,    KC_3,    KC_4
 #define ________________NUMBER_RIGHT_______________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
 
 #define _________________COMMON_LT_________________                          THUMB_L1, THUMB_L2, THUMB_L3

@@ -84,16 +84,16 @@ void dance_gaming_finished(tap_dance_state_t *state, void *user_data) {
     switch (xtap_state.state) {
         case TD_SINGLE_TAP:
             if (layer_state_is(_COLEMAK_MOD_DH)) {
-                layer_on(_GAMING);
+                layer_on(_GAMING_S);
             } else {
                 layer_clear();
             }
             break;
         case TD_SINGLE_HOLD:
-            if (layer_state_is(_GAMING_S)) {
-                layer_off(_GAMING_S);
+            if (layer_state_is(_GAMING)) {
+                layer_off(_GAMING);
             } else {
-                layer_on(_GAMING_S);
+                layer_on(_GAMING);
             }
             break;
         case TD_DOUBLE_TAP:

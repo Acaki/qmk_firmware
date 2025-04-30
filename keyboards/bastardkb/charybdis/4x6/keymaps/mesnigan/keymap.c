@@ -28,7 +28,7 @@ static uint16_t mouse_idle_timer = 0;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_COLEMAK_MOD_DH] = LAYOUT_charybdis_base_wrapper(
       ______________COLEMAK_MOD_DH_L1____________, ______________COLEMAK_MOD_DH_R1____________,
-      ______________COLEMAK_MOD_DH_L2____________, ______________COLEMAK_MOD_DH_R2____________,
+      ______________COLEMAK_MOD_DH_L2A___________, ______________COLEMAK_MOD_DH_R2A___________,
       ______________COLEMAK_MOD_DH_L3____________, ______________COLEMAK_MOD_DH_R3____________,
       _________________COMMON_LT_________________, _________________COMMON_RT_________________
     ),
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_GAMING_S] = LAYOUT_charybdis_4x6_wrapper(
-      _______,  ________________NUMBER_LEFT________________,                                      ________________NUMBER_RIGHT_______________, TD(SHADOWPLAY),
+      _______,  ________________NUMBER_LEFT_S______________,                                      ________________NUMBER_RIGHT_______________, TD(SHADOWPLAY),
       KC_TAB,   _________________GAMING_L1S________________,                                      _________________GAMING_R1_________________, KC_DEL,
       KC_LSFT,  _________________GAMING_L2S________________,                                      _________________GAMING_R2_________________, _______,
       _______,  _________________GAMING_L3S________________,                                      _________________GAMING_R3_________________, KC_MINS,

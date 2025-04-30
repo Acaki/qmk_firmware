@@ -15,7 +15,7 @@
       KC_MINS, K11,     K12,     K13,     K14,     K15,                                             K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,     K22,     K23,     K24,     K25,                                             K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
                                  K31,     K32,     K33,                                             K34,     K35,     KC_RCTL, \
-                                          KC_LALT, SH_OS,                                           SH_OS,   KC_LALT \
+                                          MOUSE,   SH_OS,                                           SH_OS,   MOUSE \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_scylla_base_wrapper(...)       LAYOUT_scylla_base(__VA_ARGS__)
@@ -23,7 +23,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      [_COLEMAK_MOD_DH] = LAYOUT_scylla_base_wrapper(
         ______________COLEMAK_MOD_DH_L1____________, ______________COLEMAK_MOD_DH_R1____________,
-        ______________COLEMAK_MOD_DH_L2A___________, ______________COLEMAK_MOD_DH_R2A___________,
+        ______________COLEMAK_MOD_DH_L2____________, ______________COLEMAK_MOD_DH_R2____________,
         ______________COLEMAK_MOD_DH_L3____________, ______________COLEMAK_MOD_DH_R3____________,
         _________________COMMON_LT_________________, _________________COMMON_RT_________________
      ),
@@ -34,16 +34,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, _______,
         _______, _________________GAMING_L3_________________,                                       _________________GAMING_R3_________________, KC_MINS,
                                     KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                           MO(_RAISE), KC_ENT, _______,
-                                           _______, _______,                                        KC_BSPC, _______
+                                             KC_LALT, _______,                                      KC_BSPC, _______
     ),
 
     [_GAMING_S] = LAYOUT_split_4x6_5_wrapper(
-        _______,  ________________NUMBER_LEFT________________,                                      ________________NUMBER_RIGHT_______________, TD(SHADOWPLAY),
+        _______,  ________________NUMBER_LEFT_S______________,                                      ________________NUMBER_RIGHT_______________, TD(SHADOWPLAY),
         KC_TAB,   _________________GAMING_L1S________________,                                      _________________GAMING_R1_________________, KC_DEL,
         KC_LSFT,  _________________GAMING_L2S________________,                                      _________________GAMING_R2_________________, _______,
         _______,  _________________GAMING_L3S________________,                                      _________________GAMING_R3_________________, KC_MINS,
                                     KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                           MO(_RAISE), KC_ENT, _______,
-                                            _______, _______,                                       KC_BSPC, _______
+                                             KC_LALT, _______,                                      KC_BSPC, _______
+    ),
+
+    [_MOUSE] = LAYOUT_scylla_base_wrapper(
+      _________________MOUSE_L1__________________, _________________MOUSE_R1__________________,
+      _________________MOUSE_L2__________________, _________________MOUSE_R2__________________,
+      _________________MOUSE_L3__________________, _________________MOUSE_R3__________________,
+      _________________MOUSE_LT__________________, _________________MOUSE_RT__________________
     ),
 
     [_ARROW] = LAYOUT_scylla_base_wrapper(
