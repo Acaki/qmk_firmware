@@ -3,7 +3,6 @@
 
 // Automatically enable sniping-mode on the pointer layer.
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER _LOWER
-static uint16_t mouse_idle_timer = 0;
 
 #define LAYOUT_charybdis_4x6_wrapper(...) LAYOUT_charybdis_4x6(__VA_ARGS__)
 
@@ -117,6 +116,12 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
 #endif  // CHARYBDIS_AUTO_SNIPING_ON_LAYER
 #endif     // POINTING_DEVICE_ENABLE
 
+void pointing_device_init_user(void) {
+    set_auto_mouse_layer(_MOUSE);
+    set_auto_mouse_enable(true);
+    is_pointing_device_initialized = true;
+}
+
 #ifdef SWAP_HANDS_ENABLE
 // clang-format off
 __attribute__ ((weak)) const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
@@ -135,34 +140,3 @@ __attribute__ ((weak)) const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATR
 };
 // clang-format on
 #endif
-
-void pointing_device_init_user(void) {
-    set_auto_mouse_layer(_MOUSE);
-    set_auto_mouse_enable(true);
-    is_pointing_device_initialized = true;
-}
-
-
-report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-  int8_t x = mouse_report.x, y = mouse_report.y;
-  mouse_report.x = 0;
-  mouse_report.y = 0;
-  bool movement = false;
-  if (timer_elapsed(mouse_idle_timer) > MOUSE_IDLE_TIMEOUT) {
-    if (abs(x) > MOUSE_ACTIVE_MOVEMENT_THRESHOLD || abs(y) > MOUSE_ACTIVE_MOVEMENT_THRESHOLD) {
-      movement = true;
-    }
-  } else {
-    if (x || y) {
-      movement = true;
-    }
-  }
-
-  if (movement) {
-    mouse_idle_timer = timer_read();
-    mouse_report.x = x;
-    mouse_report.y = y;
-  } 
-
-  return mouse_report;
-}
