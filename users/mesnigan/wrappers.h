@@ -27,10 +27,12 @@ NOTE: These are all the same length.  If you do a search/replace
 #define ___________________BLANK___________________        _______, _______, _______, _______, _______
 
 #define _________________FUNC_LEFT_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
+#define _________________FUNC_LEFT_S_______________        KC_F5,   KC_F1,   KC_F2,   KC_F3,   KC_F4
 #define _________________FUNC_RIGHT________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
 
 #define ________________NUMBER_LEFT________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
 #define ________________NUMBER_LEFT_S______________        KC_5,    KC_1,    KC_2,    KC_3,    KC_4
+#define ________________NUMBER_RIGHT_S_____________        KC_0,    KC_6,    KC_7,    KC_8,    KC_9
 #define ________________NUMBER_RIGHT_______________        KC_6,    KC_7,    KC_8,    KC_9,    KC_0
 
 #define _________________COMMON_LT_________________                          THUMB_L1, THUMB_L2, THUMB_L3
@@ -47,12 +49,12 @@ NOTE: These are all the same length.  If you do a search/replace
 #define ______________COLEMAK_MOD_DH_R2A___________       KC_M, COLEMAK_HOME_R1, COLEMAK_HOME_R2, COLEMAK_HOME_R3A, COLEMAK_HOME_R4A
 #define ______________COLEMAK_MOD_DH_R3____________       KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLASH
 
-#define _________________GAMING_L1S________________        KC_T,    KC_Q,    KC_X,    KC_E,    KC_R
-#define _________________GAMING_L2S________________        KC_G,    KC_A,    KC_W,    KC_D,    KC_F
+#define _________________GAMING_L1S________________        KC_T,    KC_Q,    KC_W,    KC_E,    KC_R
+#define _________________GAMING_L2S________________        KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F
+#define _________________GAMING_L3S________________        KC_TAB,  KC_Z,    KC_X,    KC_C,    KC_V
 #define _________________GAMING_L1_________________        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define _________________GAMING_L2_________________        KC_A,    KC_S,    KC_D,    KC_F,    KC_G
 #define _________________GAMING_L3_________________        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
-#define _________________GAMING_L3S________________        KC_B,    KC_Z,    KC_S,    KC_C,    KC_V
 #define _________________GAMING_R1_________________        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define _________________GAMING_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN
 #define _________________GAMING_R3_________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
@@ -73,7 +75,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________LOWER_R1__________________        KC_PSCR, KC_PGUP, KC_UP,   KC_PGDN, KC_HOME
 #define _________________LOWER_R2__________________        KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END
-#define _________________LOWER_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE
+#define _________________LOWER_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
 
 #define _________________ARROW_R1__________________        _______, _______, KC_UP,   _______, _______
 #define _________________ARROW_R2__________________        _______, KC_LEFT, KC_DOWN, KC_RGHT, _______

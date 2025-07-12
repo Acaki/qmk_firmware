@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "process_records.h"
 
 /* Define layer names */
-enum userspace_layers { _COLEMAK_MOD_DH = 0, _GAMING, _GAMING_S, _MOUSE, _ARROW, _LOWER, _RAISE, _SYMBL, _FUNCL, _ADJUST };
+enum userspace_layers { _COLEMAK_MOD_DH = 0, _GAMING, _GAMING_S, _MOUSE, _ARROW, _LOWER, _LOWER_S, _RAISE, _SYMBL, _FUNCL, _ADJUST };
 
 typedef enum {
     TD_NONE,
