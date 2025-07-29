@@ -19,7 +19,7 @@
       KC_MINS, K11,    K12,    K13,    K14,    K15,                                                      K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,    K22,    K23,    K24,    K25,                                                      K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
                                        K31,    K32,    K33,                                              K34,     K35,     \
-                                               DRGSCRL,SH_OS,                                            SH_OS  \
+                                               DRGSCRL,KC_CAPS,                                          SH_OS  \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_charybdis_base_wrapper(...)       LAYOUT_charybdis_base(__VA_ARGS__)
@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, _______,
       _______, _________________GAMING_L3_________________,                                       _________________GAMING_R3_________________, KC_MINS,
                                 KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             MO(_RAISE), KC_ENT,
-                                         KC_LALT, _______,                                        KC_BSPC
+                                         KC_LALT, SH_OS,                                          KC_BSPC
     ),
 
     [_GAMING_S] = LAYOUT_charybdis_4x6_wrapper(
@@ -46,14 +46,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV,   _________________GAMING_L1S________________,                                      _________________GAMING_R1_________________, KC_DEL,
       KC_G,     _________________GAMING_L2S________________,                                      _________________GAMING_R2_________________, _______,
       KC_B,     _________________GAMING_L3S________________,                                      _________________GAMING_R3_________________, KC_MINS,
-                                KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             MO(_RAISE), KC_ENT,
-                                         KC_LALT, _______,                                        KC_BSPC
+                                KC_LCTL, KC_SPC,  LT(_LOWER_S, KC_ESC),                           MO(_RAISE), KC_ENT,
+                                         KC_LALT, SH_OS,                                          KC_BSPC
     ),
 
     [_MOUSE] = LAYOUT_charybdis_base_wrapper(
-      _______, KC_BTN3, KC_BTN2, KC_BTN1, _______, _______, KC_BTN1, KC_BTN2, KC_BTN3, _______,
       ___________________BLANK___________________, ___________________BLANK___________________,
       ___________________BLANK___________________, ___________________BLANK___________________,
+      ___________________BLANK___________________, _______, KC_BTN1, KC_BTN2, KC_BTN3, _______,
       _________________COMMON_LT_________________, _________________COMMON_RT_________________
     ),
 
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LOWER] = LAYOUT_charybdis_4x6_wrapper(
       _______, ________________NUMBER_RIGHT_______________,                                       _________________FUNC_RIGHT________________, _______,
       _______, _________________LOWER_L1__________________,                                       _________________LOWER_R1__________________, _______,
-      KC_CAPS, _________________LOWER_L2__________________,                                       _________________LOWER_R2__________________, _______,
+      _______, _________________LOWER_L2__________________,                                       _________________LOWER_R2__________________, _______,
       _______, _________________LOWER_L3__________________,                                       _________________LOWER_R3__________________, _______,
                                  _______, _______, _______,                                       _______, _______,
                                           _______, _______,                                       _______

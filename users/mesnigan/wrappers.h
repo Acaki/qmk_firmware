@@ -75,7 +75,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________LOWER_R1__________________        KC_PSCR, KC_PGUP, KC_UP,   KC_PGDN, KC_HOME
 #define _________________LOWER_R2__________________        KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END
-#define _________________LOWER_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
+#define _________________LOWER_R3__________________        _______, KC_BTN1, KC_BTN2, KC_BTN3, _______
 
 #define _________________ARROW_R1__________________        _______, _______, KC_UP,   _______, _______
 #define _________________ARROW_R2__________________        _______, KC_LEFT, KC_DOWN, KC_RGHT, _______
@@ -86,7 +86,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________RAISE_R1__________________        _________________LOWER_R1__________________
 #define _________________RAISE_R2__________________        _________________LOWER_R2__________________
-#define _________________RAISE_R3__________________        _________________LOWER_R3__________________
+#define _________________RAISE_R3__________________        KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY
 
 #define _________________FUNCL_L1__________________        _______, KC_F20,  KC_F21,  KC_F22, _______
 #define _________________FUNCL_L2__________________        KC_F13,  KC_F17,  KC_F18,  KC_F19, KC_F23
