@@ -19,7 +19,7 @@
       KC_MINS, K11,    K12,    K13,    K14,    K15,                                                      K16,     K17,     K18,     K19,     K1A,     KC_QUOT, \
       KC_GRV,  K21,    K22,    K23,    K24,    K25,                                                      K26,     K27,     K28,     K29,     K2A,     KC_BSLS, \
                                        K31,    K32,    K33,                                              K34,     K35,     \
-                                               DRGSCRL,KC_CAPS,                                          SH_OS  \
+                                               DRGSCRL,KC_CAPS,                                          DRGSCRL  \
   )
 /* Re-pass though to allow templates to be used */
 #define LAYOUT_charybdis_base_wrapper(...)       LAYOUT_charybdis_base(__VA_ARGS__)
@@ -33,18 +33,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_GAMING] = LAYOUT_charybdis_4x6_wrapper(
-      _______, ________________NUMBER_LEFT________________,                                       ________________NUMBER_RIGHT_______________, TD(SHADOWPLAY),
+      _______, ________________NUMBER_LEFT________________,                                       ________________NUMBER_RIGHT_______________, KC_MUTE,
       KC_TAB,  _________________GAMING_L1_________________,                                       _________________GAMING_R1_________________, KC_DEL,
-      KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, _______,
+      KC_LSFT, _________________GAMING_L2_________________,                                       _________________GAMING_R2_________________, TD(SHADOWPLAY),
       _______, _________________GAMING_L3_________________,                                       _________________GAMING_R3_________________, KC_MINS,
                                 KC_LCTL, KC_SPC,  LT(_LOWER, KC_ESC),                             MO(_RAISE), KC_ENT,
                                          KC_LALT, SH_OS,                                          KC_BSPC
     ),
 
     [_GAMING_S] = LAYOUT_charybdis_4x6_wrapper(
-      _______,  ________________NUMBER_LEFT_S______________,                                      ________________NUMBER_RIGHT_______________, TD(SHADOWPLAY),
+      _______,  ________________NUMBER_LEFT_S______________,                                      ________________NUMBER_RIGHT_______________, KC_MUTE,
       KC_GRV,   _________________GAMING_L1S________________,                                      _________________GAMING_R1_________________, KC_DEL,
-      KC_G,     _________________GAMING_L2S________________,                                      _________________GAMING_R2_________________, _______,
+      KC_G,     _________________GAMING_L2S________________,                                      _________________GAMING_R2_________________, TD(SHADOWPLAY),
       KC_B,     _________________GAMING_L3S________________,                                      _________________GAMING_R3_________________, KC_MINS,
                                 KC_LCTL, KC_SPC,  LT(_LOWER_S, KC_ESC),                           MO(_RAISE), KC_ENT,
                                          KC_LALT, SH_OS,                                          KC_BSPC
