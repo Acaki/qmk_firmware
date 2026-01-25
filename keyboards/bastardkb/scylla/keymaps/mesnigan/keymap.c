@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_G,     _________________GAMING_L2S________________,                                      _________________GAMING_R2_________________, _______,
         KC_B,     _________________GAMING_L3S________________,                                      _________________GAMING_R3_________________, KC_MINS,
                                     KC_LCTL, KC_SPC,  LT(_LOWER_S, KC_ESC),                         MO(_RAISE), KC_ENT, _______,
-                                             KC_LALT, _______,                                      KC_BSPC, _______
+                                             KC_LALT, SH_OS,                                        KC_BSPC, _______
     ),
 
     [_MOUSE] = LAYOUT_scylla_base_wrapper(
