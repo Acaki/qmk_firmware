@@ -40,6 +40,54 @@ void register_alt() {
     }
 }
 
+#ifdef CHORDAL_HOLD
+// Per-chord customization for Chordal Hold.
+// Returning true forces the tap-hold key to settle as held (modifier/layer),
+// bypassing the default "opposite hands" rule.
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
+                      uint16_t other_keycode, keyrecord_t *other_record) {
+    switch (tap_hold_keycode) {
+        // Thumb layer taps: always trigger the layer hold, regardless of which
+        // hand the other key is on, so layer access is reliable.
+        case THUMB_L2:  // LT(_LOWER, KC_SPC)
+        case THUMB_L3:  // LT(_SYMBL, KC_TAB)
+        case THUMB_R2:  // LT(_RAISE, KC_ENT)
+        case THUMB_R3:  // LT(_FUNCL, KC_ESC)
+        // Gaming layer taps: same reliable layer hold in the gaming layers.
+        case LT(_LOWER, KC_ESC):
+        case LT(_LOWER_S, KC_ESC):
+            return true;
+
+        // Left-handed Ctrl+C / Ctrl+X / Ctrl+V (hold T = Left Ctrl).
+        // Works on both macOS and Windows (Ctrl is unaffected by the swap).
+        case COLEMAK_HOME_L1:  // LCTL_T(KC_T)
+            if (other_keycode == KC_C || other_keycode == KC_X || other_keycode == KC_V) {
+                return true;
+            }
+            break;
+
+        // macOS one-handed Cmd+C / Cmd+X / Cmd+V (hold R = Left Alt,
+        // which macOS interprets as Command after the Cmd<->Opt swap).
+        case COLEMAK_HOME_L3:  // LALT_T(KC_R)
+            if (other_keycode == KC_C || other_keycode == KC_X || other_keycode == KC_V) {
+                return true;
+            }
+            break;
+
+        // Windows one-handed Win+V clipboard history (hold A = Left Gui,
+        // which is Win on Windows as-is).
+        case COLEMAK_HOME_L4:  // LGUI_T(KC_A)
+            if (other_keycode == KC_V) {
+                return true;
+            }
+            break;
+    }
+
+    // Otherwise defer to the opposite hands rule.
+    return get_chordal_hold_default(tap_hold_record, other_record);
+}
+#endif  // CHORDAL_HOLD
+
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case _COLEMAK_MOD_DH ... _MOUSE:
