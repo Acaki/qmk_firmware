@@ -58,18 +58,24 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
         case LT(_LOWER_S, KC_ESC):
             return true;
 
-        // Left-handed Ctrl+C / Ctrl+X / Ctrl+V (hold T = Left Ctrl).
-        // Works on both macOS and Windows (Ctrl is unaffected by the swap).
+        // Left-handed Ctrl+C / Ctrl+X / Ctrl+V / Ctrl+W / Ctrl+Z / Ctrl+F
+        // (hold T = Left Ctrl). Works on both macOS and Windows (Ctrl is
+        // unaffected by the swap).
         case COLEMAK_HOME_L1:  // LCTL_T(KC_T)
-            if (other_keycode == KC_C || other_keycode == KC_X || other_keycode == KC_V) {
+            if (other_keycode == KC_C || other_keycode == KC_X ||
+                other_keycode == KC_V || other_keycode == KC_W ||
+                other_keycode == KC_Z || other_keycode == KC_F) {
                 return true;
             }
             break;
 
-        // macOS one-handed Cmd+C / Cmd+X / Cmd+V (hold R = Left Alt,
-        // which macOS interprets as Command after the Cmd<->Opt swap).
+        // macOS one-handed Cmd+C / Cmd+X / Cmd+V / Cmd+W / Cmd+Z / Cmd+F
+        // (hold R = Left Alt, which macOS interprets as Command after the
+        // Cmd<->Opt swap).
         case COLEMAK_HOME_L3:  // LALT_T(KC_R)
-            if (other_keycode == KC_C || other_keycode == KC_X || other_keycode == KC_V) {
+            if (other_keycode == KC_C || other_keycode == KC_X ||
+                other_keycode == KC_V || other_keycode == KC_W ||
+                other_keycode == KC_Z || other_keycode == KC_F) {
                 return true;
             }
             break;
