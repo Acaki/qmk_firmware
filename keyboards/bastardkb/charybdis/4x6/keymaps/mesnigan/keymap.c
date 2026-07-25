@@ -4,7 +4,7 @@
 // Automatically enable sniping-mode on the pointer layer.
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER _LOWER
 
-#define LAYOUT_charybdis_4x6_wrapper(...) LAYOUT_charybdis_4x6(__VA_ARGS__)
+#define LAYOUT_charybdis_4x6_wrapper(...) LAYOUT(__VA_ARGS__)
 
 // clang-format off
 #define LAYOUT_charybdis_base( \
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MOUSE] = LAYOUT_charybdis_base_wrapper(
       ___________________BLANK___________________, ___________________BLANK___________________,
       ___________________BLANK___________________, ___________________BLANK___________________,
-      ___________________BLANK___________________, _______, KC_BTN1, KC_BTN2, KC_BTN3, _______,
+      ___________________BLANK___________________, _______, MS_BTN1, MS_BTN2, MS_BTN3, _______,
       _________________COMMON_LT_________________, _________________COMMON_RT_________________
     ),
 

@@ -109,11 +109,11 @@ __attribute__((weak)) void matrix_scan_keymap(void) {}
 void matrix_scan_user(void) {
     if (spam_lc && timer_elapsed(spam_timer) >= spam_interval) {
         spam_timer = timer_read();
-        tap_code(KC_BTN1);
+        tap_code(MS_BTN1);
     }
     else if (spam_rc && timer_elapsed(spam_timer) >= spam_interval) {
         spam_timer = timer_read();
-        tap_code(KC_BTN2);
+        tap_code(MS_BTN2);
     }
     matrix_scan_keymap();
 }

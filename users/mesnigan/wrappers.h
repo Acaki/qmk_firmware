@@ -59,23 +59,23 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________GAMING_R2_________________        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN
 #define _________________GAMING_R3_________________        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 
-#define _________________MOUSE_L1__________________        KC_BTN4, KC_WH_U, KC_MS_U, KC_WH_D, _______
-#define _________________MOUSE_L2__________________        KC_BTN5, KC_MS_L, KC_MS_D, KC_MS_R, _______
-#define _________________MOUSE_L3__________________        _______, KC_WH_L, _______, KC_WH_R, _______
-#define _________________MOUSE_LT__________________                                   KC_BTN2, KC_BTN1, KC_BTN3
+#define _________________MOUSE_L1__________________        MS_BTN4, MS_WHLU, MS_UP, MS_WHLD, _______
+#define _________________MOUSE_L2__________________        MS_BTN5, MS_LEFT, MS_DOWN, MS_RGHT, _______
+#define _________________MOUSE_L3__________________        _______, MS_WHLL, _______, MS_WHLR, _______
+#define _________________MOUSE_LT__________________                                   MS_BTN2, MS_BTN1, MS_BTN3
 
-#define _________________MOUSE_R1__________________                 _______, KC_WH_D, KC_MS_U, KC_WH_U, KC_BTN4
-#define _________________MOUSE_R2__________________                 _______, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN5
-#define _________________MOUSE_R3__________________                 _______, KC_WH_L, _______, KC_WH_R, _______
-#define _________________MOUSE_RT__________________        KC_BTN3, KC_BTN1, KC_BTN2
+#define _________________MOUSE_R1__________________                 _______, MS_WHLD, MS_UP, MS_WHLU, MS_BTN4
+#define _________________MOUSE_R2__________________                 _______, MS_LEFT, MS_DOWN, MS_RGHT, MS_BTN5
+#define _________________MOUSE_R3__________________                 _______, MS_WHLL, _______, MS_WHLR, _______
+#define _________________MOUSE_RT__________________        MS_BTN3, MS_BTN1, MS_BTN2
 
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
 #define _________________LOWER_L2__________________        KC_F12,  ATAB,    KC_LSFT, CTAB,    AL_LOCK
-#define _________________LOWER_L3__________________        KC_F11,  KC_BTN3, KC_BTN2, KC_BTN1, _______
+#define _________________LOWER_L3__________________        KC_F11,  MS_BTN3, MS_BTN2, MS_BTN1, _______
 
 #define _________________LOWER_R1__________________        KC_PSCR, KC_PGUP, KC_UP,   KC_PGDN, KC_HOME
 #define _________________LOWER_R2__________________        KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END
-#define _________________LOWER_R3__________________        _______, KC_BTN1, KC_BTN2, KC_BTN3, _______
+#define _________________LOWER_R3__________________        _______, MS_BTN1, MS_BTN2, MS_BTN3, _______
 
 #define _________________ARROW_R1__________________        _______, _______, KC_UP,   _______, _______
 #define _________________ARROW_R2__________________        _______, KC_LEFT, KC_DOWN, KC_RGHT, _______
