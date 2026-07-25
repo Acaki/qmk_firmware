@@ -28,6 +28,7 @@ NOTE: These are all the same length.  If you do a search/replace
 
 #define _________________FUNC_LEFT_________________        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5
 #define _________________FUNC_LEFT_S_______________        KC_F5,   KC_F1,   KC_F2,   KC_F3,   KC_F4
+#define _________________FUNC_RIGHT_S______________        KC_F10,  KC_F6,   KC_F7,   KC_F8,   KC_F9
 #define _________________FUNC_RIGHT________________        KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10
 
 #define ________________NUMBER_LEFT________________        KC_1,    KC_2,    KC_3,    KC_4,    KC_5
@@ -70,8 +71,8 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________MOUSE_RT__________________        MS_BTN3, MS_BTN1, MS_BTN2
 
 #define _________________LOWER_L1__________________        _________________FUNC_LEFT_________________
-#define _________________LOWER_L2__________________        KC_F12,  ATAB,    KC_LSFT, CTAB,    AL_LOCK
-#define _________________LOWER_L3__________________        KC_F11,  MS_BTN3, MS_BTN2, MS_BTN1, _______
+#define _________________LOWER_L2__________________        KC_F12,  ATAB,    KC_LSFT, CTAB,    KC_F11
+#define _________________LOWER_L3__________________        _______, MS_BTN3, MS_BTN2, MS_BTN1, _______
 
 #define _________________LOWER_R1__________________        KC_PSCR, KC_PGUP, KC_UP,   KC_PGDN, KC_HOME
 #define _________________LOWER_R2__________________        KC_INS,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END
@@ -111,7 +112,5 @@ NOTE: These are all the same length.  If you do a search/replace
 #define _________________ADJUST_R1_________________        ___________________BLANK___________________
 #define _________________ADJUST_R2_________________        _______, SPAMLC,  SPAMRC,  _______, _______
 #define _________________ADJUST_R3_________________        ___________________BLANK___________________
-
-
 
 // clang-format on
